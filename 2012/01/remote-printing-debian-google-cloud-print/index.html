@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Remote printing: Debian and Google Cloud Print" />
+<meta name="author" content="Dennis Schütt" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Have you ever heard of google cloud print? It allows you to add your printers to the cloud and share them. You can print on them from any device supporting this service, even if you are on another network. This sounds pretty cool, I gave it a try and I am really amazed." />
+<meta property="og:description" content="Have you ever heard of google cloud print? It allows you to add your printers to the cloud and share them. You can print on them from any device supporting this service, even if you are on another network. This sounds pretty cool, I gave it a try and I am really amazed." />
+<link rel="canonical" href="https://schuett.io/2012/01/remote-printing-debian-google-cloud-print/" />
+<meta property="og:url" content="https://schuett.io/2012/01/remote-printing-debian-google-cloud-print/" />
+<meta property="og:site_name" content="schuett.io" />
+<meta property="og:image" content="https://schuett.io/postimg/Google_Cloud_Print_logo.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2012-01-03T13:50:27+01:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://schuett.io/postimg/Google_Cloud_Print_logo.png" />
+<meta property="twitter:title" content="Remote printing: Debian and Google Cloud Print" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Dennis Schütt"},"url":"https://schuett.io/2012/01/remote-printing-debian-google-cloud-print/","image":"https://schuett.io/postimg/Google_Cloud_Print_logo.png","headline":"Remote printing: Debian and Google Cloud Print","dateModified":"2012-01-03T13:50:27+01:00","datePublished":"2012-01-03T13:50:27+01:00","description":"Have you ever heard of google cloud print? It allows you to add your printers to the cloud and share them. You can print on them from any device supporting this service, even if you are on another network. This sounds pretty cool, I gave it a try and I am really amazed.","mainEntityOfPage":{"@type":"WebPage","@id":"https://schuett.io/2012/01/remote-printing-debian-google-cloud-print/"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+
+    <title>Remote printing: Debian and Google Cloud Print &middot; schuett.io</title>
+
+    <meta name="author" content="Dennis Schütt" />
+
+    
+
+    <link rel="alternate" type="application/rss+xml" title="schuett.io &middot; another tech blog.
+" href="/feed.xml" />
+
+    
+
+
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+    
+
+    
+
+    
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/assets/stylesheets/styles.css">
+    <!-- endinject -->
+
+
+    <!--
+    Touch Icon Generator BY daik.de
+    http://www.web-stuebchen.de
+    Lizenz: GNU General Public License
+    Copyright: 2014 - 2018 Stephan Heller [daik.de] <heller@daik.de>
+    -->
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+    <link rel="icon" type="image/gif" href="/assets/images/favicon.gif">
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-57x57.png" sizes="57x57">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-60x60.png" sizes="60x60">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-72x72.png" sizes="72x72">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-76x76.png" sizes="76x76">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-114x114.png" sizes="114x114">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-120x120.png" sizes="120x120">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-128x128.png" sizes="128x128">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-144x144.png" sizes="144x144">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-152x152.png" sizes="152x152">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-180x180.png" sizes="180x180">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-precomposed.png">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-196x196.png" sizes="196x196">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-navbutton-color" content="#ffffff">
+    <meta name="application-name" content="schuett.io"/>
+    <meta name="msapplication-tooltip" content="schuett.io"/>
+    <meta name="apple-mobile-web-app-title" content="schuett.io"/>
+
+</head>
+
+
+<body>
+
+<!--[if lt IE 10]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="https://schuett.io"> <span class="fa-layers fa-fw">
+            <i class="far fa-window-maximize" style="" data-fa-transform=""></i>
+            <i class="fas fa-chevron-left" data-fa-transform="shrink-13 down-2 left-4.7"></i>
+            <i class="fas fa-chevron-right" data-fa-transform="shrink-13 down-2 right-4.7"></i>
+            <i class="fas fa-cogs" data-fa-transform="shrink-11 down-2"></i>
+        </span>
+        <span>schuett.io</span></a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+
+
+
+
+
+
+<a href="/">Blog</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+
+
+
+
+
+
+<a href="/tags">Tags</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+
+
+
+
+
+
+<a href="/wtf">About</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+
+
+
+
+
+
+<a href="/contact">Contact</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+
+
+
+
+
+
+<a href="/imprint">Imprint</a>
+
+          </li>
+        
+        
+
+          
+      </ul>
+    </div>
+
+	
+
+  </div>
+</nav>
+
+
+<!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <div class="page-image small">
+          
+              <picture><source srcset="/assets/images/postimg/Google_Cloud_Print_logo-232-92ab6700e.webp 232w" type="image/webp"><source srcset="/assets/images/postimg/Google_Cloud_Print_logo-232-92ab6700e.png 232w" type="image/png"><img src="/assets/images/postimg/Google_Cloud_Print_logo-232-92ab6700e.png" width="232" height="40"></picture>
+
+          
+          </div>
+      </div>
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>Remote printing: Debian and Google Cloud Print</h1>
+		  
+
+		  
+		  <span class="post-meta">Posted on January 3, 2012</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+            
+
+            <article role="main" class="blog-post">
+                <p>Have you ever heard of google cloud print? It allows you to add your printers to the cloud and share them. You can print on them from any device supporting this service, even if you are on another network. This sounds pretty cool, I gave it a try and I am really amazed.</p>
+
+<p>None of my printers doesn’t support cloud print directly, so I need a google chrome installation to share the printer. But I don’t want to have my computer to run when printing remotely. There is a project called <a href="http://blog.nguyenvq.com/2011/05/12/google-cloudprint-on-linux/" target="_blank">Google CloudPrint on Linux</a> which allows you to use this nice service from the command line. At this point the dockstar or the linkstation joines the game.</p>
+
+<p>To use your debian server as a printserver for cloud print, you need to configure your printer correctly. You will need cups. Here you can find everything needed to set it up: <a href="/2011/03/debian-printserver-scanserver-hplip-cups-sane/">Debian as Printserver and Scanserver with HPLIP, CUPS, SANE</a></p>
+
+<p>Now lets install cloudprint:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt-get <span class="nb">install </span>python-pip python-cups
+pip <span class="nb">install </span>daemon
+pip <span class="nb">install </span>cloudprint
+</code></pre></div></div>
+
+<p>To manage startup, create the init-script <code class="language-plaintext highlighter-rouge">/etc/init.d/cloudprint</code> with following contents:
+Make sure to set USER to the user you want cloudprint is ran as.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c"># /etc/rc.d/cloudprint</span>
+<span class="c"># Description: Starts the Google Cloud Print script on startup</span>
+<span class="c"># ----------------</span>
+<span class="c">#</span>
+<span class="c">### BEGIN INIT INFO</span>
+<span class="c"># Provides: Cloud-Print</span>
+<span class="c"># Required-Start: $cups $network $local_fs $syslog</span>
+<span class="c"># Required-Stop: $local_fs $syslog</span>
+<span class="c"># Default-Start: 2 3 4 5</span>
+<span class="c"># Default-Stop: 0 1 6</span>
+<span class="c"># Description: Start Google Cloud Print</span>
+<span class="c">### END INIT INFO</span>
+
+<span class="nv">USER</span><span class="o">=</span><span class="s2">"myuser"</span>
+<span class="nv">PIDFILE</span><span class="o">=</span><span class="s2">"/var/run/cloudprint/pid"</span>
+
+<span class="k">case</span> <span class="nv">$1</span> <span class="k">in
+	</span>start<span class="p">)</span>
+		<span class="nb">echo</span> <span class="nt">-n</span> <span class="s2">"Starting Google Cloud Print: "</span>
+		<span class="nb">sudo</span> <span class="nt">-u</span> <span class="nv">$USER</span> cloudprint <span class="nt">-d</span> <span class="nt">-p</span> <span class="nv">$PIDFILE</span>
+	<span class="p">;;</span>
+	stop<span class="p">)</span>
+		<span class="nb">echo</span> <span class="nt">-n</span> <span class="s2">"Stopping Google Cloud Print: "</span>
+		killall cloudprint
+	<span class="p">;;</span>
+	restart<span class="p">)</span>
+		<span class="nb">echo</span> <span class="nt">-n</span> <span class="s2">"Restarting Google Cloud Print: "</span>
+		killall cloudprint
+		<span class="nb">sudo</span> <span class="nt">-u</span> <span class="nv">$USER</span> cloudprint <span class="nt">-d</span> <span class="nt">-p</span> <span class="nv">$PIDFILE</span>
+	<span class="p">;;</span>
+	<span class="k">*</span><span class="p">)</span>
+		<span class="nb">echo</span> <span class="s2">"Usage: cloudprint {start|stop|restart}"</span>
+	<span class="p">;;</span>
+<span class="k">esac</span>
+</code></pre></div></div>
+
+<p>Make it executable, create the path for the pidfile and start it on startup:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chmod</span> +x /etc/init.d/cloudprint
+<span class="nb">mkdir</span> /var/run/cloudprint
+<span class="nb">chmod </span>777 /var/run/cloudprint
+insserv cloudprint
+</code></pre></div></div>
+
+<p>You now should be able to run a test:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/etc/init.d/cloudprint start
+</code></pre></div></div>
+
+<p>Enter the username and password of the google account you want to use when prompted. If everything is done you should see the printer at <a href="http://www.google.com/cloudprint/#printers" target="_blank">http://www.google.com/cloudprint/#printers</a>.
+If you now hit CTRL+P in chrome and select cloud print, a print job should be created and your printer will start printing.</p>
+
+<p>Check this for other clients to print in a cloud:
+<a href="http://www.google.com/cloudprint/learn/apps.html" target="_blank">http://www.google.com/cloudprint/learn/apps.html</a>
+I have tested the android app Cloud Print BETA and my job has been printed flawlessly!</p>
+
+            </article>
+
+            
+            <div class="blog-tags">
+                Tags:
+                
+                
+                <a href="/tags#Hardware">Hardware</a>
+                
+                <a href="/tags#Software">Software</a>
+                
+                <a href="/tags#HowTo">HowTo</a>
+                
+                <a href="/tags#Dockstar">Dockstar</a>
+                
+                <a href="/tags#Linux">Linux</a>
+                
+                <a href="/tags#Linkstation">Linkstation</a>
+                
+                <a href="/tags#Raspberry Pi">Raspberry Pi</a>
+                
+                <a href="/tags#Goflex">Goflex</a>
+                
+                
+            </div>
+            
+
+            
+            <!-- Check if any share-links are active -->
+
+
+
+
+
+            
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="/2011/11/shairport-debian-airtunes-server/" data-toggle="tooltip" data-placement="top" title="Shairport: Debian as Airtunes Server">&larr; Previous Post</a>
+                </li>
+                
+                
+                <li class="next">
+                    <a href="/2012/01/what-do-u-think/" data-toggle="tooltip" data-placement="top" title="What is your opinion?">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+
+            
+            <div class="disqus-comments">
+                
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+
+	    var disqus_shortname = 'dev-shyd';
+        var disqus_identifier = '822 http://dev.shyd.de/?p=822';
+        var disqus_title = 'Remote printing: Debian and Google Cloud Print';
+
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+<footer>
+    <div class="container beautiful-jekyll-footer">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center footer-links"><li><a href="/feed.xml" title="RSS" target="_blank"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+                                    <span class="sr-only">RSS</span>
+                                </a>
+                    </li><li><a href="/contact" title="Email me"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                </span>
+                                    <span class="sr-only">Email me</span>
+                                </a>
+                    </li><li><a href="https://github.com/shyd" title="GitHub" target="_blank"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+                                    <span class="sr-only">GitHub</span>
+                                </a>
+                    </li><li><a href="https://hub.docker.com/u/shyd" title="Docker" target="_blank"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-docker fa-stack-1x fa-inverse"></i>
+                </span>
+                                    <span class="sr-only">Docker</span>
+                                </a>
+                    </li><li><a href="https://www.instagram.com/d_nn__" title="Instagram" target="_blank"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                </span>
+                                    <span class="sr-only">Instagram</span>
+                                </a>
+                    </li></ul>
+                <p class="copyright text-muted">
+                    &copy; Dennis Schütt
+                    &nbsp;&bull;&nbsp;
+                    2020
+
+                    
+                    &nbsp;&bull;&nbsp;
+                    made with ❤️ by <a href="https://schuett.io">schuett.io</a>
+                    
+
+                    
+                </p>
+                <!-- Please don't remove this, keep my open source work credited :) -->
+                <p class="theme-by text-muted">
+                    Theme by
+                    <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- inject:js -->
+<script src="/assets/javascript/index.js"></script>
+<!-- endinject -->
+
+
+
+</body>
+</html>

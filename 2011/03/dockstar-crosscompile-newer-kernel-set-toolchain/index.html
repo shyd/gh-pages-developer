@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Dockstar: Crosscompile a newer Kernel, set up Toolchain" />
+<meta name="author" content="Dennis Schütt" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Some days ago I wanted to test the performance of a partition with XFS as its filesystem. But I wasn’t able to mount it. After a look into the kernelconfig of gorgone’s heavykernel I noticed that he obviously didn’t build it with XFS-support." />
+<meta property="og:description" content="Some days ago I wanted to test the performance of a partition with XFS as its filesystem. But I wasn’t able to mount it. After a look into the kernelconfig of gorgone’s heavykernel I noticed that he obviously didn’t build it with XFS-support." />
+<link rel="canonical" href="https://schuett.io/2011/03/dockstar-crosscompile-newer-kernel-set-toolchain/" />
+<meta property="og:url" content="https://schuett.io/2011/03/dockstar-crosscompile-newer-kernel-set-toolchain/" />
+<meta property="og:site_name" content="schuett.io" />
+<meta property="og:image" content="https://schuett.io/postimg/linux.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2011-03-11T19:40:08+01:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://schuett.io/postimg/linux.png" />
+<meta property="twitter:title" content="Dockstar: Crosscompile a newer Kernel, set up Toolchain" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Dennis Schütt"},"url":"https://schuett.io/2011/03/dockstar-crosscompile-newer-kernel-set-toolchain/","image":"https://schuett.io/postimg/linux.png","headline":"Dockstar: Crosscompile a newer Kernel, set up Toolchain","dateModified":"2011-03-11T19:40:08+01:00","datePublished":"2011-03-11T19:40:08+01:00","description":"Some days ago I wanted to test the performance of a partition with XFS as its filesystem. But I wasn’t able to mount it. After a look into the kernelconfig of gorgone’s heavykernel I noticed that he obviously didn’t build it with XFS-support.","mainEntityOfPage":{"@type":"WebPage","@id":"https://schuett.io/2011/03/dockstar-crosscompile-newer-kernel-set-toolchain/"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+
+    <title>Dockstar: Crosscompile a newer Kernel, set up Toolchain &middot; schuett.io</title>
+
+    <meta name="author" content="Dennis Schütt" />
+
+    
+
+    <link rel="alternate" type="application/rss+xml" title="schuett.io &middot; another tech blog.
+" href="/feed.xml" />
+
+    
+
+
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+    
+
+    
+
+    
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/assets/stylesheets/styles.css">
+    <!-- endinject -->
+
+
+    <!--
+    Touch Icon Generator BY daik.de
+    http://www.web-stuebchen.de
+    Lizenz: GNU General Public License
+    Copyright: 2014 - 2018 Stephan Heller [daik.de] <heller@daik.de>
+    -->
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+    <link rel="icon" type="image/gif" href="/assets/images/favicon.gif">
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-57x57.png" sizes="57x57">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-60x60.png" sizes="60x60">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-72x72.png" sizes="72x72">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-76x76.png" sizes="76x76">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-114x114.png" sizes="114x114">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-120x120.png" sizes="120x120">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-128x128.png" sizes="128x128">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-144x144.png" sizes="144x144">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-152x152.png" sizes="152x152">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-180x180.png" sizes="180x180">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-precomposed.png">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-196x196.png" sizes="196x196">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-navbutton-color" content="#ffffff">
+    <meta name="application-name" content="schuett.io"/>
+    <meta name="msapplication-tooltip" content="schuett.io"/>
+    <meta name="apple-mobile-web-app-title" content="schuett.io"/>
+
+</head>
+
+
+<body>
+
+<!--[if lt IE 10]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="https://schuett.io"> <span class="fa-layers fa-fw">
+            <i class="far fa-window-maximize" style="" data-fa-transform=""></i>
+            <i class="fas fa-chevron-left" data-fa-transform="shrink-13 down-2 left-4.7"></i>
+            <i class="fas fa-chevron-right" data-fa-transform="shrink-13 down-2 right-4.7"></i>
+            <i class="fas fa-cogs" data-fa-transform="shrink-11 down-2"></i>
+        </span>
+        <span>schuett.io</span></a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+
+
+
+
+
+
+<a href="/">Blog</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+
+
+
+
+
+
+<a href="/tags">Tags</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+
+
+
+
+
+
+<a href="/wtf">About</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+
+
+
+
+
+
+<a href="/contact">Contact</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+
+
+
+
+
+
+<a href="/imprint">Imprint</a>
+
+          </li>
+        
+        
+
+          
+      </ul>
+    </div>
+
+	
+
+  </div>
+</nav>
+
+
+<!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <div class="page-image large">
+          
+              <picture><source srcset="/assets/images/postimg/linux-220-3eef370d9.webp 220w" type="image/webp"><source srcset="/assets/images/postimg/linux-220-3eef370d9.png 220w" type="image/png"><img src="/assets/images/postimg/linux-220-3eef370d9.png" width="220" height="259"></picture>
+
+          
+          </div>
+      </div>
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>Dockstar: Crosscompile a newer Kernel, set up Toolchain</h1>
+		  
+
+		  
+		  <span class="post-meta">Posted on March 11, 2011</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+            
+
+            <article role="main" class="blog-post">
+                <p>Some days ago I wanted to test the performance of a partition with XFS as its filesystem. But I wasn’t able to mount it. After a look into the kernelconfig of gorgone’s heavykernel I noticed that he obviously didn’t build it with XFS-support.</p>
+
+<p>I do want to make the test and take a look at kernelbuilding things anyway. Well, I don’t want to keep it back, so I decided to verbalize the steps I took.
+In this guide you will learn how to set up the crosscompile toolchain to let a more powerful CPU do the job. If you prefer doing the whole thing on the dockstar it will take you several hours.
+Further more we will go through the build process until we have a deb-file with the built kernel.</p>
+
+<h1 id="1-the-codesourcerys-toolchain">1. The CodeSourcery’s Toolchain</h1>
+
+<p>There already is a great HowTo how to set this up here: <a href="http://general.nas-central.org/wiki/Setting_up_the_codesourcery_toolchain_for_X86_to_ARM9_cross_compiling" target="_blank">http://general.nas-central.org</a>
+I stripped it a bit as follows. If you have debian running on the machine you want to use for the build process download and run this script to install the toolchain:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget http://dev.shyd.de/dockstar/setup_codesourcery.sh
+<span class="nb">chmod</span> +x setup_codesourcery.sh
+./setup_codesourcery.sh
+</code></pre></div></div>
+
+<p>Just to know, you don’t have to type this now:
+When you want to enter the toolchain, type</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>codesourcery-arm-2009q3.sh
+</code></pre></div></div>
+
+<p>To get back to the normal environment just exit:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">exit</span>
+</code></pre></div></div>
+
+<p>That’s it.</p>
+
+<h1 id="2-the-kernel">2. The Kernel</h1>
+
+<h2 id="21-get-the-sources">2.1 Get the Sources</h2>
+
+<p>First of all you have to decide which kernel you want to compile, take a look at <a href="http://kernel.org" target="_blank">http://kernel.org</a> and download the sources. For example 2.6.37:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /usr/src
+wget http://www.kernel.org/pub/linux/kernel/v2.6/linux-2.6.37.tar.bz2
+<span class="nb">tar </span>xjvf linux-2.6.37.tar.bz2
+<span class="nb">cd </span>linux-2.6.37
+</code></pre></div></div>
+
+<h2 id="22-edit-the-configuration">2.2 Edit the Configuration</h2>
+
+<p>If you already have a proper <code class="language-plaintext highlighter-rouge">.config</code> just copy it into the current folder.
+Then run</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Accept default options for any new kernel configs</span>
+<span class="nb">yes</span> <span class="s2">""</span> | make <span class="nv">ARCH</span><span class="o">=</span>arm <span class="nv">CROSS_COMPILE</span><span class="o">=</span>arm-none-linux-gnueabi- oldconfig
+</code></pre></div></div>
+
+<p>Then make your changes in the new <code class="language-plaintext highlighter-rouge">.config</code>. It is that long that I prefer doing this with WinSCP or any other remote editor than using vim.
+In newer kernel there is no need to add a special patch for the dockstar LED.
+Once you are done run:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Add new config</span>
+make <span class="nv">ARCH</span><span class="o">=</span>arm <span class="nv">CROSS_COMPILE</span><span class="o">=</span>arm-none-linux-gnueabi- oldconfig
+
+<span class="c"># enter the toolchain</span>
+codesourcery-arm-2009q3.sh
+
+<span class="c"># run the final build process</span>
+<span class="c"># you may want to edit --append-to-version and --revision</span>
+<span class="c"># try out the effects :)</span>
+make-kpkg <span class="nt">--rootcmd</span> fakeroot <span class="nt">--arch</span> armel  <span class="nt">--cross-compile</span> arm-none-linux-gnueabi- <span class="nt">--append-to-version</span><span class="o">=</span><span class="nt">-dockstar</span> <span class="nt">--revision</span><span class="o">=</span>1.1 <span class="nt">--initrd</span> kernel_image
+</code></pre></div></div>
+
+<p>Lean back, this is going to take some time.</p>
+
+<h2 id="23-install-the-new-kernel">2.3 Install the new Kernel</h2>
+
+<p>If everything works fine, you should have a deb-file in <code class="language-plaintext highlighter-rouge">/usr/src</code>. Copy this to your dockstar and install it.<br>
+I don’t have to say that you should backup your data first. 😴
+Change the names to your compiled kernel:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dpkg <span class="nt">-i</span> linux-image-2.6.37-dockstar_1.1_armel.deb
+<span class="nb">cd</span> /boot
+
+<span class="c"># Create the images for uBoot</span>
+/usr/bin/mkimage <span class="nt">-A</span> arm <span class="nt">-O</span> linux <span class="nt">-T</span> kernel  <span class="nt">-C</span> none <span class="nt">-a</span> 0x00008000 <span class="nt">-e</span> 0x00008000 <span class="nt">-n</span> Linux-2.6.37 <span class="nt">-d</span> /boot/vmlinuz-2.6.37-dockstar /boot/uImage
+
+/usr/bin/mkimage <span class="nt">-A</span> arm <span class="nt">-O</span> linux <span class="nt">-T</span> ramdisk <span class="nt">-C</span> <span class="nb">gzip</span> <span class="nt">-a</span> 0x00000000 <span class="nt">-e</span> 0x00000000 <span class="nt">-n</span> initramfs <span class="nt">-d</span> /boot/initrd.img-2.6.37-dockstar /boot/uInitrd
+</code></pre></div></div>
+
+<p>To tell the kernel your device is a dockstar, change its machine ID in case you haven’t done before:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># view current ID</span>
+fw_printenv arcNumber
+
+<span class="c"># set to dockstar's ID</span>
+fw_setenv arcNumber 2998
+</code></pre></div></div>
+
+<p>But remember to change it back to 2097 (sheevaplug’s ID) if you downgrade to a kernel that doesn’t support the dockstar.</p>
+
+<p>If you didn’t edit the files for LED support, do it:</p>
+
+<p>Add to <code class="language-plaintext highlighter-rouge">/etc/rc.local</code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo </span>default-on <span class="o">&gt;</span> /sys/class/leds/dockstar<span class="se">\:</span>green<span class="se">\:</span>health/trigger
+<span class="nb">echo </span>none       <span class="o">&gt;</span> /sys/class/leds/dockstar<span class="se">\:</span>orange<span class="se">\:</span>misc/trigger
+</code></pre></div></div>
+
+<p>And in <code class="language-plaintext highlighter-rouge">/etc/init.d/halt</code> find</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>log_action_msg <span class="s2">"Will now halt"</span>
+halt <span class="nt">-d</span> <span class="nt">-f</span> <span class="nv">$netdown</span> <span class="nv">$poweroff</span> <span class="nv">$hddown</span>
+</code></pre></div></div>
+
+<p>add after</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo </span>none <span class="o">&gt;</span> /sys/class/leds/dockstar<span class="se">\:</span>green<span class="se">\:</span>health/trigger
+</code></pre></div></div>
+
+<p>to set it off, when the system halts.</p>
+
+<p>Now reboot and prey that everything works flawlessly.</p>
+
+<h1 id="3-references">3. References</h1>
+
+<ul>
+  <li><a href="http://general.nas-central.org/wiki/Setting_up_the_codesourcery_toolchain_for_X86_to_ARM9_cross_compiling" target="_blank">http://general.nas-central.org/wiki/Setting_up_the_codesourcery_toolchain_for_X86_to_ARM9_cross_compiling</a></li>
+  <li><a href="http://forum.doozan.com/read.php?2,524" target="_blank">http://forum.doozan.com/read.php?2,524</a></li>
+</ul>
+
+            </article>
+
+            
+            <div class="blog-tags">
+                Tags:
+                
+                
+                <a href="/tags#Hardware">Hardware</a>
+                
+                <a href="/tags#HowTo">HowTo</a>
+                
+                <a href="/tags#Dockstar">Dockstar</a>
+                
+                <a href="/tags#Linux">Linux</a>
+                
+                <a href="/tags#Goflex">Goflex</a>
+                
+                <a href="/tags#Kernel">Kernel</a>
+                
+                
+            </div>
+            
+
+            
+            <!-- Check if any share-links are active -->
+
+
+
+
+
+            
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="/2011/03/motorola-defy-instabile-verbindung-bei-wlan-802-11n/" data-toggle="tooltip" data-placement="top" title="Motorola Defy: instabile Verbindung bei WLAN 802.11n">&larr; Previous Post</a>
+                </li>
+                
+                
+                <li class="next">
+                    <a href="/2011/03/secure-copy-file-transfer-scp/" data-toggle="tooltip" data-placement="top" title="Secure Copy: file-transfer using SCP">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+
+            
+            <div class="disqus-comments">
+                
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+
+	    var disqus_shortname = 'dev-shyd';
+        var disqus_identifier = '600 http://dev.shyd.de/?p=600';
+        var disqus_title = 'Dockstar: Crosscompile a newer Kernel, set up Toolchain';
+
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+<footer>
+    <div class="container beautiful-jekyll-footer">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center footer-links"><li><a href="/feed.xml" title="RSS" target="_blank"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+                                    <span class="sr-only">RSS</span>
+                                </a>
+                    </li><li><a href="/contact" title="Email me"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                </span>
+                                    <span class="sr-only">Email me</span>
+                                </a>
+                    </li><li><a href="https://github.com/shyd" title="GitHub" target="_blank"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+                                    <span class="sr-only">GitHub</span>
+                                </a>
+                    </li><li><a href="https://hub.docker.com/u/shyd" title="Docker" target="_blank"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-docker fa-stack-1x fa-inverse"></i>
+                </span>
+                                    <span class="sr-only">Docker</span>
+                                </a>
+                    </li><li><a href="https://www.instagram.com/d_nn__" title="Instagram" target="_blank"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                </span>
+                                    <span class="sr-only">Instagram</span>
+                                </a>
+                    </li></ul>
+                <p class="copyright text-muted">
+                    &copy; Dennis Schütt
+                    &nbsp;&bull;&nbsp;
+                    2020
+
+                    
+                    &nbsp;&bull;&nbsp;
+                    made with ❤️ by <a href="https://schuett.io">schuett.io</a>
+                    
+
+                    
+                </p>
+                <!-- Please don't remove this, keep my open source work credited :) -->
+                <p class="theme-by text-muted">
+                    Theme by
+                    <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- inject:js -->
+<script src="/assets/javascript/index.js"></script>
+<!-- endinject -->
+
+
+
+</body>
+</html>

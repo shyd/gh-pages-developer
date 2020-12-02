@@ -1,0 +1,755 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Dockstar: HowTo setup OpenVPN on Debian" />
+<meta name="author" content="Dennis Schütt" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Well, if you want to have a secure connection to your dockstar or even your home net, this post describes all steps you have to take to get this done. In my setup I have a dd-wrt router connected to the internet and forwarding all needed ports to the dockstar. You probably don’t use a firewall on the debian machine, but you will have to, because we need package forwarding to reach the home net through the VPN tunnel. I assume you don’t use your dockstar as the default gateway for your LAN, so you will need an additional route in the router:" />
+<meta property="og:description" content="Well, if you want to have a secure connection to your dockstar or even your home net, this post describes all steps you have to take to get this done. In my setup I have a dd-wrt router connected to the internet and forwarding all needed ports to the dockstar. You probably don’t use a firewall on the debian machine, but you will have to, because we need package forwarding to reach the home net through the VPN tunnel. I assume you don’t use your dockstar as the default gateway for your LAN, so you will need an additional route in the router:" />
+<link rel="canonical" href="https://schuett.io/2011/02/dockstar-howto-setup-openvpn-debian/" />
+<meta property="og:url" content="https://schuett.io/2011/02/dockstar-howto-setup-openvpn-debian/" />
+<meta property="og:site_name" content="schuett.io" />
+<meta property="og:image" content="https://schuett.io/postimg/openvpn-logo.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2011-02-06T21:53:13+01:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://schuett.io/postimg/openvpn-logo.png" />
+<meta property="twitter:title" content="Dockstar: HowTo setup OpenVPN on Debian" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Dennis Schütt"},"url":"https://schuett.io/2011/02/dockstar-howto-setup-openvpn-debian/","image":"https://schuett.io/postimg/openvpn-logo.png","headline":"Dockstar: HowTo setup OpenVPN on Debian","dateModified":"2011-02-06T21:53:13+01:00","datePublished":"2011-02-06T21:53:13+01:00","description":"Well, if you want to have a secure connection to your dockstar or even your home net, this post describes all steps you have to take to get this done. In my setup I have a dd-wrt router connected to the internet and forwarding all needed ports to the dockstar. You probably don’t use a firewall on the debian machine, but you will have to, because we need package forwarding to reach the home net through the VPN tunnel. I assume you don’t use your dockstar as the default gateway for your LAN, so you will need an additional route in the router:","mainEntityOfPage":{"@type":"WebPage","@id":"https://schuett.io/2011/02/dockstar-howto-setup-openvpn-debian/"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+
+    <title>Dockstar: HowTo setup OpenVPN on Debian &middot; schuett.io</title>
+
+    <meta name="author" content="Dennis Schütt" />
+
+    
+
+    <link rel="alternate" type="application/rss+xml" title="schuett.io &middot; another tech blog.
+" href="/feed.xml" />
+
+    
+
+
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+    
+
+    
+
+    
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/assets/stylesheets/styles.css">
+    <!-- endinject -->
+
+
+    <!--
+    Touch Icon Generator BY daik.de
+    http://www.web-stuebchen.de
+    Lizenz: GNU General Public License
+    Copyright: 2014 - 2018 Stephan Heller [daik.de] <heller@daik.de>
+    -->
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+    <link rel="icon" type="image/gif" href="/assets/images/favicon.gif">
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-57x57.png" sizes="57x57">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-60x60.png" sizes="60x60">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-72x72.png" sizes="72x72">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-76x76.png" sizes="76x76">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-114x114.png" sizes="114x114">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-120x120.png" sizes="120x120">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-128x128.png" sizes="128x128">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-144x144.png" sizes="144x144">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-152x152.png" sizes="152x152">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-180x180.png" sizes="180x180">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-precomposed.png">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-196x196.png" sizes="196x196">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-navbutton-color" content="#ffffff">
+    <meta name="application-name" content="schuett.io"/>
+    <meta name="msapplication-tooltip" content="schuett.io"/>
+    <meta name="apple-mobile-web-app-title" content="schuett.io"/>
+
+</head>
+
+
+<body>
+
+<!--[if lt IE 10]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="https://schuett.io"> <span class="fa-layers fa-fw">
+            <i class="far fa-window-maximize" style="" data-fa-transform=""></i>
+            <i class="fas fa-chevron-left" data-fa-transform="shrink-13 down-2 left-4.7"></i>
+            <i class="fas fa-chevron-right" data-fa-transform="shrink-13 down-2 right-4.7"></i>
+            <i class="fas fa-cogs" data-fa-transform="shrink-11 down-2"></i>
+        </span>
+        <span>schuett.io</span></a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+
+
+
+
+
+
+<a href="/">Blog</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+
+
+
+
+
+
+<a href="/tags">Tags</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+
+
+
+
+
+
+<a href="/wtf">About</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+
+
+
+
+
+
+<a href="/contact">Contact</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+
+
+
+
+
+
+<a href="/imprint">Imprint</a>
+
+          </li>
+        
+        
+
+          
+      </ul>
+    </div>
+
+	
+
+  </div>
+</nav>
+
+
+<!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <div class="page-image large">
+          
+              <picture><source srcset="/assets/images/postimg/openvpn-logo-120-2d08ecf5f.webp 120w" type="image/webp"><source srcset="/assets/images/postimg/openvpn-logo-120-2d08ecf5f.png 120w" type="image/png"><img src="/assets/images/postimg/openvpn-logo-120-2d08ecf5f.png" width="120" height="121"></picture>
+
+          
+          </div>
+      </div>
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>Dockstar: HowTo setup OpenVPN on Debian</h1>
+		  
+
+		  
+		  <span class="post-meta">Posted on February 6, 2011</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+            
+
+            <article role="main" class="blog-post">
+                <p>Well, if you want to have a secure connection to your dockstar or even your home net, this post describes all steps you have to take to get this done. In my setup I have a dd-wrt router connected to the internet and forwarding all needed ports to the dockstar. You probably don’t use a firewall on the debian machine, but you will have to, because we need package forwarding to reach the home net through the VPN tunnel. I assume you don’t use your dockstar as the default gateway for your LAN, so you will need an additional route in the router:</p>
+
+<p>Let me explain the path of the packages of a ping from a remote machine to a host in the LAN. For the different subnets refer to the exhibit (VPN: 10.8.0.0/24; LAN: 192.168.0.0/24).</p>
+
+<picture><source srcset="/assets/images/postimg/openvpn-521-54fed96c5.webp 521w" type="image/webp"></source><source srcset="/assets/images/postimg/openvpn-521-54fed96c5.png 521w" type="image/png"></source><img src="/assets/images/postimg/openvpn-521-54fed96c5.png" width="521" height="530"></picture>
+
+<p>Let us ping the hostaddress 192.168.0.100 from 10.8.0.6. The ping starts at the VPN-client 10.8.0.6 into the vpn tunnel to the tun device on the dockstar 10.8.0.1. The VPN-client knows about the LAN, because it gets pushed a valid route by the openvpn-server.<br>
+The dockstar directly forwards the icmp-package to the LAN-host. Assuming the LAN-host’s firewall doesn’t block packages from/to 10.8.0.0/24, it will send out the respond-package to its default gateway (192.168.0.1) because the lan hosts doesn’t know anything about the VPN.<br>
+Well, by default the router doesn’t know the VPN either and will forward the package to its default gateway, yes, its the first hop of your ISP! So we need to redirect packages to 10.8.0.0/24 back to the dockstar. Now the additional route in the router comes to work. In dd-wrt you can set it in the web interface:   Setup-&gt;Advanced Routing. The icmp-package will be send to dockstar’s eth0 (192.168.0.2) and forwarded to the VPN-client (10.8.0.6).<br>
+With this knowledge we are ready to install and configure openvpn and the firewall e.g. iptables.</p>
+
+<h1 id="1-openvpn">1. OpenVPN</h1>
+
+<p>First of all we need to install the package:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt-get <span class="nb">install </span>openvpn
+</code></pre></div></div>
+
+<h2 id="11-configure-the-server">1.1 Configure the Server</h2>
+
+<p>The configuration files are stored in <code class="language-plaintext highlighter-rouge">/etc/openvpn</code>. If you want to run multiple servers you simple create a <code class="language-plaintext highlighter-rouge">serverX.conf</code> for each server. In my case I’m running one UDP server, the config file is called <code class="language-plaintext highlighter-rouge">tun0.conf</code> and looks like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dev tun0
+tun-mtu 1200
+proto udp
+local 192.168.0.2 #lan ip of the dockstar
+port 1194
+server 10.8.0.0 255.255.255.0
+
+# we will create these files later, remember to change the names if you create different keys
+ca /usr/share/doc/openvpn/examples/easy-rsa/2.0/keys/ca.crt
+cert /usr/share/doc/openvpn/examples/easy-rsa/2.0/keys/myServer.crt
+key /usr/share/doc/openvpn/examples/easy-rsa/2.0/keys/myServer.key
+dh /usr/share/doc/openvpn/examples/easy-rsa/2.0/keys/dh1024.pem
+
+client-to-client #clients can communicate
+comp-lzo
+verb 3 # loglevel
+mute 50
+keepalive 10 60
+
+# enable the following two lines if you want your traffic through vpn
+#push "redirect-gateway def1"
+#push "dhcp-option DNS 192.168.0.1"
+
+push "route 192.168.0.0 255.255.255.0" #notify VPN-clients about the lan
+push "dhcp-option WINS 10.8.0.1" #I got samba running with WINS for netbios-names through VPN
+ifconfig-pool-persist ipp.txt
+status openvpn-status.log
+
+duplicate-cn #one cert, multiple clients
+</code></pre></div></div>
+
+<h2 id="12-build-the-certificates-and-keys">1.2 Build the Certificates and Keys</h2>
+
+<p>We will do this with easy-rsa which comes with openvpn:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /usr/share/doc/openvpn/examples/easy-rsa/2.0/
+</code></pre></div></div>
+
+<p>You may want to edit <code class="language-plaintext highlighter-rouge">vars</code> first to get your own defaults:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim vars
+<span class="c"># These are the default values for fields</span>
+<span class="c"># which will be placed in the certificate.</span>
+<span class="c"># Don't leave any of these fields blank.</span>
+<span class="nb">export </span><span class="nv">KEY_COUNTRY</span><span class="o">=</span><span class="s2">"DE"</span>
+<span class="nb">export </span><span class="nv">KEY_PROVINCE</span><span class="o">=</span><span class="s2">"yourProvince"</span>
+<span class="nb">export </span><span class="nv">KEY_CITY</span><span class="o">=</span><span class="s2">"yourCity"</span>
+<span class="nb">export </span><span class="nv">KEY_ORG</span><span class="o">=</span><span class="s2">"example"</span>
+<span class="nb">export </span><span class="nv">KEY_EMAIL</span><span class="o">=</span><span class="s2">"root@foo.bar"</span>
+</code></pre></div></div>
+
+<p>Now we will create the certificate for CA:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">.</span> ./vars
+./clean-all
+./build-ca
+</code></pre></div></div>
+
+<p>Then we will create the certificate for the server:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./build-key-server myServer
+</code></pre></div></div>
+
+<p>Then we will create the certificate for client (you can build one for each vpn-client in order not to share them):</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./build-key client1
+</code></pre></div></div>
+
+<p>We will build diffie hellman</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./build-dh
+</code></pre></div></div>
+
+<p>Now all keys are built, you should have these files:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls </span>keys/
+ca.key ca.crt myServer.key myServer.csr myServer.crt client1.key client1.crt client1.csr
+</code></pre></div></div>
+
+<p>Now we have the keys and certificates. So we will put them to our clients who want to connect to the vpn. Just be sure that you only copy these files to the clients:</p>
+
+<ul>
+  <li>client1.crt</li>
+  <li>client1.key</li>
+  <li>ca.crt</li>
+</ul>
+
+<h2 id="13-configure-the-client">1.3 Configure the Client</h2>
+
+<p>A minimal <code class="language-plaintext highlighter-rouge">client.conf</code> could look like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>client
+dev tun
+proto udp
+remote foobar.dyndns.org 1194
+nobind
+ca ca.crt
+cert client1.crt
+key client1.key
+comp-lzo
+verb 3
+</code></pre></div></div>
+
+<h1 id="2-some-firewall-rules">2. Some Firewall Rules</h1>
+
+<p>If you don’t have a firewall running just install it:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt-get <span class="nb">install </span>iptables
+</code></pre></div></div>
+
+<p>As mentioned above we need the packages forwarded to enable the communication between the VPN and the LAN.<br>
+To permanently set <code class="language-plaintext highlighter-rouge">net.ipv4.ip_forward=1</code> uncomment this line:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim /etc/sysctl.conf
+<span class="c"># Uncomment the next line to enable packet forwarding for IPv4</span>
+net.ipv4.ip_forward<span class="o">=</span>1
+</code></pre></div></div>
+
+<p>Add these rules to your firewall-script (<code class="language-plaintext highlighter-rouge">tun+</code> is a wildcard for all tun-devices, $device is set to eth0):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Allow TUN interface connections to OpenVPN server
+iptables -A INPUT -i tun+ -j ACCEPT
+iptables -A OUTPUT -o tun+ -j ACCEPT
+
+# Allow TUN interface connections to be forwarded through other interfaces
+iptables -A FORWARD -i tun+ -j ACCEPT
+iptables -A FORWARD -i tun+ -o $device -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -A FORWARD -i $device -o tun+ -m state --state RELATED,ESTABLISHED -j ACCEPT
+
+iptables -t nat -A POSTROUTING -o $device -s 10.8.0.0/24 -j MASQUERADE
+</code></pre></div></div>
+
+<p>In case you don’t want to set up a script from scratch, this is mine, so some of you might say its a bit overloaded 😅 But… security first.<br>
+This is a fully working init-script, (<code class="language-plaintext highlighter-rouge">/etc/init.d/firewall</code>)</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c"># ---------------------------------------------------------------------</span>
+<span class="c"># Linux-iptables-Firewallskript, Copyright (c) 2009 under the GPL</span>
+<span class="c"># Autogenerated by iptables Generator v1.22 (c) 2002-2009 by Harald Bertram</span>
+<span class="c"># Please visit http://harry.homelinux.org for new versions of</span>
+<span class="c"># the iptables Generator (c).</span>
+<span class="c">#</span>
+<span class="c"># This Script was generated by request from:</span>
+<span class="c"># ralph@globe.lu on: 2009-7-10 15:53.3 MET.</span>
+<span class="c">#</span>
+<span class="c"># If you have questions about the iptables Generator or about</span>
+<span class="c"># your Firewall-Skript feel free to take a look at out website or</span>
+<span class="c"># send me an E-Mail to webmaster@harry.homelinux.org.</span>
+<span class="c">#</span>
+<span class="c"># My special thanks are going to Lutz Heinrich (trinitywork at hotmail dot c$</span>
+<span class="c"># who made lots of Beta-Testing and gave me lots of well qualified</span>
+<span class="c"># Feedback that made me able to improve the iptables Generator.</span>
+<span class="c"># --------------------------------------------------------------------</span>
+<span class="c">### BEGIN INIT INFO</span>
+<span class="c"># Provides: firewall</span>
+<span class="c"># Required-Start: $remote_fs $syslog</span>
+<span class="c"># Required-Stop: $remote_fs $syslog</span>
+<span class="c"># Default-Start: 2 3 4 5</span>
+<span class="c"># Default-Stop: 0 1 6</span>
+<span class="c"># Short-Description: Start daemon at boot time</span>
+<span class="c"># Description: Enable service provided by daemon.</span>
+<span class="c">### END INIT INFO</span>
+
+<span class="c"># iptables suchen</span>
+<span class="nv">iptables</span><span class="o">=</span><span class="sb">`</span>which iptables<span class="sb">`</span>
+
+<span class="c"># Device festlegen</span>
+<span class="c"># device="eth0" // Nur wenn vorhanden !</span>
+<span class="nv">device</span><span class="o">=</span><span class="s2">"eth0"</span>
+
+<span class="c"># wenn iptables nicht installiert abbrechen</span>
+<span class="nb">test</span> <span class="nt">-f</span> <span class="nv">$iptables</span> <span class="o">||</span> <span class="nb">exit </span>0
+
+<span class="k">case</span> <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> <span class="k">in
+</span>start<span class="p">)</span>
+<span class="nb">echo</span> <span class="s2">"Starte IP-Paketfilter"</span>
+
+<span class="c"># Tabelle flushen</span>
+iptables <span class="nt">-F</span>
+iptables <span class="nt">-t</span> nat <span class="nt">-F</span>
+iptables <span class="nt">-t</span> mangle <span class="nt">-F</span>
+iptables <span class="nt">-X</span>
+iptables <span class="nt">-t</span> nat <span class="nt">-X</span>
+iptables <span class="nt">-t</span> mangle <span class="nt">-X</span>
+
+<span class="c"># Default-Policies setzen</span>
+iptables <span class="nt">-P</span> INPUT DROP
+iptables <span class="nt">-P</span> OUTPUT DROP
+iptables <span class="nt">-P</span> FORWARD DROP
+
+<span class="c"># MY_REJECT-Chain</span>
+iptables <span class="nt">-N</span> MY_REJECT
+
+<span class="c"># MY_REJECT fuellen</span>
+iptables <span class="nt">-A</span> MY_REJECT <span class="nt">-p</span> tcp <span class="nt">-m</span> limit <span class="nt">--limit</span> 7200/h <span class="nt">-j</span> LOG <span class="nt">--log-prefix</span> <span class="s2">"REJECT TCP "</span>
+iptables <span class="nt">-A</span> MY_REJECT <span class="nt">-p</span> tcp <span class="nt">-j</span> REJECT <span class="nt">--reject-with</span> tcp-reset
+iptables <span class="nt">-A</span> MY_REJECT <span class="nt">-p</span> udp <span class="nt">-m</span> limit <span class="nt">--limit</span> 7200/h <span class="nt">-j</span> LOG <span class="nt">--log-prefix</span> <span class="s2">"REJECT UDP "</span>
+iptables <span class="nt">-A</span> MY_REJECT <span class="nt">-p</span> udp <span class="nt">-j</span> REJECT <span class="nt">--reject-with</span> icmp-port-unreachable
+iptables <span class="nt">-A</span> MY_REJECT <span class="nt">-p</span> icmp <span class="nt">-m</span> limit <span class="nt">--limit</span> 7200/h <span class="nt">-j</span> LOG <span class="nt">--log-prefix</span> <span class="s2">"DROP ICMP "</span>
+iptables <span class="nt">-A</span> MY_REJECT <span class="nt">-p</span> icmp <span class="nt">-j</span> DROP
+iptables <span class="nt">-A</span> MY_REJECT <span class="nt">-m</span> limit <span class="nt">--limit</span> 7200/h <span class="nt">-j</span> LOG <span class="nt">--log-prefix</span> <span class="s2">"REJECT OTHER "</span>
+iptables <span class="nt">-A</span> MY_REJECT <span class="nt">-j</span> REJECT <span class="nt">--reject-with</span> icmp-proto-unreachable
+
+<span class="c"># MY_DROP-Chain</span>
+iptables <span class="nt">-N</span> MY_DROP
+iptables <span class="nt">-A</span> MY_DROP <span class="nt">-m</span> limit <span class="nt">--limit</span> 7200/h <span class="nt">-j</span> LOG <span class="nt">--log-prefix</span> <span class="s2">"PORTSCAN DROP "</span>
+iptables <span class="nt">-A</span> MY_DROP <span class="nt">-j</span> DROP
+
+<span class="c"># Alle verworfenen Pakete protokollieren</span>
+iptables <span class="nt">-A</span> INPUT <span class="nt">-m</span> state <span class="nt">--state</span> INVALID <span class="nt">-m</span> limit <span class="nt">--limit</span> 7200/h <span class="nt">-j</span> LOG <span class="nt">--log-prefix</span> <span class="s2">"INPUT INVALID "</span>
+iptables <span class="nt">-A</span> OUTPUT <span class="nt">-m</span> state <span class="nt">--state</span> INVALID <span class="nt">-m</span> limit <span class="nt">--limit</span> 7200/h <span class="nt">-j</span> LOG <span class="nt">--log-prefix</span> <span class="s2">"OUTPUT INVALID "</span>
+
+<span class="c"># Korrupte Pakete zurueckweisen</span>
+iptables <span class="nt">-A</span> INPUT <span class="nt">-m</span> state <span class="nt">--state</span> INVALID <span class="nt">-j</span> DROP
+iptables <span class="nt">-A</span> OUTPUT <span class="nt">-m</span> state <span class="nt">--state</span> INVALID <span class="nt">-j</span> DROP
+
+<span class="c"># Stealth Scans etc. DROPpen</span>
+<span class="c"># Keine Flags gesetzt</span>
+iptables <span class="nt">-A</span> INPUT <span class="nt">-p</span> tcp <span class="nt">--tcp-flags</span> ALL NONE <span class="nt">-j</span> MY_DROP
+
+<span class="c"># SYN und FIN gesetzt</span>
+iptables <span class="nt">-A</span> INPUT <span class="nt">-p</span> tcp <span class="nt">--tcp-flags</span> SYN,FIN SYN,FIN <span class="nt">-j</span> MY_DROP
+
+<span class="c"># SYN und RST gleichzeitig gesetzt</span>
+iptables <span class="nt">-A</span> INPUT <span class="nt">-p</span> tcp <span class="nt">--tcp-flags</span> SYN,RST SYN,RST <span class="nt">-j</span> MY_DROP
+
+<span class="c"># FIN und RST gleichzeitig gesetzt</span>
+iptables <span class="nt">-A</span> INPUT <span class="nt">-p</span> tcp <span class="nt">--tcp-flags</span> FIN,RST FIN,RST <span class="nt">-j</span> MY_DROP
+
+<span class="c"># FIN ohne ACK</span>
+iptables <span class="nt">-A</span> INPUT <span class="nt">-p</span> tcp <span class="nt">--tcp-flags</span> ACK,FIN FIN <span class="nt">-j</span> MY_DROP
+
+<span class="c"># PSH ohne ACK</span>
+iptables <span class="nt">-A</span> INPUT <span class="nt">-p</span> tcp <span class="nt">--tcp-flags</span> ACK,PSH PSH <span class="nt">-j</span> MY_DROP
+
+<span class="c"># URG ohne ACK</span>
+iptables <span class="nt">-A</span> INPUT <span class="nt">-p</span> tcp <span class="nt">--tcp-flags</span> ACK,URG URG <span class="nt">-j</span> MY_DROP
+
+<span class="c"># Loopback-Netzwerk-Kommunikation zulassen</span>
+iptables <span class="nt">-A</span> INPUT <span class="nt">-i</span> lo <span class="nt">-j</span> ACCEPT
+iptables <span class="nt">-A</span> OUTPUT <span class="nt">-o</span> lo <span class="nt">-j</span> ACCEPT
+
+<span class="c"># Connection-Tracking aktivieren</span>
+iptables <span class="nt">-A</span> OUTPUT <span class="nt">-m</span> state <span class="nt">--state</span> NEW,ESTABLISHED,RELATED <span class="nt">-j</span> ACCEPT
+iptables <span class="nt">-A</span> INPUT <span class="nt">-m</span> state <span class="nt">--state</span> ESTABLISHED,RELATED <span class="nt">-j</span> ACCEPT
+
+<span class="c"># ICMP Ping erlauben</span>
+iptables <span class="nt">-A</span> INPUT <span class="nt">-p</span> icmp <span class="nt">--icmp-type</span> echo-reply <span class="nt">-j</span> ACCEPT
+iptables <span class="nt">-A</span> OUTPUT <span class="nt">-p</span> icmp <span class="nt">--icmp-type</span> echo-reply <span class="nt">-j</span> ACCEPT
+iptables <span class="nt">-A</span> INPUT <span class="nt">-p</span> icmp <span class="nt">--icmp-type</span> destination-unreachable <span class="nt">-j</span> ACCEPT
+iptables <span class="nt">-A</span> OUTPUT <span class="nt">-p</span> icmp <span class="nt">--icmp-type</span> destination-unreachable <span class="nt">-j</span> ACCEPT
+iptables <span class="nt">-A</span> INPUT <span class="nt">-p</span> icmp <span class="nt">--icmp-type</span> source-quench <span class="nt">-j</span> ACCEPT
+iptables <span class="nt">-A</span> INPUT <span class="nt">-p</span> icmp <span class="nt">--icmp-type</span> echo-request <span class="nt">-j</span> ACCEPT
+iptables <span class="nt">-A</span> OUTPUT <span class="nt">-p</span> icmp <span class="nt">--icmp-type</span> echo-request <span class="nt">-j</span> ACCEPT
+iptables <span class="nt">-A</span> INPUT <span class="nt">-p</span> icmp <span class="nt">--icmp-type</span> time-exceeded <span class="nt">-j</span> ACCEPT
+iptables <span class="nt">-A</span> INPUT <span class="nt">-p</span> icmp <span class="nt">--icmp-type</span> parameter-problem <span class="nt">-j</span> ACCEPT
+
+<span class="c"># SSH</span>
+iptables <span class="nt">-A</span> INPUT <span class="nt">-i</span> <span class="nv">$device</span> <span class="nt">-m</span> state <span class="nt">--state</span> NEW <span class="nt">-p</span> tcp <span class="nt">--dport</span> 22 <span class="nt">-j</span> ACCEPT
+
+<span class="c">#!!!! remember to open all ports you need !!!!</span>
+
+<span class="c">### OpenVPN</span>
+iptables <span class="nt">-A</span> INPUT <span class="nt">-i</span> <span class="nv">$device</span> <span class="nt">-m</span> state <span class="nt">--state</span> NEW <span class="nt">-p</span> udp <span class="nt">--dport</span> 1194 <span class="nt">-j</span> ACCEPT
+
+<span class="c"># Allow TUN interface connections to OpenVPN server</span>
+iptables <span class="nt">-A</span> INPUT <span class="nt">-i</span> tun+ <span class="nt">-j</span> ACCEPT
+iptables <span class="nt">-A</span> OUTPUT <span class="nt">-o</span> tun+ <span class="nt">-j</span> ACCEPT
+
+<span class="c"># Allow TUN interface connections to be forwarded through other interfaces</span>
+iptables <span class="nt">-A</span> FORWARD <span class="nt">-i</span> tun+ <span class="nt">-j</span> ACCEPT
+iptables <span class="nt">-A</span> FORWARD <span class="nt">-i</span> tun+ <span class="nt">-o</span> <span class="nv">$device</span> <span class="nt">-m</span> state <span class="nt">--state</span> RELATED,ESTABLISHED <span class="nt">-j</span> ACCEPT
+iptables <span class="nt">-A</span> FORWARD <span class="nt">-i</span> <span class="nv">$device</span> <span class="nt">-o</span> tun+ <span class="nt">-m</span> state <span class="nt">--state</span> RELATED,ESTABLISHED <span class="nt">-j</span> ACCEPT
+
+iptables <span class="nt">-t</span> nat <span class="nt">-A</span> POSTROUTING <span class="nt">-o</span> <span class="nv">$device</span> <span class="nt">-s</span> 10.8.0.0/24 <span class="nt">-j</span> MASQUERADE
+
+<span class="c"># Default-Policies mit REJECT</span>
+iptables <span class="nt">-A</span> INPUT <span class="nt">-j</span> MY_REJECT
+iptables <span class="nt">-A</span> OUTPUT <span class="nt">-j</span> MY_REJECT
+<span class="p">;;</span>
+
+stop<span class="p">)</span>
+<span class="nb">echo</span> <span class="s2">"Stoppe IP-Paketfilter"</span>
+<span class="c"># Tabelle flushen</span>
+iptables <span class="nt">-F</span>
+iptables <span class="nt">-t</span> nat <span class="nt">-F</span>
+iptables <span class="nt">-t</span> mangle <span class="nt">-F</span>
+iptables <span class="nt">-X</span>
+iptables <span class="nt">-t</span> nat <span class="nt">-X</span>
+iptables <span class="nt">-t</span> mangle <span class="nt">-X</span>
+<span class="c"># Default-Policies setzen</span>
+iptables <span class="nt">-P</span> INPUT ACCEPT
+iptables <span class="nt">-P</span> OUTPUT ACCEPT
+iptables <span class="nt">-P</span> FORWARD ACCEPT
+<span class="p">;;</span>
+
+restart<span class="p">)</span>
+<span class="nb">echo</span> <span class="s2">"Restarte IP-Paketfilter"</span>
+<span class="nv">$0</span> stop
+<span class="nv">$0</span> start
+<span class="p">;;</span>
+
+status<span class="p">)</span>
+<span class="nb">echo</span> <span class="s2">"Tabelle filter"</span>
+iptables <span class="nt">-L</span> <span class="nt">-vn</span>
+<span class="nb">echo</span> <span class="s2">"Tabelle nat"</span>
+iptables <span class="nt">-t</span> nat <span class="nt">-L</span> <span class="nt">-vn</span>
+<span class="nb">echo</span> <span class="s2">"Tabelle mangle"</span>
+iptables <span class="nt">-t</span> mangle <span class="nt">-L</span> <span class="nt">-vn</span>
+<span class="p">;;</span>
+
+<span class="k">*</span><span class="p">)</span>
+<span class="nb">echo</span> <span class="s2">"Fehlerhafter Aufruf"</span>
+<span class="nb">echo</span> <span class="s2">"Syntax: </span><span class="nv">$0</span><span class="s2"> {start|stop|restart|status}"</span>
+<span class="nb">exit </span>1
+<span class="p">;;</span>
+
+<span class="k">esac</span>
+</code></pre></div></div>
+
+<p>If you use this script don’t forget to make it executable.</p>
+
+<h1 id="3-restart-the-services">3. Restart the Services</h1>
+
+<p>Now we are ready to restart the services and run a first test:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>service openvpn restart
+service firewall restart
+</code></pre></div></div>
+
+<p>If everything works you should be able to ping around your VPN and your LANs. For additional understanding the routes take a look at a traceroute.</p>
+
+<h1 id="reference">Reference</h1>
+
+<ul>
+  <li><a href="http://openvpn.net/howto.html" target="_blank">http://openvpn.net/howto.html</a></li>
+  <li><a href="http://cihan.me/how-to-setup-openvpn-server-on-debian-lenny/" target="_blank">http://cihan.me/how-to-setup-openvpn-server-on-debian-lenny/</a></li>
+</ul>
+
+            </article>
+
+            
+            <div class="blog-tags">
+                Tags:
+                
+                
+                <a href="/tags#Hardware">Hardware</a>
+                
+                <a href="/tags#HowTo">HowTo</a>
+                
+                <a href="/tags#Dockstar">Dockstar</a>
+                
+                <a href="/tags#Linux">Linux</a>
+                
+                <a href="/tags#Linkstation">Linkstation</a>
+                
+                <a href="/tags#Raspberry Pi">Raspberry Pi</a>
+                
+                <a href="/tags#Goflex">Goflex</a>
+                
+                
+            </div>
+            
+
+            
+            <!-- Check if any share-links are active -->
+
+
+
+
+
+            
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="/2011/01/debian-download-station-pyload/" data-toggle="tooltip" data-placement="top" title="Debian as Download-Station: pyLoad (v0.4.7+)">&larr; Previous Post</a>
+                </li>
+                
+                
+                <li class="next">
+                    <a href="/2011/03/debian-printserver-scanserver-hplip-cups-sane/" data-toggle="tooltip" data-placement="top" title="Debian as Printserver and Scanserver with HPLIP, CUPS, SANE">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+
+            
+            <div class="disqus-comments">
+                
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+
+	    var disqus_shortname = 'dev-shyd';
+        var disqus_identifier = '509 http://dev.shyd.de/?p=509';
+        var disqus_title = 'Dockstar: HowTo setup OpenVPN on Debian';
+
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+<footer>
+    <div class="container beautiful-jekyll-footer">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center footer-links"><li><a href="/feed.xml" title="RSS" target="_blank"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+                                    <span class="sr-only">RSS</span>
+                                </a>
+                    </li><li><a href="/contact" title="Email me"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                </span>
+                                    <span class="sr-only">Email me</span>
+                                </a>
+                    </li><li><a href="https://github.com/shyd" title="GitHub" target="_blank"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+                                    <span class="sr-only">GitHub</span>
+                                </a>
+                    </li><li><a href="https://hub.docker.com/u/shyd" title="Docker" target="_blank"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-docker fa-stack-1x fa-inverse"></i>
+                </span>
+                                    <span class="sr-only">Docker</span>
+                                </a>
+                    </li><li><a href="https://www.instagram.com/d_nn__" title="Instagram" target="_blank"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                </span>
+                                    <span class="sr-only">Instagram</span>
+                                </a>
+                    </li></ul>
+                <p class="copyright text-muted">
+                    &copy; Dennis Schütt
+                    &nbsp;&bull;&nbsp;
+                    2020
+
+                    
+                    &nbsp;&bull;&nbsp;
+                    made with ❤️ by <a href="https://schuett.io">schuett.io</a>
+                    
+
+                    
+                </p>
+                <!-- Please don't remove this, keep my open source work credited :) -->
+                <p class="theme-by text-muted">
+                    Theme by
+                    <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- inject:js -->
+<script src="/assets/javascript/index.js"></script>
+<!-- endinject -->
+
+
+
+</body>
+</html>

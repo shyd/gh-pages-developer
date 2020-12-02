@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Dockstar-NAS: Automount, hd-idle, Samba, FTP" />
+<meta name="author" content="Dennis Schütt" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Having debian installed on the dockstar is quite nice but how about access to the data in there? In this article I will explain how you easily set up a data-storage with autofs, hd-idle, samba and proftpd. I assume you have debian squeeze running on a usb stick and your data you want to share on your network is stored on an external hard-drive." />
+<meta property="og:description" content="Having debian installed on the dockstar is quite nice but how about access to the data in there? In this article I will explain how you easily set up a data-storage with autofs, hd-idle, samba and proftpd. I assume you have debian squeeze running on a usb stick and your data you want to share on your network is stored on an external hard-drive." />
+<link rel="canonical" href="https://schuett.io/2011/01/dockstar-nas-automount-hd-idle-samba-ftp/" />
+<meta property="og:url" content="https://schuett.io/2011/01/dockstar-nas-automount-hd-idle-samba-ftp/" />
+<meta property="og:site_name" content="schuett.io" />
+<meta property="og:image" content="https://schuett.io/postimg/linux.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2011-01-19T23:36:57+01:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://schuett.io/postimg/linux.png" />
+<meta property="twitter:title" content="Dockstar-NAS: Automount, hd-idle, Samba, FTP" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Dennis Schütt"},"url":"https://schuett.io/2011/01/dockstar-nas-automount-hd-idle-samba-ftp/","image":"https://schuett.io/postimg/linux.png","headline":"Dockstar-NAS: Automount, hd-idle, Samba, FTP","dateModified":"2011-01-19T23:36:57+01:00","datePublished":"2011-01-19T23:36:57+01:00","description":"Having debian installed on the dockstar is quite nice but how about access to the data in there? In this article I will explain how you easily set up a data-storage with autofs, hd-idle, samba and proftpd. I assume you have debian squeeze running on a usb stick and your data you want to share on your network is stored on an external hard-drive.","mainEntityOfPage":{"@type":"WebPage","@id":"https://schuett.io/2011/01/dockstar-nas-automount-hd-idle-samba-ftp/"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+
+    <title>Dockstar-NAS: Automount, hd-idle, Samba, FTP &middot; schuett.io</title>
+
+    <meta name="author" content="Dennis Schütt" />
+
+    
+
+    <link rel="alternate" type="application/rss+xml" title="schuett.io &middot; another tech blog.
+" href="/feed.xml" />
+
+    
+
+
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+    
+
+    
+
+    
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/assets/stylesheets/styles.css">
+    <!-- endinject -->
+
+
+    <!--
+    Touch Icon Generator BY daik.de
+    http://www.web-stuebchen.de
+    Lizenz: GNU General Public License
+    Copyright: 2014 - 2018 Stephan Heller [daik.de] <heller@daik.de>
+    -->
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+    <link rel="icon" type="image/gif" href="/assets/images/favicon.gif">
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-57x57.png" sizes="57x57">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-60x60.png" sizes="60x60">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-72x72.png" sizes="72x72">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-76x76.png" sizes="76x76">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-114x114.png" sizes="114x114">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-120x120.png" sizes="120x120">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-128x128.png" sizes="128x128">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-144x144.png" sizes="144x144">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-152x152.png" sizes="152x152">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-180x180.png" sizes="180x180">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-precomposed.png">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-196x196.png" sizes="196x196">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-navbutton-color" content="#ffffff">
+    <meta name="application-name" content="schuett.io"/>
+    <meta name="msapplication-tooltip" content="schuett.io"/>
+    <meta name="apple-mobile-web-app-title" content="schuett.io"/>
+
+</head>
+
+
+<body>
+
+<!--[if lt IE 10]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="https://schuett.io"> <span class="fa-layers fa-fw">
+            <i class="far fa-window-maximize" style="" data-fa-transform=""></i>
+            <i class="fas fa-chevron-left" data-fa-transform="shrink-13 down-2 left-4.7"></i>
+            <i class="fas fa-chevron-right" data-fa-transform="shrink-13 down-2 right-4.7"></i>
+            <i class="fas fa-cogs" data-fa-transform="shrink-11 down-2"></i>
+        </span>
+        <span>schuett.io</span></a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+
+
+
+
+
+
+<a href="/">Blog</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+
+
+
+
+
+
+<a href="/tags">Tags</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+
+
+
+
+
+
+<a href="/wtf">About</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+
+
+
+
+
+
+<a href="/contact">Contact</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+
+
+
+
+
+
+<a href="/imprint">Imprint</a>
+
+          </li>
+        
+        
+
+          
+      </ul>
+    </div>
+
+	
+
+  </div>
+</nav>
+
+
+<!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <div class="page-image large">
+          
+              <picture><source srcset="/assets/images/postimg/linux-220-3eef370d9.webp 220w" type="image/webp"><source srcset="/assets/images/postimg/linux-220-3eef370d9.png 220w" type="image/png"><img src="/assets/images/postimg/linux-220-3eef370d9.png" width="220" height="259"></picture>
+
+          
+          </div>
+      </div>
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>Dockstar-NAS: Automount, hd-idle, Samba, FTP</h1>
+		  
+
+		  
+		  <span class="post-meta">Posted on January 19, 2011</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+            
+
+            <article role="main" class="blog-post">
+                <p>Having debian installed on the dockstar is quite nice but how about access to the data in there? In this article I will explain how you easily set up a data-storage with autofs, hd-idle, samba and proftpd.<br>
+I assume you have debian squeeze running on a usb stick and your data you want to share on your network is stored on an external hard-drive.</p>
+
+<h1 id="1-autofs-and-hd-idle">1. autofs and hd-idle</h1>
+
+<p>In order to mount the hdd as it is connected to a certain mountpoint we will install autofs and to reduce its power-consumption we let it spin down after some minutes with hd-idle. The default repository doesn’t contain hd-idle so <a href="http://www.dev-eth0.de/archives/879" target="_blank">dev-eth0.de</a> created a repo for the dockstar. You may want to add it to your <code class="language-plaintext highlighter-rouge">/etc/apt/sources.list</code> by adding the line <code class="language-plaintext highlighter-rouge">deb http://repo.dev-eth0.de/ squeeze main</code>.</p>
+
+<p>If you want to make sure, that this repository isn’t faked, you can add the gpg key to your apt-key:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget http://repo.dev-eth0.de/repo.key
+apt-key add repo.key
+</code></pre></div></div>
+
+<p>Now install those packages:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt-get update
+apt-get <span class="nb">install </span>autofs hd-idle
+</code></pre></div></div>
+
+<h2 id="11-autofs">1.1 autofs</h2>
+
+<p>I want to mount my external drives in <code class="language-plaintext highlighter-rouge">/media</code> so I added this line to <code class="language-plaintext highlighter-rouge">/etc/auto.master</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/media    /etc/auto.media --timeout=10 --ghost
+</code></pre></div></div>
+
+<p>This sets <code class="language-plaintext highlighter-rouge">/media</code> as the parent folder for all mounts in <code class="language-plaintext highlighter-rouge">/etc/auto.media</code>, so create <code class="language-plaintext highlighter-rouge">auto.media</code> and add the devices you want to mount. You can use <code class="language-plaintext highlighter-rouge">sdxX</code> or the <code class="language-plaintext highlighter-rouge">uuid</code> (find out with <code class="language-plaintext highlighter-rouge">blkid</code>) as the device:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>disk1    <span class="nt">-fstype</span><span class="o">=</span>ext3,users    <span class="nv">UUID</span><span class="o">=</span><span class="s2">"ddf4386d-a9cb-4b98-9d6f-46e90190xxxx"</span>
+</code></pre></div></div>
+
+<p>Your hdd will be mounted as <code class="language-plaintext highlighter-rouge">/media/disk1</code>.</p>
+
+<h2 id="12-hd-idle">1.2 hd-idle</h2>
+
+<p>Spinning down all attached hdds: First of all enable hd-idle in <code class="language-plaintext highlighter-rouge">/etc/default/hd-idle</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># start hd-idle automatically?</span>
+<span class="nv">START_HD_IDLE</span><span class="o">=</span><span class="nb">true</span>
+<span class="c"># spin down after 300 sec and write logfile</span>
+<span class="nv">HD_IDLE_OPTS</span><span class="o">=</span><span class="s2">"-i 300 -l /var/log/hd-idle.log"</span>
+</code></pre></div></div>
+
+<p>Thats it, just restart the service.</p>
+
+<h1 id="2-samba">2. samba</h1>
+
+<p>You want to have windows-shares on your local network? I will explain how you set up password protected shares because I don’t want all of my friends in my WLAN have access to it 😉</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt-get <span class="nb">install </span>samba samba-common samba-common-bin
+</code></pre></div></div>
+
+<p>Take a look at <code class="language-plaintext highlighter-rouge">/etc/samba/smb.conf</code> and customize it for your needs, these are those lines I have edited:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># some global vars I edited:
+[global]
+   workgroup = WORKGROUP
+   wins support = yes
+   security = user
+   unix password sync = yes
+
+# my shares:
+[homes]
+   comment = Home Directories
+   browseable = no
+   read only = no
+   writeable = yes
+   create mask = 0700
+   directory mask = 0700
+   valid users = %S
+
+[printers]
+   comment = All Printers
+   browseable = yes
+   path = /var/spool/samba
+   printable = yes
+   guest ok = no
+   read only = yes
+   create mask = 0700
+
+[media]
+   comment = all mounted hdds
+   path = /media
+   browseable = yes
+   ;veto files = /ftp_share/ #to hide dirs
+   #to hide dirs another way, try which fits for you
+   hide files = /desktop.ini/Desktop.ini/DESKTOP.INI/$RECYCLE.BIN/Thumbs.db/thumbs.db/THUMBS.DB/
+   writeable = yes
+   create mask = 0777
+   directory mask = 0777
+</code></pre></div></div>
+
+<p>Once you have set this up you are ready to create the users, note they have to be unix users already:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>smbpasswd <span class="nt">-a</span> user1 <span class="c"># add user</span>
+smbpasswd <span class="nt">-e</span> user1 <span class="c"># enable user</span>
+</code></pre></div></div>
+
+<p>If you now log in as user1 and run smbpasswd again you will update the samba and system password.
+Finally restart samba and try the connection!</p>
+
+<h1 id="3-proftpd">3. proftpd</h1>
+
+<p>Sometimes I have the problem not be at home when I need certain files stored on my dockstar. I either could connect to it with VPN or simply use FTP (note: insecure file-transfer). I chose proftpd because it’s easy to configure, install it by typing:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt-get <span class="nb">install </span>proftpd
+</code></pre></div></div>
+
+<p>It will ask if you want to install it with inetd or standalone, choose standalone.<br>
+The default configuration fits pretty well for my needs, the only thing I enabled was VirtualRoot. As I login I am in jail in my home dir, the module gives me the ability to get out there. There you have to edit two files:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim /etc/proftpd/proftpd.conf
+
+<span class="c">#</span>
+<span class="c"># Useful to keep VirtualHost/VirtualRoot directives separated</span>
+<span class="c">#</span>
+Include /etc/proftpd/virtuals.conf
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim /etc/proftpd/virtuals.conf
+
+&lt;ifmodule mod_vroot.c&gt;
+  VRootEngine on
+  DefaultRoot ~
+  VRootAlias ftp_share /path/to/ftp_share
+&lt;/ifmodule&gt;
+</code></pre></div></div>
+
+<p>This makes every ftp-user able to access the ftp_share directory. For more security information check out <a href="http://www.proftpd.org/docs/faq/linked/faq-ch6.html" target="_blank">http://www.proftpd.org/docs/faq/linked/faq-ch6.html</a></p>
+
+<h1 id="4-reference">4. Reference</h1>
+
+<p><a href="http://www.dev-eth0.de/archives/879" target="_blank">http://www.dev-eth0.de/archives/879</a></p>
+
+            </article>
+
+            
+            <div class="blog-tags">
+                Tags:
+                
+                
+                <a href="/tags#Hardware">Hardware</a>
+                
+                <a href="/tags#HowTo">HowTo</a>
+                
+                <a href="/tags#Dockstar">Dockstar</a>
+                
+                <a href="/tags#Linux">Linux</a>
+                
+                <a href="/tags#Linkstation">Linkstation</a>
+                
+                <a href="/tags#Raspberry Pi">Raspberry Pi</a>
+                
+                <a href="/tags#Goflex">Goflex</a>
+                
+                
+            </div>
+            
+
+            
+            <!-- Check if any share-links are active -->
+
+
+
+
+
+            
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="/2011/01/seagate-dockstar-debian-squeeze/" data-toggle="tooltip" data-placement="top" title="Seagate Dockstar Debian Squeeze">&larr; Previous Post</a>
+                </li>
+                
+                
+                <li class="next">
+                    <a href="/2011/01/debian-download-station-pyload/" data-toggle="tooltip" data-placement="top" title="Debian as Download-Station: pyLoad (v0.4.7+)">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+
+            
+            <div class="disqus-comments">
+                
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+
+	    var disqus_shortname = 'dev-shyd';
+        var disqus_identifier = '472 http://dev.shyd.de/?p=472';
+        var disqus_title = 'Dockstar-NAS: Automount, hd-idle, Samba, FTP';
+
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+<footer>
+    <div class="container beautiful-jekyll-footer">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center footer-links"><li><a href="/feed.xml" title="RSS" target="_blank"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+                                    <span class="sr-only">RSS</span>
+                                </a>
+                    </li><li><a href="/contact" title="Email me"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                </span>
+                                    <span class="sr-only">Email me</span>
+                                </a>
+                    </li><li><a href="https://github.com/shyd" title="GitHub" target="_blank"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+                                    <span class="sr-only">GitHub</span>
+                                </a>
+                    </li><li><a href="https://hub.docker.com/u/shyd" title="Docker" target="_blank"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-docker fa-stack-1x fa-inverse"></i>
+                </span>
+                                    <span class="sr-only">Docker</span>
+                                </a>
+                    </li><li><a href="https://www.instagram.com/d_nn__" title="Instagram" target="_blank"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                </span>
+                                    <span class="sr-only">Instagram</span>
+                                </a>
+                    </li></ul>
+                <p class="copyright text-muted">
+                    &copy; Dennis Schütt
+                    &nbsp;&bull;&nbsp;
+                    2020
+
+                    
+                    &nbsp;&bull;&nbsp;
+                    made with ❤️ by <a href="https://schuett.io">schuett.io</a>
+                    
+
+                    
+                </p>
+                <!-- Please don't remove this, keep my open source work credited :) -->
+                <p class="theme-by text-muted">
+                    Theme by
+                    <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- inject:js -->
+<script src="/assets/javascript/index.js"></script>
+<!-- endinject -->
+
+
+
+</body>
+</html>
