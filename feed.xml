@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://schuett.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://schuett.io/" rel="alternate" type="text/html" hreflang="en-US" /><updated>2020-12-02T13:51:38+01:00</updated><id>https://schuett.io/feed.xml</id><title type="html">schuett.io</title><subtitle>Another tech blog by Dennis Schütt. Everything about development, coding and stuff. Moved from dev.shyd.de.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://schuett.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://schuett.io/" rel="alternate" type="text/html" hreflang="en-US" /><updated>2020-12-02T16:32:46+01:00</updated><id>https://schuett.io/feed.xml</id><title type="html">schuett.io</title><subtitle>Another tech blog by Dennis Schütt. Everything about development, coding and stuff. Moved from dev.shyd.de.
 </subtitle><author><name>Dennis Schütt</name></author><entry><title type="html">eufy Lumi Stick-On: Fading Night Light</title><link href="https://schuett.io/2018/02/eufy-lumi-smooth-fader/" rel="alternate" type="text/html" title="eufy Lumi Stick-On: Fading Night Light" /><published>2018-02-23T00:00:00+01:00</published><updated>2018-02-23T00:00:00+01:00</updated><id>https://schuett.io/2018/02/eufy-lumi-smooth-fader</id><content type="html" xml:base="https://schuett.io/2018/02/eufy-lumi-smooth-fader/">&lt;p&gt;Do you have a dark stairway at night and you want it to be illuminated when you come across? This is why you bought the &lt;a href=&quot;http://amzn.to/2EJ5D2Z&quot;&gt;eufy Lumi Stick-On pack&lt;/a&gt;? Now you don’t use it because it switches on immediately when you get in its range?&lt;/p&gt;
 
 &lt;p&gt;I encountered this situation an thought about it. In conclusion I came up with modifying the inner circuit by adding an ATtiny10 to slowly ramp up the LED brightness with a PWM.&lt;/p&gt;
@@ -7,19 +7,19 @@
 
 &lt;p&gt;After unscrewing four screws inside the battery housing you can easily pull the housing into two pieces. But don’t pull to far and watch the wires connected to either pieces.&lt;/p&gt;
 
-&lt;picture&gt;&lt;source srcset=&quot;/assets/images/postimg/eufi-lumi/3J7A7595-1000-8e73671b8.webp 1000w, /assets/images/postimg/eufi-lumi/3J7A7595-2000-8e73671b8.webp 2000w&quot; type=&quot;image/webp&quot; /&gt;&lt;source srcset=&quot;/assets/images/postimg/eufi-lumi/3J7A7595-1000-8e73671b8.jpg 1000w, /assets/images/postimg/eufi-lumi/3J7A7595-2000-8e73671b8.jpg 2000w&quot; type=&quot;image/jpeg&quot; /&gt;&lt;img class=&quot;img-responsive img-rounded&quot; src=&quot;/assets/images/postimg/eufi-lumi/3J7A7595-2000-8e73671b8.jpg&quot; width=&quot;5760&quot; height=&quot;3840&quot; /&gt;&lt;/picture&gt;
+&lt;picture&gt;&lt;source srcset=&quot;/assets/images/36bc44f59fe20b7f01e38829bd7756cccec7b55d-1000-8e73671b8.webp 1000w, /assets/images/36bc44f59fe20b7f01e38829bd7756cccec7b55d-2000-8e73671b8.webp 2000w&quot; type=&quot;image/webp&quot; /&gt;&lt;source srcset=&quot;/assets/images/36bc44f59fe20b7f01e38829bd7756cccec7b55d-1000-8e73671b8.jpg 1000w, /assets/images/36bc44f59fe20b7f01e38829bd7756cccec7b55d-2000-8e73671b8.jpg 2000w&quot; type=&quot;image/jpeg&quot; /&gt;&lt;img class=&quot;img-responsive img-rounded&quot; src=&quot;/assets/images/36bc44f59fe20b7f01e38829bd7756cccec7b55d-2000-8e73671b8.jpg&quot; width=&quot;5760&quot; height=&quot;3840&quot; /&gt;&lt;/picture&gt;
 
 &lt;h2 id=&quot;2-desolder-r9&quot;&gt;2. Desolder R9&lt;/h2&gt;
 
 &lt;p&gt;Carefully desolder &lt;em&gt;R9&lt;/em&gt;, marked in red.&lt;/p&gt;
 
-&lt;picture&gt;&lt;source srcset=&quot;/assets/images/postimg/eufi-lumi/3J7A7595-2-marked-799-abb77950c.webp 799w&quot; type=&quot;image/webp&quot; /&gt;&lt;source srcset=&quot;/assets/images/postimg/eufi-lumi/3J7A7595-2-marked-799-abb77950c.jpg 799w&quot; type=&quot;image/jpeg&quot; /&gt;&lt;img class=&quot;img-responsive img-rounded&quot; src=&quot;/assets/images/postimg/eufi-lumi/3J7A7595-2-marked-799-abb77950c.jpg&quot; width=&quot;799&quot; height=&quot;533&quot; /&gt;&lt;/picture&gt;
+&lt;picture&gt;&lt;source srcset=&quot;/assets/images/d6fc625d662f640c9d46b0c5314d32beeaf87e3c-799-abb77950c.webp 799w&quot; type=&quot;image/webp&quot; /&gt;&lt;source srcset=&quot;/assets/images/d6fc625d662f640c9d46b0c5314d32beeaf87e3c-799-abb77950c.jpg 799w&quot; type=&quot;image/jpeg&quot; /&gt;&lt;img class=&quot;img-responsive img-rounded&quot; src=&quot;/assets/images/d6fc625d662f640c9d46b0c5314d32beeaf87e3c-799-abb77950c.jpg&quot; width=&quot;799&quot; height=&quot;533&quot; /&gt;&lt;/picture&gt;
 
 &lt;h2 id=&quot;3-resolder-r9&quot;&gt;3. Resolder R9&lt;/h2&gt;
 
 &lt;p&gt;Then resolder &lt;em&gt;R9&lt;/em&gt; in a 90° angle like so and connect &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OC0A&lt;/code&gt; to the resistor (green wire).&lt;/p&gt;
 
-&lt;picture&gt;&lt;source srcset=&quot;/assets/images/postimg/eufi-lumi/3J7A7596-2-844-7cd7453f6.webp 844w&quot; type=&quot;image/webp&quot; /&gt;&lt;source srcset=&quot;/assets/images/postimg/eufi-lumi/3J7A7596-2-844-7cd7453f6.jpg 844w&quot; type=&quot;image/jpeg&quot; /&gt;&lt;img class=&quot;img-responsive img-rounded&quot; src=&quot;/assets/images/postimg/eufi-lumi/3J7A7596-2-844-7cd7453f6.jpg&quot; width=&quot;844&quot; height=&quot;563&quot; /&gt;&lt;/picture&gt;
+&lt;picture&gt;&lt;source srcset=&quot;/assets/images/c2a6d7d3248782cafbb062d52edde4f96bf233d7-844-7cd7453f6.webp 844w&quot; type=&quot;image/webp&quot; /&gt;&lt;source srcset=&quot;/assets/images/c2a6d7d3248782cafbb062d52edde4f96bf233d7-844-7cd7453f6.jpg 844w&quot; type=&quot;image/jpeg&quot; /&gt;&lt;img class=&quot;img-responsive img-rounded&quot; src=&quot;/assets/images/c2a6d7d3248782cafbb062d52edde4f96bf233d7-844-7cd7453f6.jpg&quot; width=&quot;844&quot; height=&quot;563&quot; /&gt;&lt;/picture&gt;
 
 &lt;h2 id=&quot;4-solder-supply-wires-for-the-attiny10&quot;&gt;4. Solder supply wires for the ATtiny10&lt;/h2&gt;
 
@@ -27,7 +27,7 @@
 
 &lt;p&gt;Connect &lt;em&gt;GND&lt;/em&gt; to the open pad of &lt;em&gt;R9&lt;/em&gt; which is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DRAIN&lt;/code&gt; from &lt;em&gt;Q1&lt;/em&gt;.&lt;/p&gt;
 
-&lt;picture&gt;&lt;source srcset=&quot;/assets/images/postimg/eufi-lumi/3J7A7596-1000-70d31b4ff.webp 1000w, /assets/images/postimg/eufi-lumi/3J7A7596-2000-70d31b4ff.webp 2000w&quot; type=&quot;image/webp&quot; /&gt;&lt;source srcset=&quot;/assets/images/postimg/eufi-lumi/3J7A7596-1000-70d31b4ff.jpg 1000w, /assets/images/postimg/eufi-lumi/3J7A7596-2000-70d31b4ff.jpg 2000w&quot; type=&quot;image/jpeg&quot; /&gt;&lt;img class=&quot;img-responsive img-rounded&quot; src=&quot;/assets/images/postimg/eufi-lumi/3J7A7596-2000-70d31b4ff.jpg&quot; width=&quot;5760&quot; height=&quot;3840&quot; /&gt;&lt;/picture&gt;
+&lt;picture&gt;&lt;source srcset=&quot;/assets/images/a2dfae55ec7fc63976f7317d8035cca2bfc2a635-1000-70d31b4ff.webp 1000w, /assets/images/a2dfae55ec7fc63976f7317d8035cca2bfc2a635-2000-70d31b4ff.webp 2000w&quot; type=&quot;image/webp&quot; /&gt;&lt;source srcset=&quot;/assets/images/a2dfae55ec7fc63976f7317d8035cca2bfc2a635-1000-70d31b4ff.jpg 1000w, /assets/images/a2dfae55ec7fc63976f7317d8035cca2bfc2a635-2000-70d31b4ff.jpg 2000w&quot; type=&quot;image/jpeg&quot; /&gt;&lt;img class=&quot;img-responsive img-rounded&quot; src=&quot;/assets/images/a2dfae55ec7fc63976f7317d8035cca2bfc2a635-2000-70d31b4ff.jpg&quot; width=&quot;5760&quot; height=&quot;3840&quot; /&gt;&lt;/picture&gt;
 
 &lt;h2 id=&quot;5-write-some-piece-of-code&quot;&gt;5. Write some piece of code&lt;/h2&gt;
 
@@ -113,27 +113,9 @@
 
 &lt;p&gt;And flash this little guy:&lt;/p&gt;
 
-&lt;picture&gt;&lt;source srcset=&quot;/assets/images/postimg/eufi-lumi/3J7A7597-1000-b4a8b9390.webp 1000w, /assets/images/postimg/eufi-lumi/3J7A7597-2000-b4a8b9390.webp 2000w&quot; type=&quot;image/webp&quot; /&gt;&lt;source srcset=&quot;/assets/images/postimg/eufi-lumi/3J7A7597-1000-b4a8b9390.jpg 1000w, /assets/images/postimg/eufi-lumi/3J7A7597-2000-b4a8b9390.jpg 2000w&quot; type=&quot;image/jpeg&quot; /&gt;&lt;img class=&quot;img-responsive img-rounded&quot; src=&quot;/assets/images/postimg/eufi-lumi/3J7A7597-2000-b4a8b9390.jpg&quot; width=&quot;5760&quot; height=&quot;3840&quot; /&gt;&lt;/picture&gt;
+&lt;picture&gt;&lt;source srcset=&quot;/assets/images/43a1aec40cf3b23bab1b613af4ba961adb546197-1000-b4a8b9390.webp 1000w, /assets/images/43a1aec40cf3b23bab1b613af4ba961adb546197-2000-b4a8b9390.webp 2000w&quot; type=&quot;image/webp&quot; /&gt;&lt;source srcset=&quot;/assets/images/43a1aec40cf3b23bab1b613af4ba961adb546197-1000-b4a8b9390.jpg 1000w, /assets/images/43a1aec40cf3b23bab1b613af4ba961adb546197-2000-b4a8b9390.jpg 2000w&quot; type=&quot;image/jpeg&quot; /&gt;&lt;img class=&quot;img-responsive img-rounded&quot; src=&quot;/assets/images/43a1aec40cf3b23bab1b613af4ba961adb546197-2000-b4a8b9390.jpg&quot; width=&quot;5760&quot; height=&quot;3840&quot; /&gt;&lt;/picture&gt;
 
-&lt;p&gt;Wire the Tiny—then darken your room and give it a test. Lumi should now smoothly fade on.&lt;/p&gt;</content><author><name>Dennis Schütt</name></author><category term="Hardware" /><category term="C/C++" /><category term="Microcontroller" /><summary type="html">Do you have a dark stairway at night and you want it to be illuminated when you come across? This is why you bought the eufy Lumi Stick-On pack? Now you don’t use it because it switches on immediately when you get in its range?</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://schuett.io/postimg/eufi-lumi/3J7A7599.jpg" /><media:content medium="image" url="https://schuett.io/postimg/eufi-lumi/3J7A7599.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Welcome to Jekyll!</title><link href="https://schuett.io/2017/10/welcome-to-jekyll/" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2017-10-29T12:21:07+01:00</published><updated>2017-10-29T12:21:07+01:00</updated><id>https://schuett.io/2017/10/welcome-to-jekyll</id><content type="html" xml:base="https://schuett.io/2017/10/welcome-to-jekyll/">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
-
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
-
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name>Dennis Schütt</name></author><category term="jekyll" /><category term="update" /><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry><entry><title type="html">Building an IKEA Firefly Light with ATtiny85</title><link href="https://schuett.io/2017/05/building-ikea-firefly-light-attiny/" rel="alternate" type="text/html" title="Building an IKEA Firefly Light with ATtiny85" /><published>2017-05-08T15:39:25+02:00</published><updated>2017-05-08T15:39:25+02:00</updated><id>https://schuett.io/2017/05/building-ikea-firefly-light-attiny</id><content type="html" xml:base="https://schuett.io/2017/05/building-ikea-firefly-light-attiny/">&lt;p&gt;Did you ever wanted your room decoration to be a smoothly fading light strip in a jar?
+&lt;p&gt;Wire the Tiny—then darken your room and give it a test. Lumi should now smoothly fade on.&lt;/p&gt;</content><author><name>Dennis Schütt</name></author><category term="Hardware" /><category term="C/C++" /><category term="Microcontroller" /><summary type="html">Do you have a dark stairway at night and you want it to be illuminated when you come across? This is why you bought the eufy Lumi Stick-On pack? Now you don’t use it because it switches on immediately when you get in its range?</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://schuett.io/2c8e3dc432f40f78231cd3bd76653340044cdb31.jpg" /><media:content medium="image" url="https://schuett.io/2c8e3dc432f40f78231cd3bd76653340044cdb31.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Building an IKEA Firefly Light with ATtiny85</title><link href="https://schuett.io/2017/05/building-ikea-firefly-light-attiny/" rel="alternate" type="text/html" title="Building an IKEA Firefly Light with ATtiny85" /><published>2017-05-08T15:39:25+02:00</published><updated>2017-05-08T15:39:25+02:00</updated><id>https://schuett.io/2017/05/building-ikea-firefly-light-attiny</id><content type="html" xml:base="https://schuett.io/2017/05/building-ikea-firefly-light-attiny/">&lt;p&gt;Did you ever wanted your room decoration to be a smoothly fading light strip in a jar?
 Inspired by the Pimoroni firefly light I built my own variation with an ATtiny and two AA batteries instead of using a Raspberry Pi Zero and a huge battery pack.&lt;/p&gt;
 
 &lt;p&gt;There are three LED strings that fade in a sine pattern. Two of them fade anti parallel at one of 16 adjustable speeds. The third fades differently at a second configurable sine.
@@ -165,11 +147,11 @@ I just added a third strip to give the whole thing a more beautiful attitude. Th
 
 &lt;p&gt;The images below show the schematics, pin mappings and the final circuit.&lt;/p&gt;
 
-&lt;picture&gt;&lt;source srcset=&quot;/assets/images/postimg/firefly-light-pcb-1000-db0e6c13d.webp 1000w, /assets/images/postimg/firefly-light-pcb-1600-db0e6c13d.webp 1600w&quot; type=&quot;image/webp&quot; /&gt;&lt;source srcset=&quot;/assets/images/postimg/firefly-light-pcb-1000-db0e6c13d.png 1000w, /assets/images/postimg/firefly-light-pcb-1600-db0e6c13d.png 1600w&quot; type=&quot;image/png&quot; /&gt;&lt;img class=&quot;img-responsive img-rounded picture-bot&quot; src=&quot;/assets/images/postimg/firefly-light-pcb-1600-db0e6c13d.png&quot; width=&quot;1600&quot; height=&quot;910&quot; /&gt;&lt;/picture&gt;
+&lt;picture&gt;&lt;source srcset=&quot;/assets/images/e32b059857dff549550e1b54af11b7b7d40ae34b-1000-db0e6c13d.webp 1000w, /assets/images/e32b059857dff549550e1b54af11b7b7d40ae34b-1600-db0e6c13d.webp 1600w&quot; type=&quot;image/webp&quot; /&gt;&lt;source srcset=&quot;/assets/images/e32b059857dff549550e1b54af11b7b7d40ae34b-1000-db0e6c13d.png 1000w, /assets/images/e32b059857dff549550e1b54af11b7b7d40ae34b-1600-db0e6c13d.png 1600w&quot; type=&quot;image/png&quot; /&gt;&lt;img class=&quot;img-responsive img-rounded picture-bot&quot; src=&quot;/assets/images/e32b059857dff549550e1b54af11b7b7d40ae34b-1600-db0e6c13d.png&quot; width=&quot;1600&quot; height=&quot;910&quot; /&gt;&lt;/picture&gt;
 
-&lt;picture&gt;&lt;source srcset=&quot;/assets/images/postimg/firefly01-1000-ed45172c7.webp 1000w, /assets/images/postimg/firefly01-2000-ed45172c7.webp 2000w&quot; type=&quot;image/webp&quot; /&gt;&lt;source srcset=&quot;/assets/images/postimg/firefly01-1000-ed45172c7.jpg 1000w, /assets/images/postimg/firefly01-2000-ed45172c7.jpg 2000w&quot; type=&quot;image/jpeg&quot; /&gt;&lt;img class=&quot;img-responsive img-rounded picture-bot&quot; src=&quot;/assets/images/postimg/firefly01-2000-ed45172c7.jpg&quot; width=&quot;2000&quot; height=&quot;1283&quot; /&gt;&lt;/picture&gt;
+&lt;picture&gt;&lt;source srcset=&quot;/assets/images/cfd59410d40e5582a9800db67c8b7d795caa56cf-1000-ed45172c7.webp 1000w, /assets/images/cfd59410d40e5582a9800db67c8b7d795caa56cf-2000-ed45172c7.webp 2000w&quot; type=&quot;image/webp&quot; /&gt;&lt;source srcset=&quot;/assets/images/cfd59410d40e5582a9800db67c8b7d795caa56cf-1000-ed45172c7.jpg 1000w, /assets/images/cfd59410d40e5582a9800db67c8b7d795caa56cf-2000-ed45172c7.jpg 2000w&quot; type=&quot;image/jpeg&quot; /&gt;&lt;img class=&quot;img-responsive img-rounded picture-bot&quot; src=&quot;/assets/images/cfd59410d40e5582a9800db67c8b7d795caa56cf-2000-ed45172c7.jpg&quot; width=&quot;2000&quot; height=&quot;1283&quot; /&gt;&lt;/picture&gt;
 
-&lt;picture&gt;&lt;source srcset=&quot;/assets/images/postimg/firefly02-1000-5acc2d9db.webp 1000w, /assets/images/postimg/firefly02-2000-5acc2d9db.webp 2000w&quot; type=&quot;image/webp&quot; /&gt;&lt;source srcset=&quot;/assets/images/postimg/firefly02-1000-5acc2d9db.jpg 1000w, /assets/images/postimg/firefly02-2000-5acc2d9db.jpg 2000w&quot; type=&quot;image/jpeg&quot; /&gt;&lt;img class=&quot;img-responsive img-rounded picture-bot&quot; src=&quot;/assets/images/postimg/firefly02-2000-5acc2d9db.jpg&quot; width=&quot;2000&quot; height=&quot;1283&quot; /&gt;&lt;/picture&gt;
+&lt;picture&gt;&lt;source srcset=&quot;/assets/images/4e8e6eb050a494a0d67e73ce2700592bed4c9b93-1000-5acc2d9db.webp 1000w, /assets/images/4e8e6eb050a494a0d67e73ce2700592bed4c9b93-2000-5acc2d9db.webp 2000w&quot; type=&quot;image/webp&quot; /&gt;&lt;source srcset=&quot;/assets/images/4e8e6eb050a494a0d67e73ce2700592bed4c9b93-1000-5acc2d9db.jpg 1000w, /assets/images/4e8e6eb050a494a0d67e73ce2700592bed4c9b93-2000-5acc2d9db.jpg 2000w&quot; type=&quot;image/jpeg&quot; /&gt;&lt;img class=&quot;img-responsive img-rounded picture-bot&quot; src=&quot;/assets/images/4e8e6eb050a494a0d67e73ce2700592bed4c9b93-2000-5acc2d9db.jpg&quot; width=&quot;2000&quot; height=&quot;1283&quot; /&gt;&lt;/picture&gt;
 
 &lt;h1 id=&quot;software&quot;&gt;Software&lt;/h1&gt;
 
@@ -567,13 +549,13 @@ console.log(res);
     &lt;span class=&quot;nx&quot;&gt;sleep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name>Dennis Schütt</name></author><category term="Hardware" /><category term="C/C++" /><category term="Microcontroller" /><summary type="html">Did you ever wanted your room decoration to be a smoothly fading light strip in a jar? Inspired by the Pimoroni firefly light I built my own variation with an ATtiny and two AA batteries instead of using a Raspberry Pi Zero and a huge battery pack.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://schuett.io/postimg/Sketch_Steckplatine.png" /><media:content medium="image" url="https://schuett.io/postimg/Sketch_Steckplatine.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">SMTP Mailing with Mailgun and Postfix</title><link href="https://schuett.io/2017/05/smtp-mailing-mailgun-postfix/" rel="alternate" type="text/html" title="SMTP Mailing with Mailgun and Postfix" /><published>2017-05-03T18:46:13+02:00</published><updated>2017-05-03T18:46:13+02:00</updated><id>https://schuett.io/2017/05/smtp-mailing-mailgun-postfix</id><content type="html" xml:base="https://schuett.io/2017/05/smtp-mailing-mailgun-postfix/">&lt;p&gt;Do you want your servers to send mails with a dedicated mailing service in order to gain more control and logs about the mail delivery?&lt;/p&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name>Dennis Schütt</name></author><category term="Hardware" /><category term="C/C++" /><category term="Microcontroller" /><summary type="html">Did you ever wanted your room decoration to be a smoothly fading light strip in a jar? Inspired by the Pimoroni firefly light I built my own variation with an ATtiny and two AA batteries instead of using a Raspberry Pi Zero and a huge battery pack.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://schuett.io/7efa1ce971a0a50f0e2369973e91806cc1b6a06c.png" /><media:content medium="image" url="https://schuett.io/7efa1ce971a0a50f0e2369973e91806cc1b6a06c.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">SMTP Mailing with Mailgun and Postfix</title><link href="https://schuett.io/2017/05/smtp-mailing-mailgun-postfix/" rel="alternate" type="text/html" title="SMTP Mailing with Mailgun and Postfix" /><published>2017-05-03T18:46:13+02:00</published><updated>2017-05-03T18:46:13+02:00</updated><id>https://schuett.io/2017/05/smtp-mailing-mailgun-postfix</id><content type="html" xml:base="https://schuett.io/2017/05/smtp-mailing-mailgun-postfix/">&lt;p&gt;Do you want your servers to send mails with a dedicated mailing service in order to gain more control and logs about the mail delivery?&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Powerful APIs that enable you to send, receive and track email effortlessly. 10,000 emails free every month. mailgun.com&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://www.mailgun.com/&quot;&gt;&lt;picture&gt;&lt;source srcset=&quot;/assets/images/postimg/mailgun-logo-1000-0a90a2e60.webp 1000w&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/assets/images/postimg/mailgun-logo-1000-0a90a2e60.png 1000w&quot; type=&quot;image/png&quot;&gt;&lt;img class=&quot;img-responsive max-70-percent&quot; src=&quot;/assets/images/postimg/mailgun-logo-1000-0a90a2e60.png&quot; width=&quot;1000&quot; height=&quot;317&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.mailgun.com/&quot;&gt;&lt;picture&gt;&lt;source srcset=&quot;/assets/images/effbda8d5a35b9a37a96f938e12622219bb876d0-1000-0a90a2e60.webp 1000w&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/assets/images/effbda8d5a35b9a37a96f938e12622219bb876d0-1000-0a90a2e60.png 1000w&quot; type=&quot;image/png&quot;&gt;&lt;img class=&quot;img-responsive max-70-percent&quot; src=&quot;/assets/images/effbda8d5a35b9a37a96f938e12622219bb876d0-1000-0a90a2e60.png&quot; width=&quot;1000&quot; height=&quot;317&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;If you already have postfix properly set up and running, edit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/postfix/main.cf&lt;/code&gt; and append this:&lt;/p&gt;
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;smtp_sasl_auth_enable &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;yes
@@ -595,98 +577,7 @@ postmap /etc/postfix/sasl_passwd
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;service postfix restart
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Now your server should send its mails via mailgun. Just give it a test shot!&lt;/p&gt;</content><author><name>Dennis Schütt</name></author><category term="Software" /><category term="HowTo" /><category term="Linux" /><category term="Server and Hosting" /><summary type="html">Do you want your servers to send mails with a dedicated mailing service in order to gain more control and logs about the mail delivery?</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://schuett.io/postimg/email-flat.jpg" /><media:content medium="image" url="https://schuett.io/postimg/email-flat.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Test markdown</title><link href="https://schuett.io/2015/02/test-markdown/" rel="alternate" type="text/html" title="Test markdown" /><published>2015-02-28T00:00:00+01:00</published><updated>2015-02-28T00:00:00+01:00</updated><id>https://schuett.io/2015/02/test-markdown</id><content type="html" xml:base="https://schuett.io/2015/02/test-markdown/">&lt;p&gt;You can write regular &lt;a href=&quot;http://markdowntutorial.com/&quot;&gt;markdown&lt;/a&gt; here and Jekyll will automatically convert it to a nice webpage.  I strongly encourage you to &lt;a href=&quot;http://markdowntutorial.com/&quot;&gt;take 5 minutes to learn how to write in markdown&lt;/a&gt; - it’ll teach you how to transform regular text into bold/italics/headings/tables/etc.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Here is some bold text&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;here-is-a-secondary-heading&quot;&gt;Here is a secondary heading&lt;/h2&gt;
-
-&lt;p&gt;Here’s a useless table:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Number&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Next number&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Previous number&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Five&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Six&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Four&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Ten&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Eleven&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Nine&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Seven&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Eight&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Six&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Two&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Three&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;One&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;How about a yummy crepe?&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://s3-media3.fl.yelpcdn.com/bphoto/cQ1Yoa75m2yUFFbY2xwuqw/348s.jpg&quot; alt=&quot;Crepe&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Here’s a code chunk:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var foo = function(x) {
-  return(x + 5);
-}
-foo(3)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;And here is the same code with syntax highlighting:&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;And here is the same code yet again but with line numbers:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;h2 id=&quot;boxes&quot;&gt;Boxes&lt;/h2&gt;
-&lt;p&gt;You can add notification, warning and error boxes like this:&lt;/p&gt;
-
-&lt;h3 id=&quot;notification&quot;&gt;Notification&lt;/h3&gt;
-
-&lt;p class=&quot;box-note&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; This is a notification box.&lt;/p&gt;
-
-&lt;h3 id=&quot;warning&quot;&gt;Warning&lt;/h3&gt;
-
-&lt;p class=&quot;box-warning&quot;&gt;&lt;strong&gt;Warning:&lt;/strong&gt; This is a warning box.&lt;/p&gt;
-
-&lt;h3 id=&quot;error&quot;&gt;Error&lt;/h3&gt;
-
-&lt;p class=&quot;box-error&quot;&gt;&lt;strong&gt;Error:&lt;/strong&gt; This is an error box.&lt;/p&gt;</content><author><name>Dennis Schütt</name></author><category term="test" /><summary type="html">You can write regular markdown here and Jekyll will automatically convert it to a nice webpage. I strongly encourage you to take 5 minutes to learn how to write in markdown - it’ll teach you how to transform regular text into bold/italics/headings/tables/etc.</summary></entry><entry><title type="html">Flake it till you make it</title><link href="https://schuett.io/2015/02/flake-it-till-you-make-it/" rel="alternate" type="text/html" title="Flake it till you make it" /><published>2015-02-26T00:00:00+01:00</published><updated>2015-02-26T00:00:00+01:00</updated><id>https://schuett.io/2015/02/flake-it-till-you-make-it</id><content type="html" xml:base="https://schuett.io/2015/02/flake-it-till-you-make-it/">&lt;p&gt;Under what circumstances should we step off a path? When is it essential that we finish what we start? If I bought a bag of peanuts and had an allergic reaction, no one would fault me if I threw it out. If I ended a relationship with a woman who hit me, no one would say that I had a commitment problem. But if I walk away from a seemingly secure route because my soul has other ideas, I am a flake?&lt;/p&gt;
-
-&lt;p&gt;The truth is that no one else can definitively know the path we are here to walk. It’s tempting to listen—many of us long for the omnipotent other—but unless they are genuine psychic intuitives, they can’t know. All others can know is their own truth, and if they’ve actually done the work to excavate it, they will have the good sense to know that they cannot genuinely know anyone else’s. Only soul knows the path it is here to walk. Since you are the only one living in your temple, only you can know its scriptures and interpretive structure.&lt;/p&gt;
-
-&lt;p&gt;At the heart of the struggle are two very different ideas of success—survival-driven and soul-driven. For survivalists, success is security, pragmatism, power over others. Success is the absence of material suffering, the nourishing of the soul be damned. It is an odd and ironic thing that most of the material power in our world often resides in the hands of younger souls. Still working in the egoic and material realms, they love the sensations of power and focus most of their energy on accumulation. Older souls tend not to be as materially driven. They have already played the worldly game in previous lives and they search for more subtle shades of meaning in this one—authentication rather than accumulation. They are often ignored by the culture at large, although they really are the truest warriors.&lt;/p&gt;
-
-&lt;p&gt;A soulful notion of success rests on the actualization of our innate image. Success is simply the completion of a soul step, however unsightly it may be. We have finished what we started when the lesson is learned. What a fear-based culture calls a wonderful opportunity may be fruitless and misguided for the soul. Staying in a passionless relationship may satisfy our need for comfort, but it may stifle the soul. Becoming a famous lawyer is only worthwhile if the soul demands it. It is an essential failure if you are called to be a monastic this time around. If you need to explore and abandon ten careers in order to stretch your soul toward its innate image, then so be it. Flake it till you make it.&lt;/p&gt;</content><author><name>Dennis Schütt</name></author><category term="books" /><category term="test" /><summary type="html">Under what circumstances should we step off a path? When is it essential that we finish what we start? If I bought a bag of peanuts and had an allergic reaction, no one would fault me if I threw it out. If I ended a relationship with a woman who hit me, no one would say that I had a commitment problem. But if I walk away from a seemingly secure route because my soul has other ideas, I am a flake?</summary></entry><entry><title type="html">AVR, Raspberry Pi, VW Beta: VAG CDC Faker</title><link href="https://schuett.io/2013/09/avr-raspberry-pi-vw-beta-vag-cdc-faker/" rel="alternate" type="text/html" title="AVR, Raspberry Pi, VW Beta: VAG CDC Faker" /><published>2013-09-08T18:35:51+02:00</published><updated>2013-09-08T18:35:51+02:00</updated><id>https://schuett.io/2013/09/avr-raspberry-pi-vw-beta-vag-cdc-faker</id><content type="html" xml:base="https://schuett.io/2013/09/avr-raspberry-pi-vw-beta-vag-cdc-faker/">&lt;p&gt;I was tired connecting my cellphone with an old cassette adapter to my VW Golf with an Beta 5 in it. I needed something new, something cool. And here it is, a fully functional interface between the Beta 5 and any device you want to play the music with.&lt;/p&gt;
+&lt;p&gt;Now your server should send its mails via mailgun. Just give it a test shot!&lt;/p&gt;</content><author><name>Dennis Schütt</name></author><category term="Software" /><category term="HowTo" /><category term="Linux" /><category term="Server and Hosting" /><summary type="html">Do you want your servers to send mails with a dedicated mailing service in order to gain more control and logs about the mail delivery?</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://schuett.io/ee0aa95bcc3a61c56517f812925a71ad3f0fb781.jpg" /><media:content medium="image" url="https://schuett.io/ee0aa95bcc3a61c56517f812925a71ad3f0fb781.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">AVR, Raspberry Pi, VW Beta: VAG CDC Faker</title><link href="https://schuett.io/2013/09/avr-raspberry-pi-vw-beta-vag-cdc-faker/" rel="alternate" type="text/html" title="AVR, Raspberry Pi, VW Beta: VAG CDC Faker" /><published>2013-09-08T18:35:51+02:00</published><updated>2013-09-08T18:35:51+02:00</updated><id>https://schuett.io/2013/09/avr-raspberry-pi-vw-beta-vag-cdc-faker</id><content type="html" xml:base="https://schuett.io/2013/09/avr-raspberry-pi-vw-beta-vag-cdc-faker/">&lt;p&gt;I was tired connecting my cellphone with an old cassette adapter to my VW Golf with an Beta 5 in it. I needed something new, something cool. And here it is, a fully functional interface between the Beta 5 and any device you want to play the music with.&lt;/p&gt;
 
 &lt;p&gt;This project raised out of an ebay search: I just wanted to know if there is a solution to get an AUX input on the car radio. Yes there is, even complete mp3 players are available. But that’s not what I wanted – at first!&lt;/p&gt;
 
@@ -1091,7 +982,7 @@ shuffle in 'shffl' mode
 &lt;p&gt;Nothing special here, just an ISP header for programming the AVR, USB connector, voltage regulator, LED,…
 For feature circuits in the glovebox I provided 12V, 5V and GND through further pins. I was thinking of powering the RPi directly from my faker. But I don’t know if the radio is able to provide around 400mAmps. Even the regulator would heat up like hell at these currents.&lt;/p&gt;
 
-&lt;picture&gt;&lt;source srcset=&quot;/assets/images/postimg/vag_cdc_eagle-1000-65e887561.webp 1000w, /assets/images/postimg/vag_cdc_eagle-1746-65e887561.webp 1746w&quot; type=&quot;image/webp&quot; /&gt;&lt;source srcset=&quot;/assets/images/postimg/vag_cdc_eagle-1000-65e887561.png 1000w, /assets/images/postimg/vag_cdc_eagle-1746-65e887561.png 1746w&quot; type=&quot;image/png&quot; /&gt;&lt;img src=&quot;/assets/images/postimg/vag_cdc_eagle-1746-65e887561.png&quot; width=&quot;1746&quot; height=&quot;786&quot; /&gt;&lt;/picture&gt;
+&lt;picture&gt;&lt;source srcset=&quot;/assets/images/20cdcb3c1825640cb35620a024ae08e6fab3702f-1000-65e887561.webp 1000w, /assets/images/20cdcb3c1825640cb35620a024ae08e6fab3702f-1746-65e887561.webp 1746w&quot; type=&quot;image/webp&quot; /&gt;&lt;source srcset=&quot;/assets/images/20cdcb3c1825640cb35620a024ae08e6fab3702f-1000-65e887561.png 1000w, /assets/images/20cdcb3c1825640cb35620a024ae08e6fab3702f-1746-65e887561.png 1746w&quot; type=&quot;image/png&quot; /&gt;&lt;img src=&quot;/assets/images/20cdcb3c1825640cb35620a024ae08e6fab3702f-1746-65e887561.png&quot; width=&quot;1746&quot; height=&quot;786&quot; /&gt;&lt;/picture&gt;
 
 &lt;p&gt;The FT230X is programmed as selfpowered and CBUS1 as output for the #POWER_ON singnal.&lt;/p&gt;
 
@@ -1283,7 +1174,7 @@ The music is stored in &lt;code class=&quot;language-plaintext highlighter-rouge
 &lt;h1 id=&quot;7-some-further-ideas&quot;&gt;7. Some further ideas&lt;/h1&gt;
 
 &lt;p&gt;The project is mostly complete - for now. But there are some things I have in mind that could be quite nice to have. It would be awesome if it had bluetooth to remote control my android phone. Or mute the radio at incoming calls and act as a hands free set.
-But what I’ve done lately is preparing the RPi with Wifi, so it connects automatically to my Wifi, when parking in the garage to sync the music folders with rsync.&lt;/p&gt;</content><author><name>Dennis Schütt</name></author><category term="Hardware" /><category term="C/C++" /><category term="Raspberry Pi" /><category term="Microcontroller" /><category term="Python" /><summary type="html">I was tired connecting my cellphone with an old cassette adapter to my VW Golf with an Beta 5 in it. I needed something new, something cool. And here it is, a fully functional interface between the Beta 5 and any device you want to play the music with.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://schuett.io/postimg/Raspberry_Pi_B_illustration.svg_.png" /><media:content medium="image" url="https://schuett.io/postimg/Raspberry_Pi_B_illustration.svg_.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Dockstar/Goflex: new Kernel 3.9.5 ready to use</title><link href="https://schuett.io/2013/06/kernel-3-9-5-ready-to-use/" rel="alternate" type="text/html" title="Dockstar/Goflex: new Kernel 3.9.5 ready to use" /><published>2013-06-14T13:03:25+02:00</published><updated>2013-06-14T13:03:25+02:00</updated><id>https://schuett.io/2013/06/kernel-3-9-5-ready-to-use</id><content type="html" xml:base="https://schuett.io/2013/06/kernel-3-9-5-ready-to-use/">&lt;p&gt;It’s been one year since I published a compiled kernel for our devices. Now I decided to build a new one and share it!&lt;/p&gt;
+But what I’ve done lately is preparing the RPi with Wifi, so it connects automatically to my Wifi, when parking in the garage to sync the music folders with rsync.&lt;/p&gt;</content><author><name>Dennis Schütt</name></author><category term="Hardware" /><category term="C/C++" /><category term="Raspberry Pi" /><category term="Microcontroller" /><category term="Python" /><summary type="html">I was tired connecting my cellphone with an old cassette adapter to my VW Golf with an Beta 5 in it. I needed something new, something cool. And here it is, a fully functional interface between the Beta 5 and any device you want to play the music with.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://schuett.io/518d5be97b26d11959b4b71e9f0fcd472ebbbe36.png" /><media:content medium="image" url="https://schuett.io/518d5be97b26d11959b4b71e9f0fcd472ebbbe36.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Dockstar/Goflex: new Kernel 3.9.5 ready to use</title><link href="https://schuett.io/2013/06/kernel-3-9-5-ready-to-use/" rel="alternate" type="text/html" title="Dockstar/Goflex: new Kernel 3.9.5 ready to use" /><published>2013-06-14T13:03:25+02:00</published><updated>2013-06-14T13:03:25+02:00</updated><id>https://schuett.io/2013/06/kernel-3-9-5-ready-to-use</id><content type="html" xml:base="https://schuett.io/2013/06/kernel-3-9-5-ready-to-use/">&lt;p&gt;It’s been one year since I published a compiled kernel for our devices. Now I decided to build a new one and share it!&lt;/p&gt;
 
 &lt;p&gt;Some facts about it:&lt;/p&gt;
 
@@ -1386,7 +1277,7 @@ status:white:right3
 Remember to create the symlinks &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/lib/modules/3.9.5-dockstar-goflex-shyd/build&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/lib/modules/3.9.5-dockstar-goflex-shyd/source&lt;/code&gt; if you install the headers after the kernel.&lt;/p&gt;
 
 &lt;p&gt;And here is the patch with everything I’ve changed from the source tree:
-&lt;a href=&quot;/dockstar/linux-3.9.5-dockstar-goflex.patch&quot;&gt;linux-3.9.5-dockstar-goflex.patch&lt;/a&gt;&lt;/p&gt;</content><author><name>Dennis Schütt</name></author><category term="Hardware" /><category term="Dockstar" /><category term="Linux" /><category term="Goflex" /><category term="Kernel" /><summary type="html">It’s been one year since I published a compiled kernel for our devices. Now I decided to build a new one and share it!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://schuett.io/postimg/portfolio-image-9.jpg" /><media:content medium="image" url="https://schuett.io/postimg/portfolio-image-9.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">FTDI: interfacing FT1248/FT220x over SPI</title><link href="https://schuett.io/2013/06/ftdi-interfacing-ft1248-ft220x-spi/" rel="alternate" type="text/html" title="FTDI: interfacing FT1248/FT220x over SPI" /><published>2013-06-07T18:55:25+02:00</published><updated>2013-06-07T18:55:25+02:00</updated><id>https://schuett.io/2013/06/ftdi-interfacing-ft1248-ft220x-spi</id><content type="html" xml:base="https://schuett.io/2013/06/ftdi-interfacing-ft1248-ft220x-spi/">&lt;p&gt;In my current project I want to interface the &lt;a href=&quot;http://www.ftdichip.com/Products/ICs/FT220X.html&quot;&gt;FT220x&lt;/a&gt; over 1-bit SPI with an TI piccolo TMS320F28027.
+&lt;a href=&quot;/dockstar/linux-3.9.5-dockstar-goflex.patch&quot;&gt;linux-3.9.5-dockstar-goflex.patch&lt;/a&gt;&lt;/p&gt;</content><author><name>Dennis Schütt</name></author><category term="Hardware" /><category term="Dockstar" /><category term="Linux" /><category term="Goflex" /><category term="Kernel" /><summary type="html">It’s been one year since I published a compiled kernel for our devices. Now I decided to build a new one and share it!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://schuett.io/e741a337e0cbbb7253c23e24e80b4eaacae04931.jpg" /><media:content medium="image" url="https://schuett.io/e741a337e0cbbb7253c23e24e80b4eaacae04931.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">FTDI: interfacing FT1248/FT220x over SPI</title><link href="https://schuett.io/2013/06/ftdi-interfacing-ft1248-ft220x-spi/" rel="alternate" type="text/html" title="FTDI: interfacing FT1248/FT220x over SPI" /><published>2013-06-07T18:55:25+02:00</published><updated>2013-06-07T18:55:25+02:00</updated><id>https://schuett.io/2013/06/ftdi-interfacing-ft1248-ft220x-spi</id><content type="html" xml:base="https://schuett.io/2013/06/ftdi-interfacing-ft1248-ft220x-spi/">&lt;p&gt;In my current project I want to interface the &lt;a href=&quot;http://www.ftdichip.com/Products/ICs/FT220X.html&quot;&gt;FT220x&lt;/a&gt; over 1-bit SPI with an TI piccolo TMS320F28027.
 After some trouble and various cups of coffee I managed the whole thing by implementing the SPI in pure software.&lt;/p&gt;
 
 &lt;p&gt;I wasn’t able to get it working with the built in tri-wire hardware SPI as the FT uses MIOSIO and MISO to send/receive data and status respectively.&lt;/p&gt;
@@ -1507,7 +1398,7 @@ If MISO returns 0x7F while reading data, there is more data in the FIFO.&lt;/p&g
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Dennis Schütt</name></author><category term="Hardware" /><category term="C/C++" /><category term="Software" /><category term="Microcontroller" /><summary type="html">In my current project I want to interface the FT220x over 1-bit SPI with an TI piccolo TMS320F28027. After some trouble and various cups of coffee I managed the whole thing by implementing the SPI in pure software.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://schuett.io/postimg/blog-image-9.jpg" /><media:content medium="image" url="https://schuett.io/postimg/blog-image-9.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Dockstar/Golfex: booting with LABEL or UUID instead of device name</title><link href="https://schuett.io/2013/06/booting-with-uuid-not-device-name/" rel="alternate" type="text/html" title="Dockstar/Golfex: booting with LABEL or UUID instead of device name" /><published>2013-06-07T17:42:29+02:00</published><updated>2013-06-07T17:42:29+02:00</updated><id>https://schuett.io/2013/06/booting-with-uuid-not-device-name</id><content type="html" xml:base="https://schuett.io/2013/06/booting-with-uuid-not-device-name/">&lt;p&gt;Did you want to reboot your Dockstar or Golfex with multiple drives attached? Well, that’s not the problem if uboot lists the devices in the correct order.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Dennis Schütt</name></author><category term="Hardware" /><category term="C/C++" /><category term="Software" /><category term="Microcontroller" /><summary type="html">In my current project I want to interface the FT220x over 1-bit SPI with an TI piccolo TMS320F28027. After some trouble and various cups of coffee I managed the whole thing by implementing the SPI in pure software.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://schuett.io/05dcf39952bb4e1053188e6fe2a5c166e7082e5b.jpg" /><media:content medium="image" url="https://schuett.io/05dcf39952bb4e1053188e6fe2a5c166e7082e5b.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Dockstar/Golfex: booting with LABEL or UUID instead of device name</title><link href="https://schuett.io/2013/06/booting-with-uuid-not-device-name/" rel="alternate" type="text/html" title="Dockstar/Golfex: booting with LABEL or UUID instead of device name" /><published>2013-06-07T17:42:29+02:00</published><updated>2013-06-07T17:42:29+02:00</updated><id>https://schuett.io/2013/06/booting-with-uuid-not-device-name</id><content type="html" xml:base="https://schuett.io/2013/06/booting-with-uuid-not-device-name/">&lt;p&gt;Did you want to reboot your Dockstar or Golfex with multiple drives attached? Well, that’s not the problem if uboot lists the devices in the correct order.
 But what if your Golfex has SATA drives attached and you want to boot from an usb-drive?&lt;/p&gt;
 
 &lt;p&gt;The answer my Goflex gives me all the time: Loading kernel from usb works. Starting the kernel also works. But mounting the filesystem fails, because the device names are remapped when the SATA drives are initialized. The usb-drive ain’t &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/dev/sda&lt;/code&gt; anymore…&lt;/p&gt;
@@ -1572,4 +1463,1267 @@ fw_setenv usb_root_uuid 4812b490-4104-5b33-85ae-7aa4ba635173
 
 &lt;h1 id=&quot;update-09062013&quot;&gt;Update 09.06.2013:&lt;/h1&gt;
 
-&lt;p&gt;Thanks to chessplayer pointing at the advantages/disadvantages on these methods! I’ve rewritten this article to have both methods together in one place.&lt;/p&gt;</content><author><name>Dennis Schütt</name></author><category term="Hardware" /><category term="Dockstar" /><category term="Linux" /><category term="Goflex" /><summary type="html">Did you want to reboot your Dockstar or Golfex with multiple drives attached? Well, that’s not the problem if uboot lists the devices in the correct order. But what if your Golfex has SATA drives attached and you want to boot from an usb-drive?</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://schuett.io/postimg/linux.png" /><media:content medium="image" url="https://schuett.io/postimg/linux.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;Thanks to chessplayer pointing at the advantages/disadvantages on these methods! I’ve rewritten this article to have both methods together in one place.&lt;/p&gt;</content><author><name>Dennis Schütt</name></author><category term="Hardware" /><category term="Dockstar" /><category term="Linux" /><category term="Goflex" /><summary type="html">Did you want to reboot your Dockstar or Golfex with multiple drives attached? Well, that’s not the problem if uboot lists the devices in the correct order. But what if your Golfex has SATA drives attached and you want to boot from an usb-drive?</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://schuett.io/f1d3f2586770c5e9c9a4acdc5d50579a8968857a.png" /><media:content medium="image" url="https://schuett.io/f1d3f2586770c5e9c9a4acdc5d50579a8968857a.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Raspberry Pi: Setup Debian with SanDisk Extreme</title><link href="https://schuett.io/2012/07/raspberry-pi-setup-debian-sandisk-extreme/" rel="alternate" type="text/html" title="Raspberry Pi: Setup Debian with SanDisk Extreme" /><published>2012-07-01T20:08:06+02:00</published><updated>2012-07-01T20:08:06+02:00</updated><id>https://schuett.io/2012/07/raspberry-pi-setup-debian-sandisk-extreme</id><content type="html" xml:base="https://schuett.io/2012/07/raspberry-pi-setup-debian-sandisk-extreme/">&lt;p&gt;Finally my RPi has been delivered! After unboxing it I really couldn’t image that is was that tiny. First thing I did, was grabbing my 8GB SanDisk SD-Card and copying the rootfs debian6-19-04-2012 onto it.&lt;/p&gt;
+
+&lt;p&gt;After plugging the sd card in the RPi and connecting power supply the problems came up…&lt;/p&gt;
+
+&lt;p&gt;This article is not a detailed guide how to set up your RPi. It just describes my second afford to get the RPi booting flawlessly in a few words I can refer to in the future.&lt;/p&gt;
+
+&lt;h1 id=&quot;problems-i-had&quot;&gt;Problems I had&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;device didn’t boot at all&lt;/li&gt;
+  &lt;li&gt;no serial output on the GPIOs&lt;/li&gt;
+  &lt;li&gt;login failures with definitely correct password&lt;/li&gt;
+  &lt;li&gt;mouse/keyboard stopped working after startx&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;workthrough&quot;&gt;Workthrough&lt;/h1&gt;
+
+&lt;p&gt;Prepare the SD-Card as described here: &lt;a href=&quot;http://elinux.org/RPi_Easy_SD_Card_Setup&quot;&gt;elinux.org/RPi_Easy_SD_Card_Setup&lt;/a&gt;
+After replugging it I used gparted on my laptop to resize the partitions to fill the card.&lt;/p&gt;
+
+&lt;p&gt;My card is an 8GB SanDisk Extreme class 10, which is too fast for the stock kernel and the RPi doesn’t boot. Therefor we need a newer kernel. Grab the tarball from &lt;a href=&quot;https://github.com/raspberrypi/firmware/tree/master/boot&quot;&gt;github.com/raspberrypi/firmware/tree/master/boot&lt;/a&gt; and overwrite the files on the sd card.&lt;/p&gt;
+
+&lt;p&gt;Now plug the card into the RPi and boot it. At this time I saw it was alive, I got the kernel output on the serial interface!&lt;/p&gt;
+
+&lt;p&gt;You should be able to login with pi:raspberry
+Well, I wasn’t… So sd card back into my laptop. I just edited the last line in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/media/xyz/etc/shadow&lt;/code&gt; to another password. Then the login worked for me.&lt;/p&gt;
+
+&lt;p&gt;If you want to be able to login as root (make sure to change pw) type&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt;
+passwd
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To get the right timezone type:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dpkg-reconfigure tzdata
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Change the update server to one nearby:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vim.tiny /etc/apt/sources.list
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then upgrade your installation:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt-get update
+apt-get dist-upgrade
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If I now try to start the GUI with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;startx&lt;/code&gt; mouse and keyboard stop working. Due to the incredible fast sd card we need a newer kernel one more time. Get &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rpi-update&lt;/code&gt; as shown at &lt;a href=&quot;https://github.com/Hexxeh/rpi-update/blob/master/README.md&quot;&gt;github.com/Hexxeh/rpi-update/blob/master/README.md&lt;/a&gt;
+Maybe you get dependency issues&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;ca-certificates git-core
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Another thing I noticed is that overscan is activated by default (maybe tv specific?). There are several things that can be set in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;config.txt&lt;/code&gt;: &lt;a href=&quot;https://elinux.org/RPi_config.txt&quot;&gt;elinux.org/RPi_config.txt&lt;/a&gt;
+For me it’s fine with these lines in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/boot/config.txt&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# create the file&lt;/span&gt;
+vim.tiny /boot/config.txt
+&lt;span class=&quot;c&quot;&gt;# insert the following&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;hdmi_force_hotplug&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1
+&lt;span class=&quot;nv&quot;&gt;config_hdmi_boost&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;4
+&lt;span class=&quot;nv&quot;&gt;hdmi_group&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1
+&lt;span class=&quot;nv&quot;&gt;hdmi_mode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;32
+&lt;span class=&quot;nv&quot;&gt;disable_overscan&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;update-22072012-configtxt&quot;&gt;Update 22.07.2012: config.txt&lt;/h1&gt;
+
+&lt;p&gt;Thanks to Patschi, he posted a link to a really nice description on the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;config.txt&lt;/code&gt;! You can read it here:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;c&quot;&gt;################################################################################&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##  Raspberry Pi Configuration Settings&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##  Details taken from the eLinux wiki 2012/06/27&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##  For up-to-date information please refer to wiki page.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##  Wiki Location : http://elinux.org/RPi_config.txt&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;################################################################################&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;################################################################################&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##  Standard Definition Video Settings&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;################################################################################&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## sdtv_mode&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     defines the TV standard for composite output&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     Value    Description&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     0        Normal NTSC (Default)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     1        Japanese version of NTSC - no pedestal&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     2        Normal PAL&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     3        Brazilian version of PAL - 525/60 rather than 625/50, different subcarrier&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#sdtv_mode=0&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## sdtv_aspect&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     defines the aspect ratio for composite output&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     Value    Description&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     1        4:3 (Default)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     2        14:9&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     3        16:9&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#sdtv_aspect=1&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;################################################################################&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##  High Definition Video Settings&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;################################################################################&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## hdmi_safe&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     Use &quot;safe mode&quot; settings to try to boot with maximum hdmi compatibility.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     Value    Description&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     0        Disabled (Default)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     1        Enabled (this does: hdmi_force_hotplug=1, config_hdmi_boost=4, hdmi_group=1, hdmi_mode=1, disable_overscan=0)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#hdmi_safe=1&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## hdmi_force_hotplug&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     overrides the normal selection of composite if no HDMI is detected&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     Value    Description&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     0        Disabled (Default)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     1        Use HDMI mode even if no HDMI monitor is detected&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#hdmi_force_hotplug=1&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## hdmi_drive&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     chooses between HDMI and DVI modes&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     Value    Description&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     1        Normal DVI mode (No sound)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     2        Normal HDMI mode (Sound will be sent if supported and enabled)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#hdmi_drive=2&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## hdmi_group&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     defines the HDMI type&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     [rgh] I think values are 0 and 1 really, and the default 0 for CEA - at least with the latest firmware as of May 25th 2012.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     Value    Description&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     1        CEA (Default)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     2        DMT&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#hdmi_group=1&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## hdmi_mode&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     defines screen resolution in CEA or DMT format&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     H means 16:9 variant (of a normally 4:3 mode).&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     2x means pixel doubled (i.e. higher clock rate, with each pixel repeated twice)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     4x means pixel quadrupled (i.e. higher clock rate, with each pixel repeated four times)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     Value    hdmi_group=CEA                  hdmi_group=DMT&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     1        VGA                             640x350   85Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     2        480p  60Hz                      640x400   85Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     3        480p  60Hz  H                   720x400   85Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     4        720p  60Hz                      640x480   60Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     5        1080i 60Hz                      640x480   72Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     6        480i  60Hz                      640x480   75Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     7        480i  60Hz  H                   640x480   85Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     8        240p  60Hz                      800x600   56Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     9        240p  60Hz  H                   800x600   60Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     10       480i  60Hz  4x                  800x600   72Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     11       480i  60Hz  4x H                800x600   75Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     12       240p  60Hz  4x                  800x600   85Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     13       240p  60Hz  4x H                800x600   120Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     14       480p  60Hz  2x                  848x480   60Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     15       480p  60Hz  2x H                1024x768  43Hz  DO NOT USE&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     16       1080p 60Hz                      1024x768  60Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     17       576p  50Hz                      1024x768  70Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     18       576p  50Hz  H                   1024x768  75Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     19       720p  50Hz                      1024x768  85Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     20       1080i 50Hz                      1024x768  120Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     21       576i  50Hz                      1152x864  75Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     22       576i  50Hz  H                   1280x768        reduced blanking&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     23       288p  50Hz                      1280x768  60Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     24       288p  50Hz  H                   1280x768  75Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     25       576i  50Hz  4x                  1280x768  85Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     26       576i  50Hz  4x H                1280x768  120Hz reduced blanking&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     27       288p  50Hz  4x                  1280x800        reduced blanking&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     28       288p  50Hz  4x H                1280x800  60Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     29       576p  50Hz  2x                  1280x800  75Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     30       576p  50Hz  2x H                1280x800  85Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     31       1080p 50Hz                      1280x800  120Hz reduced blanking&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     32       1080p 24Hz                      1280x960  60Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     33       1080p 25Hz                      1280x960  85Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     34       1080p 30Hz                      1280x960  120Hz reduced blanking&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     35       480p  60Hz  4x                  1280x1024 60Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     36       480p  60Hz  4x H                1280x1024 75Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     37       576p  50Hz  4x                  1280x1024 85Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     38       576p  50Hz  4x H                1280x1024 120Hz reduced blanking&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     39       1080i 50Hz  reduced blanking    1360x768  60Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     40       1080i 100Hz                     1360x768  120Hz reduced blanking&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     41       720p  100Hz                     1400x1050       reduced blanking&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     42       576p  100Hz                     1400x1050 60Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     43       576p  100Hz H                   1400x1050 75Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     44       576i  100Hz                     1400x1050 85Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     45       576i  100Hz H                   1400x1050 120Hz reduced blanking&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     46       1080i 120Hz                     1440x900        reduced blanking&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     47       720p  120Hz                     1440x900  60Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     48       480p  120Hz                     1440x900  75Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     49       480p  120Hz H                   1440x900  85Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     50       480i  120Hz                     1440x900  120Hz reduced blanking&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     51       480i  120Hz H                   1600x1200 60Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     52       576p  200Hz                     1600x1200 65Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     53       576p  200Hz H                   1600x1200 70Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     54       576i  200Hz                     1600x1200 75Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     55       576i  200Hz H                   1600x1200 85Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     56       480p  240Hz                     1600x1200 120Hz reduced blanking&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     57       480p  240Hz H                   1680x1050       reduced blanking&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     58       480i  240Hz                     1680x1050 60Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     59       480i  240Hz H                   1680x1050 75Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     60                                       1680x1050 85Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     61                                       1680x1050 120Hz reduced blanking&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     62                                       1792x1344 60Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     63                                       1792x1344 75Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     64                                       1792x1344 120Hz reduced blanking&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     65                                       1856x1392 60Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     66                                       1856x1392 75Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     67                                       1856x1392 120Hz reduced blanking&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     68                                       1920x1200       reduced blanking&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     69                                       1920x1200 60Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     70                                       1920x1200 75Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     71                                       1920x1200 85Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     72                                       1920x1200 120Hz reduced blanking&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     73                                       1920x1440 60Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     74                                       1920x1440 75Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     75                                       1920x1440 120Hz reduced blanking&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     76                                       2560x1600       reduced blanking&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     77                                       2560x1600 60Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     78                                       2560x1600 75Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     79                                       2560x1600 85Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     80                                       2560x1600 120Hz reduced blanking&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     81                                       1366x768  60Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     82                                       1080p     60Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     83                                       1600x900        reduced blanking&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     84                                       2048x1152       reduced blanking&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     85                                       720p      60Hz&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     86                                       1366x768        reduced blanking&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#hdmi_mode=1&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## hdmi_force_hotplug&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     Make RPi ignore hotplug signal from display and assume it is asserted.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#hdmi_force_hotplug=0&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## config_hdmi_boost&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     configure the signal strength of the HDMI interface.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     Value    Description&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     0        (Default)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     1&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     2&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     3&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     4        Try if you have interference issues with HDMI&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     5&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     6&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     7        Maximum&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#config_hdmi_boost=0&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;################################################################################&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##  Overscan Video Settings&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;################################################################################&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## overscan_left&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     number of pixels to skip on left&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#overscan_left=0&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## overscan_right&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     number of pixels to skip on right&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#overscan_right=0&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## overscan_top&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     number of pixels to skip on top&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#overscan_top=0&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## overscan_bottom&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     number of pixels to skip on bottom&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#overscan_bottom=0&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## disable_overscan&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     set to 1 to disable overscan&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     Value    Description&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     0        Overscan Enabled (Default)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     1        Overscan Disabled&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#disable_overscan=1&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;################################################################################&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##  Framebuffer Video Settings&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;################################################################################&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## framebuffer_width&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     console framebuffer width in pixels. Default is display width minus overscan.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#framebuffer_width=0&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## framebuffer_height&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     console framebuffer height in pixels. Default is display height minus overscan.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#framebuffer_height=0&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## framebuffer_depth&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     console framebuffer depth in bits per pixel.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     Value    Description&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     8        valid, but default RGB palette makes an unreadable screen&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     16       (Default)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     24       looks better but has corruption issues as of 2012/06/15&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     32       has no corruption issues but needs framebuffer_ignore_alpha=1 and shows the wrong colors as of 2012/06/15&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#framebuffer_height=16&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## framebuffer_ignore_alpha&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     set to 1 to disable alpha channel. Helps with 32bit.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     Value    Description&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     0        Enable Alpha Channel (Default)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     1        Disable Alpha Channel&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#framebuffer_ignore_alpha=0&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;################################################################################&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##  Test Settings&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;################################################################################&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## test_mode&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     enable test sound/image during boot for manufacturing test.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     Value    Description&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     0        Disable Test Mod (Default)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     1        Enable Test Mode&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#test_mode=0&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;################################################################################&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##  Cache Settings&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;################################################################################&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## disable_l2cache&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     disable arm access to GPU's L2 cache. Needs corresponding L2 disabled kernel.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     Value    Description&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     0        Enable L2 Cache (Default)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     1        Disable L2 cache&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#disable_l2cache=0&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;################################################################################&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##  Boot Option Settings&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;################################################################################&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## disable_commandline_tags&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     Stops start.elf from filling in ATAGS (memory from 0x100) before launching kernel&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#disable_commandline_tags=0&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## cmdline (string)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     Command line parameters. Can be used instead of cmdline.txt file&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#cmdline=&quot;&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## kernel (string)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     Alternative name to use when loading kernel.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#kernel=&quot;&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## kernel_address&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     address to load kernel.img file at&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#kernel_address=0x00000000&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## ramfsfile (string)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     ramfs file to load&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#ramfsfile=&quot;&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## device_tree_address&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     address to load device_tree at&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#device_tree_address=0x00000000&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## init_uart_baud&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     initial uart baud rate. Default 115200&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#init_uart_baud=115200&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## init_uart_clock&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     initial uart clock. Default 3000000&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#init_uart_clock=3000000&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## init_emmc_clock&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     initial emmc clock. Default 50000000 (50mhz default. increasing this can speedup your SD-card)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#init_emmc_clock=50000000&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## boot_delay&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     Waits for given number of seconds in start.elf before loading kernel.img.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#boot_delay=0&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;################################################################################&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##  Overclocking Settings&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;################################################################################&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## arm_freq&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     frequency of ARM in MHz. Default 700.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#arm_freq=700&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## gpu_freq&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     Sets core_freq, h264_freq, isp_freq, v3d_freq together.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#gpu_freq=250&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## core_freq&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     frequency of GPU processor core in MHz. Default 250.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#core_freq=250&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## h264_freq&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     frequency of hardware video block in MHz. Default 250.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#h264_freq=250&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## isp_freq&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     frequency of image sensor pipeline block in MHz. Default 250.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#isp_freq=250&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## v3d_freq&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     frequency of 3D block in MHz. Default 250.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#v3d_freq=250&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## sdram_freq&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     frequency of SDRAM in MHz. Default 400.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#sdram_freq=400&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;################################################################################&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##  Voltage Settings&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##  WARNING: Setting any of the parameters which over volt your Raspberry Pi&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##  will set a permanent bit within the SOC and your warranty is void. So If&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##  you care about the warranty do not adjust voltage.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;################################################################################&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## over_voltage&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     ARM/GPU core voltage adjust.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     Value    Description&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -16      0.8   V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -15      0.825 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -14      0.85  V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -13      0.875 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -12      0.9   V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -11      0.925 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -10      0.95  V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -9       0.975 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -8       1.0   V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -7       1.025 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -6       1.05  V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -5       1.075 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -4       1.1   V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -3       1.125 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -2       1.15  V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -1       1.175 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     0        1.2   V (Default)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     1        1.225 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     2        1.25  V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     3        1.275 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     4        1.3   V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     5        1.325 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     6        1.35  V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     7        1.375 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     8        1.4   V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#over_voltage=0&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## over_voltage_sdram&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     Sets over_voltage_sdram_c, over_voltage_sdram_i, over_voltage_sdram_p together&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     Value    Description&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -16      0.8   V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -15      0.825 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -14      0.85  V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -13      0.875 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -12      0.9   V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -11      0.925 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -10      0.95  V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -9       0.975 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -8       1.0   V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -7       1.025 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -6       1.05  V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -5       1.075 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -4       1.1   V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -3       1.125 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -2       1.15  V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -1       1.175 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     0        1.2   V (Default)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     1        1.225 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     2        1.25  V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     3        1.275 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     4        1.3   V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     5        1.325 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     6        1.35  V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     7        1.375 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     8        1.4   V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#over_voltage_sdram=0&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## over_voltage_sdram_c&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     SDRAM controller voltage adjust.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     Value    Description&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -16      0.8   V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -15      0.825 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -14      0.85  V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -13      0.875 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -12      0.9   V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -11      0.925 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -10      0.95  V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -9       0.975 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -8       1.0   V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -7       1.025 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -6       1.05  V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -5       1.075 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -4       1.1   V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -3       1.125 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -2       1.15  V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -1       1.175 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     0        1.2   V (Default)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     1        1.225 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     2        1.25  V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     3        1.275 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     4        1.3   V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     5        1.325 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     6        1.35  V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     7        1.375 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     8        1.4   V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#over_voltage_sdram_c=0&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## over_voltage_sdram_i&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     SDRAM I/O voltage adjust.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     Value    Description&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -16      0.8   V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -15      0.825 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -14      0.85  V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -13      0.875 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -12      0.9   V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -11      0.925 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -10      0.95  V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -9       0.975 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -8       1.0   V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -7       1.025 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -6       1.05  V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -5       1.075 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -4       1.1   V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -3       1.125 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -2       1.15  V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -1       1.175 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     0        1.2   V (Default)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     1        1.225 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     2        1.25  V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     3        1.275 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     4        1.3   V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     5        1.325 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     6        1.35  V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     7        1.375 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     8        1.4   V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#over_voltage_sdram_i=0&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## over_voltage_sdram_p&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     SDRAM phy voltage adjust.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     Value    Description&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -16      0.8   V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -15      0.825 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -14      0.85  V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -13      0.875 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -12      0.9   V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -11      0.925 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -10      0.95  V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -9       0.975 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -8       1.0   V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -7       1.025 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -6       1.05  V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -5       1.075 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -4       1.1   V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -3       1.125 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -2       1.15  V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     -1       1.175 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     0        1.2   V (Default)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     1        1.225 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     2        1.25  V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     3        1.275 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     4        1.3   V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     5        1.325 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     6        1.35  V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     7        1.375 V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##     8        1.4   V&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#over_voltage_sdram_p=0&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name>Dennis Schütt</name></author><category term="Hardware" /><category term="Raspberry Pi" /><summary type="html">Finally my RPi has been delivered! After unboxing it I really couldn’t image that is was that tiny. First thing I did, was grabbing my 8GB SanDisk SD-Card and copying the rootfs debian6-19-04-2012 onto it.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://schuett.io/7c9c6b672579bfb27792315b14da841b9f8c796f.png" /><media:content medium="image" url="https://schuett.io/7c9c6b672579bfb27792315b14da841b9f8c796f.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Preparing for the Future: IPv6</title><link href="https://schuett.io/2012/04/ipv6-launch/" rel="alternate" type="text/html" title="Preparing for the Future: IPv6" /><published>2012-04-27T19:14:59+02:00</published><updated>2012-04-27T19:14:59+02:00</updated><id>https://schuett.io/2012/04/ipv6-launch</id><content type="html" xml:base="https://schuett.io/2012/04/ipv6-launch/">&lt;p&gt;More and more providers change to dual stack to make their servers ready for the future. Dual stack means running IPv4 and IPv6 parallel on servers.&lt;/p&gt;
+
+&lt;p&gt;The magic date for several providers is 6 June 2012, from then on dual stack should work for daily use. I want to participate and made this site accessible through IPv6 today.&lt;/p&gt;
+
+&lt;picture&gt;&lt;source srcset=&quot;/assets/images/96af52085b7b2c06b3daf88b9cdacca613e15765-512-cc7a0197c.webp 512w&quot; type=&quot;image/webp&quot; /&gt;&lt;source srcset=&quot;/assets/images/96af52085b7b2c06b3daf88b9cdacca613e15765-512-cc7a0197c.png 512w&quot; type=&quot;image/png&quot; /&gt;&lt;img class=&quot;img-responsive img-rounded&quot; src=&quot;/assets/images/96af52085b7b2c06b3daf88b9cdacca613e15765-512-cc7a0197c.png&quot; width=&quot;512&quot; height=&quot;512&quot; /&gt;&lt;/picture&gt;
+
+&lt;p&gt;Get more information at &lt;a href=&quot;http://www.worldipv6launch.org/&quot;&gt;www.worldipv6launch.org&lt;/a&gt;&lt;/p&gt;</content><author><name>Dennis Schütt</name></author><category term="Website" /><summary type="html">More and more providers change to dual stack to make their servers ready for the future. Dual stack means running IPv4 and IPv6 parallel on servers.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://schuett.io/e8f13eb4e38275d2badebf26d64b36f0b9507044.png" /><media:content medium="image" url="https://schuett.io/e8f13eb4e38275d2badebf26d64b36f0b9507044.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Dockstar: new Kernel 3.3.3 ready to use</title><link href="https://schuett.io/2012/04/kernel-3-3-3-ready-to-use/" rel="alternate" type="text/html" title="Dockstar: new Kernel 3.3.3 ready to use" /><published>2012-04-26T14:31:20+02:00</published><updated>2012-04-26T14:31:20+02:00</updated><id>https://schuett.io/2012/04/kernel-3-3-3-ready-to-use</id><content type="html" xml:base="https://schuett.io/2012/04/kernel-3-3-3-ready-to-use/">&lt;p&gt;As you may have noticed, we were discussing things about newer kernels and drivers in the comments of &lt;a href=&quot;/2012/01/kernel-3-1-10-ready-to-use/&quot;&gt;Dockstar/Goflex: new Kernel 3.1.10 ready to use&lt;/a&gt;. With that in mind I started up my VM and looked at what I’ve got there in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/usr/src&lt;/code&gt; – there was a compiled 3.2.1 that initially wouldn’t boot. But following davy’s guide to upgrade U-Boot makes that one boot.&lt;/p&gt;
+
+&lt;p&gt;Taking a look at &lt;a href=&quot;http://kernel.org/&quot;&gt;kernel.org&lt;/a&gt; made me jealous… Here it is – a fully working 3.3.3:&lt;/p&gt;
+
+&lt;h1 id=&quot;1-upgrading-u-boot&quot;&gt;1. Upgrading U-Boot&lt;/h1&gt;
+
+&lt;p&gt;It is absolutely necessary to get a newer version than provided in Jeff’s script. Otherwise your dockstar will fail to boot up. If this happens you need to revert to a lower version of the kernel than 3.2.x (find help here: Dockstar: &lt;a href=&quot;/2011/03/dockstar-no-boot-self-compiled-kernel/&quot;&gt;Does not boot with self-compiled Kernel?&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;For now I didn’t get the kernel working with the goflex series, so this article is dedicated to dockstar users only.&lt;/p&gt;
+
+&lt;p&gt;What you need to do is carefully read through davy’s post &lt;a href=&quot;http://forum.doozan.com/read.php?3,6965&quot;&gt;Newer uBoot as workaround to 3.2 kernel problem?&lt;/a&gt; and follow these steps before installing my kernel.&lt;/p&gt;
+
+&lt;h1 id=&quot;2-upgrade-the-kernel&quot;&gt;2. Upgrade the Kernel&lt;/h1&gt;
+
+&lt;p&gt;This part is analogue to my other articles concerning kernel installations:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;If you know what you are doing you are ready to download and install the kernel. I am not responsible for any malfunctions or damages on your device!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I assume that you already set the arcNumber to 2998 to make the kernel identify the dockstar as a dockstar.
+You can install it as follows:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /tmp
+wget http://dev.shyd.de/dockstar/linux-image-3.3.3-dockstar-shyd_1.1_armel.deb
+dpkg &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; linux-image-3.3.3-dockstar-shyd_1.1_armel.deb
+
+&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /boot
+/usr/bin/mkimage &lt;span class=&quot;nt&quot;&gt;-A&lt;/span&gt; arm &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; linux &lt;span class=&quot;nt&quot;&gt;-T&lt;/span&gt; kernel  &lt;span class=&quot;nt&quot;&gt;-C&lt;/span&gt; none &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; 0x00008000 &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; 0x00008000 &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; Linux-3.3.3 &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; /boot/vmlinuz-3.3.3-dockstar-shyd /boot/uImage
+
+/usr/bin/mkimage &lt;span class=&quot;nt&quot;&gt;-A&lt;/span&gt; arm &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; linux &lt;span class=&quot;nt&quot;&gt;-T&lt;/span&gt; ramdisk &lt;span class=&quot;nt&quot;&gt;-C&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;gzip&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; 0x00000000 &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; 0x00000000 &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; initramfs &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; /boot/initrd.img-3.3.3-dockstar-shyd /boot/uInitrd
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You can leave the arcNumber untouched. In this case the LED will go off once the kernel has been loaded.&lt;/p&gt;
+
+&lt;p&gt;Once the device booted up again log in and check the output of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;uname -r&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;uname&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt;
+3.3.3-dockstar-shyd
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;led-setup&quot;&gt;LED setup&lt;/h1&gt;
+
+&lt;p&gt;You have to edit two files:&lt;/p&gt;
+
+&lt;p&gt;add to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/rc.local&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;default-on &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; /sys/class/leds/dockstar&lt;span class=&quot;se&quot;&gt;\:&lt;/span&gt;green&lt;span class=&quot;se&quot;&gt;\:&lt;/span&gt;health/trigger
+&lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;none       &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; /sys/class/leds/dockstar&lt;span class=&quot;se&quot;&gt;\:&lt;/span&gt;orange&lt;span class=&quot;se&quot;&gt;\:&lt;/span&gt;misc/trigger
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;and in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/init.d/halt&lt;/code&gt; find&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;log_action_msg &lt;span class=&quot;s2&quot;&gt;&quot;Will now halt&quot;&lt;/span&gt;
+halt &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$netdown&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$poweroff&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$hddown&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;add after&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;none &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; /sys/class/leds/dockstar&lt;span class=&quot;se&quot;&gt;\:&lt;/span&gt;green&lt;span class=&quot;se&quot;&gt;\:&lt;/span&gt;health/trigger
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;to set it off, when the system halts.&lt;/p&gt;</content><author><name>Dennis Schütt</name></author><category term="Hardware" /><category term="Dockstar" /><category term="Linux" /><category term="Kernel" /><summary type="html">As you may have noticed, we were discussing things about newer kernels and drivers in the comments of Dockstar/Goflex: new Kernel 3.1.10 ready to use. With that in mind I started up my VM and looked at what I’ve got there in /usr/src – there was a compiled 3.2.1 that initially wouldn’t boot. But following davy’s guide to upgrade U-Boot makes that one boot.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://schuett.io/f1d3f2586770c5e9c9a4acdc5d50579a8968857a.png" /><media:content medium="image" url="https://schuett.io/f1d3f2586770c5e9c9a4acdc5d50579a8968857a.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

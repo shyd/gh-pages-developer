@@ -1,491 +1,96 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    
-    <!-- Begin Jekyll SEO tag v2.7.1 -->
-<meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Debian as Download-Station: pyLoad (v0.4.7+)" />
-<meta name="author" content="Dennis Schütt" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="You want to turn your little home-server into a download agent you can control through a web-interface or a jabber account on your mobile phone? Then follow these few steps to get this done quickly. What is pyLoad? Let’s read the introduction from the developers’ website:" />
-<meta property="og:description" content="You want to turn your little home-server into a download agent you can control through a web-interface or a jabber account on your mobile phone? Then follow these few steps to get this done quickly. What is pyLoad? Let’s read the introduction from the developers’ website:" />
-<link rel="canonical" href="https://schuett.io/2011/01/debian-download-station-pyload/" />
-<meta property="og:url" content="https://schuett.io/2011/01/debian-download-station-pyload/" />
-<meta property="og:site_name" content="schuett.io" />
-<meta property="og:image" content="https://schuett.io/postimg/pyload-logo.png" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2011-01-31T20:26:02+01:00" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="https://schuett.io/postimg/pyload-logo.png" />
-<meta property="twitter:title" content="Debian as Download-Station: pyLoad (v0.4.7+)" />
-<script type="application/ld+json">
-{"author":{"@type":"Person","name":"Dennis Schütt"},"url":"https://schuett.io/2011/01/debian-download-station-pyload/","image":"https://schuett.io/postimg/pyload-logo.png","headline":"Debian as Download-Station: pyLoad (v0.4.7+)","dateModified":"2011-01-31T20:26:02+01:00","datePublished":"2011-01-31T20:26:02+01:00","description":"You want to turn your little home-server into a download agent you can control through a web-interface or a jabber account on your mobile phone? Then follow these few steps to get this done quickly. What is pyLoad? Let’s read the introduction from the developers’ website:","mainEntityOfPage":{"@type":"WebPage","@id":"https://schuett.io/2011/01/debian-download-station-pyload/"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
-
-    
-
-    <title>Debian as Download-Station: pyLoad (v0.4.7+) &middot; schuett.io</title>
-
-    <meta name="author" content="Dennis Schütt" />
-
-    
-
-    <link rel="alternate" type="application/rss+xml" title="schuett.io &middot; another tech blog.
-" href="/feed.xml" />
-
-    
-
-
-    
-    
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
-    
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
-    
-    
-
-    
-
-    
-
-    <!-- inject:css -->
-    <link rel="stylesheet" href="/assets/stylesheets/styles.css">
-    <!-- endinject -->
-
-
-    <!--
-    Touch Icon Generator BY daik.de
-    http://www.web-stuebchen.de
-    Lizenz: GNU General Public License
-    Copyright: 2014 - 2018 Stephan Heller [daik.de] <heller@daik.de>
-    -->
-    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.ico">
-    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
-    <link rel="icon" type="image/gif" href="/assets/images/favicon.gif">
-    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
-    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-57x57.png" sizes="57x57">
-    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-60x60.png" sizes="60x60">
-    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-72x72.png" sizes="72x72">
-    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-76x76.png" sizes="76x76">
-    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-114x114.png" sizes="114x114">
-    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-120x120.png" sizes="120x120">
-    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-128x128.png" sizes="128x128">
-    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-144x144.png" sizes="144x144">
-    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-152x152.png" sizes="152x152">
-    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-180x180.png" sizes="180x180">
-    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-precomposed.png">
-    <link rel="icon" type="image/png" href="/assets/images/favicon-16x16.png" sizes="16x16">
-    <link rel="icon" type="image/png" href="/assets/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/assets/images/favicon-96x96.png" sizes="96x96">
-    <link rel="icon" type="image/png" href="/assets/images/favicon-160x160.png" sizes="160x160">
-    <link rel="icon" type="image/png" href="/assets/images/favicon-192x192.png" sizes="192x192">
-    <link rel="icon" type="image/png" href="/assets/images/favicon-196x196.png" sizes="196x196">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-navbutton-color" content="#ffffff">
-    <meta name="application-name" content="schuett.io"/>
-    <meta name="msapplication-tooltip" content="schuett.io"/>
-    <meta name="apple-mobile-web-app-title" content="schuett.io"/>
-
-</head>
-
-
-<body>
-
-<!--[if lt IE 10]>
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta name=generator content="Jekyll v4.1.1"><meta property=og:title content="Debian as Download-Station: pyLoad (v0.4.7+)"><meta name=author content="Dennis Schütt"><meta property=og:locale content=en_US><meta name=description content="You want to turn your little home-server into a download agent you can control through a web-interface or a jabber account on your mobile phone? Then follow these few steps to get this done quickly. What is pyLoad? Let’s read the introduction from the developers’ website:"><meta property=og:description content="You want to turn your little home-server into a download agent you can control through a web-interface or a jabber account on your mobile phone? Then follow these few steps to get this done quickly. What is pyLoad? Let’s read the introduction from the developers’ website:"><link rel=canonical href=https://schuett.io/2011/01/debian-download-station-pyload/ ><meta property=og:url content=https://schuett.io/2011/01/debian-download-station-pyload/ ><meta property=og:site_name content=schuett.io><meta property=og:image content=https://schuett.io/83f5791c7841deb23e4ac578733ad9412716567e.png><meta property=og:type content=article><meta property=article:published_time content=2011-01-31T20:26:02+01:00><meta name=twitter:card content=summary_large_image><meta property=twitter:image content=https://schuett.io/83f5791c7841deb23e4ac578733ad9412716567e.png><meta property=twitter:title content="Debian as Download-Station: pyLoad (v0.4.7+)"><script type=application/ld+json>{"datePublished":"2011-01-31T20:26:02+01:00","image":"https://schuett.io/83f5791c7841deb23e4ac578733ad9412716567e.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://schuett.io/2011/01/debian-download-station-pyload/"},"url":"https://schuett.io/2011/01/debian-download-station-pyload/","author":{"@type":"Person","name":"Dennis Schütt"},"description":"You want to turn your little home-server into a download agent you can control through a web-interface or a jabber account on your mobile phone? Then follow these few steps to get this done quickly. What is pyLoad? Let’s read the introduction from the developers’ website:","headline":"Debian as Download-Station: pyLoad (v0.4.7+)","dateModified":"2011-01-31T20:26:02+01:00","@type":"BlogPosting","@context":"https://schema.org"}</script><title>Debian as Download-Station: pyLoad (v0.4.7+) &middot; schuett.io</title><meta name=author content="Dennis Schütt"><link rel=alternate type=application/rss+xml title="schuett.io &middot; another tech blog.
+" href=/feed.xml><link rel=stylesheet href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"><link rel=stylesheet href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"><link rel=stylesheet href=/assets/stylesheets/styles-9045b1fd1b.min.css><link rel="shortcut icon" type=image/x-icon href=/assets/images/favicon.ico><link rel=icon type=image/x-icon href=/assets/images/favicon.ico><link rel=icon type=image/gif href=/assets/images/favicon.gif><link rel=icon type=image/png href=/assets/images/favicon.png><link rel=apple-touch-icon href=/assets/images/apple-touch-icon.png><link rel=apple-touch-icon href=/assets/images/apple-touch-icon-57x57.png sizes=57x57><link rel=apple-touch-icon href=/assets/images/apple-touch-icon-60x60.png sizes=60x60><link rel=apple-touch-icon href=/assets/images/apple-touch-icon-72x72.png sizes=72x72><link rel=apple-touch-icon href=/assets/images/apple-touch-icon-76x76.png sizes=76x76><link rel=apple-touch-icon href=/assets/images/apple-touch-icon-114x114.png sizes=114x114><link rel=apple-touch-icon href=/assets/images/apple-touch-icon-120x120.png sizes=120x120><link rel=apple-touch-icon href=/assets/images/apple-touch-icon-128x128.png sizes=128x128><link rel=apple-touch-icon href=/assets/images/apple-touch-icon-144x144.png sizes=144x144><link rel=apple-touch-icon href=/assets/images/apple-touch-icon-152x152.png sizes=152x152><link rel=apple-touch-icon href=/assets/images/apple-touch-icon-180x180.png sizes=180x180><link rel=apple-touch-icon href=/assets/images/apple-touch-icon-precomposed.png><link rel=icon type=image/png href=/assets/images/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=/assets/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/assets/images/favicon-96x96.png sizes=96x96><link rel=icon type=image/png href=/assets/images/favicon-160x160.png sizes=160x160><link rel=icon type=image/png href=/assets/images/favicon-192x192.png sizes=192x192><link rel=icon type=image/png href=/assets/images/favicon-196x196.png sizes=196x196><meta name=msapplication-TileColor content=#ffffff><meta name=msapplication-navbutton-color content=#ffffff><meta name=application-name content=schuett.io><meta name=msapplication-tooltip content=schuett.io><meta name=apple-mobile-web-app-title content=schuett.io></head><body><!--[if lt IE 10]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
-<![endif]-->
-
-<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      
-        <a class="navbar-brand" href="https://schuett.io"> <span class="fa-layers fa-fw">
-            <i class="far fa-window-maximize" style="" data-fa-transform=""></i>
-            <i class="fas fa-chevron-left" data-fa-transform="shrink-13 down-2 left-4.7"></i>
-            <i class="fas fa-chevron-right" data-fa-transform="shrink-13 down-2 right-4.7"></i>
-            <i class="fas fa-cogs" data-fa-transform="shrink-11 down-2"></i>
-        </span>
-        <span>schuett.io</span></a>
-      
-    </div>
-
-    <div class="collapse navbar-collapse" id="main-navbar">
-      <ul class="nav navbar-nav navbar-right">
-      
-        
-          <li>
-            
-
-
-
-
-
-
-<a href="/">Blog</a>
-
-          </li>
-        
-        
-        
-          <li>
-            
-
-
-
-
-
-
-<a href="/tags">Tags</a>
-
-          </li>
-        
-        
-        
-          <li>
-            
-
-
-
-
-
-
-<a href="/wtf">About</a>
-
-          </li>
-        
-        
-        
-          <li>
-            
-
-
-
-
-
-
-<a href="/contact">Contact</a>
-
-          </li>
-        
-        
-        
-          <li>
-            
-
-
-
-
-
-
-<a href="/imprint">Imprint</a>
-
-          </li>
-        
-        
-
-          
-      </ul>
-    </div>
-
-	
-
-  </div>
-</nav>
-
-
-<!-- TODO this file has become a mess, refactor it -->
-
-
-
-
-
-<header class="header-section ">
-
-<div class="intro-header no-img">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-          <div class="page-image large">
-          
-              <picture><source srcset="/assets/images/postimg/pyload-logo-150-412051f22.webp 150w" type="image/webp"><source srcset="/assets/images/postimg/pyload-logo-150-412051f22.png 150w" type="image/png"><img src="/assets/images/postimg/pyload-logo-150-412051f22.png" width="150" height="150"></picture>
-
-          
-          </div>
-      </div>
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="post-heading">
-          <h1>Debian as Download-Station: pyLoad (v0.4.7+)</h1>
-		  
-
-		  
-		  <span class="post-meta">Posted on January 31, 2011</span>
-		  
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</header>
-
-
-
-
-
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-
-            
-
-            <article role="main" class="blog-post">
-                <p>You want to turn your little home-server into a download agent you can control through a web-interface or a jabber account on your mobile phone? Then follow these few steps to get this done quickly.<br>
-What is pyLoad? Let’s read the introduction from the developers’ website:</p>
-
-<blockquote>
-  <p>pyLoad is a fast, lightweight and full featured download manager for many One-Click-Hoster, container formats like DLC, video sites or just plain http/ftp links. It aims for low hardware requirements and platform independence to be runnable on all kind of systems (desktop pc, netbook, NAS, router).<br>
-Despite its strict restriction it is packed full of features just like webinterface, captcha recognition, unrar and much more. <a href="http://pyload.org" target="_blank">http://pyload.org</a></p>
-</blockquote>
-
-<p><strong>Read Update 10.08.2011 to get the current version.</strong></p>
-
-<p>Obsolete guide:</p>
-
-<p>There already is an installation-package for debian, but it contains the dependencies of the GUI, but as you guess we don’t need a GUI on a box without display. So you can modify the deb-package like that:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget http://get.pyload.org/get/build/debian/pyload-v0.4.6-all.deb
-<span class="nb">mkdir</span> /tmp/deb
-dpkg-deb <span class="nt">-x</span> pyload-v0.4.6-all.deb /tmp/deb/
-dpkg-deb <span class="nt">--control</span> pyload-v0.4.6-all.deb /tmp/deb/
+<![endif]--><nav class="navbar navbar-default navbar-fixed-top navbar-custom"><div class=container-fluid><div class=navbar-header><button type=button class=navbar-toggle data-toggle=collapse data-target=#main-navbar><span class=sr-only>Toggle navigation</span> <span class=icon-bar></span> <span class=icon-bar></span> <span class=icon-bar></span></button> <a class=navbar-brand href=https://schuett.io><span class="fa-layers fa-fw"><i class="far fa-window-maximize" style="" data-fa-transform=""></i> <i class="fas fa-chevron-left" data-fa-transform="shrink-13 down-2 left-4.7"></i> <i class="fas fa-chevron-right" data-fa-transform="shrink-13 down-2 right-4.7"></i> <i class="fas fa-cogs" data-fa-transform="shrink-11 down-2"></i> </span><span>schuett.io</span></a></div><div class="collapse navbar-collapse" id=main-navbar><ul class="nav navbar-nav navbar-right"><li><a href=/ >Blog</a></li><li><a href=/tags>Tags</a></li><li><a href=/wtf>About</a></li><li><a href=/contact>Contact</a></li><li><a href=/imprint>Imprint</a></li></ul></div></div></nav><header class=header-section><div class="intro-header no-img"><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><div class="page-image large"><picture><source srcset="/assets/images/83f5791c7841deb23e4ac578733ad9412716567e-150-412051f22.webp 150w" type=image/webp><source srcset="/assets/images/83f5791c7841deb23e4ac578733ad9412716567e-150-412051f22.png 150w" type=image/png><img src=/assets/images/83f5791c7841deb23e4ac578733ad9412716567e-150-412051f22.png width=150 height=150></picture></div></div><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><div class=post-heading><h1>Debian as Download-Station: pyLoad (v0.4.7+)</h1><span class=post-meta>Posted on January 31, 2011</span></div></div></div></div></div></header><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><article role=main class=blog-post><p>You want to turn your little home-server into a download agent you can control through a web-interface or a jabber account on your mobile phone? Then follow these few steps to get this done quickly.<br>What is pyLoad? Let’s read the introduction from the developers’ website:</p><blockquote><p>pyLoad is a fast, lightweight and full featured download manager for many One-Click-Hoster, container formats like DLC, video sites or just plain http/ftp links. It aims for low hardware requirements and platform independence to be runnable on all kind of systems (desktop pc, netbook, NAS, router).<br>Despite its strict restriction it is packed full of features just like webinterface, captcha recognition, unrar and much more. <a href=http://pyload.org target=_blank>http://pyload.org</a></p></blockquote><p><strong>Read Update 10.08.2011 to get the current version.</strong></p><p>Obsolete guide:</p><p>There already is an installation-package for debian, but it contains the dependencies of the GUI, but as you guess we don’t need a GUI on a box without display. So you can modify the deb-package like that:</p><div class="language-bash highlighter-rouge"><div class=highlight><pre class=highlight><code>wget http://get.pyload.org/get/build/debian/pyload-v0.4.6-all.deb
+<span class=nb>mkdir</span> /tmp/deb
+dpkg-deb <span class=nt>-x</span> pyload-v0.4.6-all.deb /tmp/deb/
+dpkg-deb <span class=nt>--control</span> pyload-v0.4.6-all.deb /tmp/deb/
 vim /tmp/deb/control
-     Depends: Depends: python <span class="o">(&gt;=</span> 2.5<span class="o">)</span>, python-pycurl, python-crypto, python-imaging, tesseract-ocr, tesseract-ocr-eng <span class="c">#deleted: python-qt4 (&gt;= 4.3)</span>
-<span class="nb">mkdir</span> /tmp/deb/DEBIAN
-<span class="nb">mv</span> /tmp/deb/control /tmp/deb/DEBIAN/control
-dpkg <span class="nt">-b</span> /tmp/deb pyload-v0.4.6-all-mod.deb
-</code></pre></div></div>
+     Depends: Depends: python <span class=o>(&gt;=</span> 2.5<span class=o>)</span>, python-pycurl, python-crypto, python-imaging, tesseract-ocr, tesseract-ocr-eng <span class=c>#deleted: python-qt4 (&gt;= 4.3)</span>
+<span class=nb>mkdir</span> /tmp/deb/DEBIAN
+<span class=nb>mv</span> /tmp/deb/control /tmp/deb/DEBIAN/control
+dpkg <span class=nt>-b</span> /tmp/deb pyload-v0.4.6-all-mod.deb
+</code></pre></div></div><p>Well, I’ve done this, why wouldn’t I share my deb-file with you? There you go:</p><div class="language-bash highlighter-rouge"><div class=highlight><pre class=highlight><code>wget http://dev.shyd.de/dockstar/pyload-v0.4.6-all-mod.deb <span class=c># get the file</span>
+dpkg <span class=nt>-i</span> pyload-v0.4.6-all-mod.deb <span class=c># and install it</span>
+apt-get <span class=nt>-f</span> <span class=nb>install</span> <span class=c># install dependencies</span>
+dpkg-reconfigure pyload <span class=c># reconfigure pyload for the deps</span>
+</code></pre></div></div><p>Now you are ready for the first start, you will be asked a couple of questions:</p><div class="language-bash highlighter-rouge"><div class=highlight><pre class=highlight><code>python /usr/share/pyload/pyLoadCore.py
+</code></pre></div></div><p>If everything went well you should be able to login to the web interface, if you chose the default port try dockstar:8000 Once you are logged in go to the settings menu, you may want to turn off the checksums due to the limited CPU of the dockstar.<br>I have found an init-script to run pyload as service, unfortunately it conflicts with <code class="language-plaintext highlighter-rouge">apt-get</code> when upgrading. So I added this line to <code class="language-plaintext highlighter-rouge">/etc/rc.local</code> to start pyload on startup:</p><div class="language-bash highlighter-rouge"><div class=highlight><pre class=highlight><code>vim /etc/rc.local
+su <span class=nt>-c</span> <span class=s1>'screen -dmS pyload python /usr/share/pyload/pyLoadCore.py'</span>
+</code></pre></div></div><p>This will create a screen named <code class="language-plaintext highlighter-rouge">pyload</code> for the user root, I do this as <code class="language-plaintext highlighter-rouge">su -c</code> because I want to store the configuration-files in <code class="language-plaintext highlighter-rouge">/root/.pyload/</code>.<br>If you want to take a look at the console-output of pyload just attach the screen with:</p><div class="language-bash highlighter-rouge"><div class=highlight><pre class=highlight><code>screen <span class=nt>-r</span> pyload
+</code></pre></div></div><p>And simply detach it by pressing CTRL+A D.</p><h1 id=update-13022011>Update 13.02.2011:</h1><p>After some research I finally found a method to start/stop/restart pyLoad with the following script. Remember to comment or delete the line from above in <code class="language-plaintext highlighter-rouge">/etc/rc.local</code>.<br>Create the file <code class="language-plaintext highlighter-rouge">/etc/init.d/pyload</code> (modify the USER variable with the user that you have created the config and make it executable)</p><div class="language-bash highlighter-rouge"><div class=highlight><pre class=highlight><code><span class=c>#!/bin/sh -e</span>
+<span class=c>### BEGIN INIT INFO</span>
+<span class=c># Provides:          pyload</span>
+<span class=c># Required-Start:    $local_fs $remote_fs $network</span>
+<span class=c># Required-Stop:     $local_fs $remote_fs $network</span>
+<span class=c># Default-Start:     2 3 4 5</span>
+<span class=c># Default-Stop:      0 1 6</span>
+<span class=c># Short-Description: Start or stop pyload.</span>
+<span class=c>### END INIT INFO</span>
 
-<p>Well, I’ve done this, why wouldn’t I share my deb-file with you? There you go:</p>
+<span class=nv>NAME</span><span class=o>=</span>pyload
+<span class=nv>DAEMON</span><span class=o>=</span>/usr/bin/pyLoadCore
+<span class=nv>USER</span><span class=o>=</span>root
+<span class=nv>STOP_TIMEOUT</span><span class=o>=</span>3
+<span class=nv>PIDFILE</span><span class=o>=</span>/var/run/<span class=nv>$NAME</span>.pid
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget http://dev.shyd.de/dockstar/pyload-v0.4.6-all-mod.deb <span class="c"># get the file</span>
-dpkg <span class="nt">-i</span> pyload-v0.4.6-all-mod.deb <span class="c"># and install it</span>
-apt-get <span class="nt">-f</span> <span class="nb">install</span> <span class="c"># install dependencies</span>
-dpkg-reconfigure pyload <span class="c"># reconfigure pyload for the deps</span>
-</code></pre></div></div>
+<span class=nb>export </span><span class=nv>PATH</span><span class=o>=</span><span class=s2>"</span><span class=k>${</span><span class=nv>PATH</span>:+<span class=nv>$PATH</span>:<span class=k>}</span><span class=s2>/sbin"</span>
 
-<p>Now you are ready for the first start, you will be asked a couple of questions:</p>
+<span class=o>[</span> <span class=nt>-x</span> <span class=nv>$DAEMON</span> <span class=o>]</span> <span class=o>||</span> <span class=nb>exit </span>0
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python /usr/share/pyload/pyLoadCore.py
-</code></pre></div></div>
+<span class=o>[</span> <span class=nt>-e</span> /etc/default/<span class=nv>$NAME</span> <span class=o>]</span> <span class=o>&amp;&amp;</span> <span class=nb>.</span> /etc/default/<span class=nv>$NAME</span>
 
-<p>If everything went well you should be able to login to the web interface, if you chose the default port try dockstar:8000 Once you are logged in go to the settings menu, you may want to turn off the checksums due to the limited CPU of the dockstar.<br>
-I have found an init-script to run pyload as service, unfortunately it conflicts with <code class="language-plaintext highlighter-rouge">apt-get</code> when upgrading. So I added this line to <code class="language-plaintext highlighter-rouge">/etc/rc.local</code> to start pyload on startup:</p>
+<span class=nb>.</span> /lib/lsb/init-functions
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim /etc/rc.local
-su <span class="nt">-c</span> <span class="s1">'screen -dmS pyload python /usr/share/pyload/pyLoadCore.py'</span>
-</code></pre></div></div>
+start_daemon <span class=o>()</span> <span class=o>{</span>
+    start-stop-daemon <span class=nt>--start</span> <span class=nt>--pidfile</span> <span class=nv>$PIDFILE</span> <span class=nt>--chuid</span> <span class=nv>$USER</span> <span class=nt>--exec</span> <span class=nv>$DAEMON</span> <span class=nt>--</span> <span class=nv>$OPTIONS</span> | <span class=nb>cut</span> <span class=nt>-d</span><span class=s2>" "</span> <span class=nt>-f</span> 3 <span class=o>&gt;</span> <span class=nv>$PIDFILE</span>
+<span class=o>}</span>
 
-<p>This will create a screen named <code class="language-plaintext highlighter-rouge">pyload</code> for the user root, I do this as <code class="language-plaintext highlighter-rouge">su -c</code> because I want to store the configuration-files in <code class="language-plaintext highlighter-rouge">/root/.pyload/</code>.<br>
-If you want to take a look at the console-output of pyload just attach the screen with:</p>
+stop_daemon <span class=o>()</span> <span class=o>{</span>
+    start-stop-daemon <span class=nt>--stop</span> <span class=nt>--retry</span><span class=o>=</span><span class=s2>"TERM/30/KILL/5"</span> <span class=nt>--pidfile</span> <span class=s2>"</span><span class=nv>$PIDFILE</span><span class=s2>"</span> <span class=nt>--user</span> <span class=s2>"</span><span class=nv>$USER</span><span class=s2>"</span> <span class=nt>--chuid</span> <span class=s2>"</span><span class=nv>$USER</span><span class=s2>"</span>
+<span class=o>}</span>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>screen <span class="nt">-r</span> pyload
-</code></pre></div></div>
-
-<p>And simply detach it by pressing CTRL+A D.</p>
-
-<h1 id="update-13022011">Update 13.02.2011:</h1>
-
-<p>After some research I finally found a method to start/stop/restart pyLoad with the following script. Remember to comment or delete the line from above in <code class="language-plaintext highlighter-rouge">/etc/rc.local</code>.<br>
-Create the file <code class="language-plaintext highlighter-rouge">/etc/init.d/pyload</code> (modify the USER variable with the user that you have created the config and make it executable)</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh -e</span>
-<span class="c">### BEGIN INIT INFO</span>
-<span class="c"># Provides:          pyload</span>
-<span class="c"># Required-Start:    $local_fs $remote_fs $network</span>
-<span class="c"># Required-Stop:     $local_fs $remote_fs $network</span>
-<span class="c"># Default-Start:     2 3 4 5</span>
-<span class="c"># Default-Stop:      0 1 6</span>
-<span class="c"># Short-Description: Start or stop pyload.</span>
-<span class="c">### END INIT INFO</span>
-
-<span class="nv">NAME</span><span class="o">=</span>pyload
-<span class="nv">DAEMON</span><span class="o">=</span>/usr/bin/pyLoadCore
-<span class="nv">USER</span><span class="o">=</span>root
-<span class="nv">STOP_TIMEOUT</span><span class="o">=</span>3
-<span class="nv">PIDFILE</span><span class="o">=</span>/var/run/<span class="nv">$NAME</span>.pid
-
-<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">PATH</span>:+<span class="nv">$PATH</span>:<span class="k">}</span><span class="s2">/sbin"</span>
-
-<span class="o">[</span> <span class="nt">-x</span> <span class="nv">$DAEMON</span> <span class="o">]</span> <span class="o">||</span> <span class="nb">exit </span>0
-
-<span class="o">[</span> <span class="nt">-e</span> /etc/default/<span class="nv">$NAME</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">.</span> /etc/default/<span class="nv">$NAME</span>
-
-<span class="nb">.</span> /lib/lsb/init-functions
-
-start_daemon <span class="o">()</span> <span class="o">{</span>
-    start-stop-daemon <span class="nt">--start</span> <span class="nt">--pidfile</span> <span class="nv">$PIDFILE</span> <span class="nt">--chuid</span> <span class="nv">$USER</span> <span class="nt">--exec</span> <span class="nv">$DAEMON</span> <span class="nt">--</span> <span class="nv">$OPTIONS</span> | <span class="nb">cut</span> <span class="nt">-d</span><span class="s2">" "</span> <span class="nt">-f</span> 3 <span class="o">&gt;</span> <span class="nv">$PIDFILE</span>
-<span class="o">}</span>
-
-stop_daemon <span class="o">()</span> <span class="o">{</span>
-    start-stop-daemon <span class="nt">--stop</span> <span class="nt">--retry</span><span class="o">=</span><span class="s2">"TERM/30/KILL/5"</span> <span class="nt">--pidfile</span> <span class="s2">"</span><span class="nv">$PIDFILE</span><span class="s2">"</span> <span class="nt">--user</span> <span class="s2">"</span><span class="nv">$USER</span><span class="s2">"</span> <span class="nt">--chuid</span> <span class="s2">"</span><span class="nv">$USER</span><span class="s2">"</span>
-<span class="o">}</span>
-
-<span class="k">case</span> <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> <span class="k">in
-    </span>start<span class="p">)</span>
-        log_daemon_msg <span class="s2">"Starting pyLoadCore"</span> <span class="s2">"</span><span class="nv">$NAME</span><span class="s2">"</span>
+<span class=k>case</span> <span class=s2>"</span><span class=nv>$1</span><span class=s2>"</span> <span class=k>in
+    </span>start<span class=p>)</span>
+        log_daemon_msg <span class=s2>"Starting pyLoadCore"</span> <span class=s2>"</span><span class=nv>$NAME</span><span class=s2>"</span>
         start_daemon
         log_end_msg 0
-        <span class="p">;;</span>
-    stop<span class="p">)</span>
-        log_daemon_msg <span class="s2">"Stopping pyLoadCore"</span> <span class="s2">"</span><span class="nv">$NAME</span><span class="s2">"</span>
+        <span class=p>;;</span>
+    stop<span class=p>)</span>
+        log_daemon_msg <span class=s2>"Stopping pyLoadCore"</span> <span class=s2>"</span><span class=nv>$NAME</span><span class=s2>"</span>
         stop_daemon
         log_end_msg 0
-        <span class="p">;;</span>
-    restart<span class="p">)</span>
-        log_daemon_msg <span class="s2">"Restarting pyLoadCore"</span> <span class="s2">"</span><span class="nv">$NAME</span><span class="s2">"</span>
+        <span class=p>;;</span>
+    restart<span class=p>)</span>
+        log_daemon_msg <span class=s2>"Restarting pyLoadCore"</span> <span class=s2>"</span><span class=nv>$NAME</span><span class=s2>"</span>
         stop_daemon
         start_daemon
         log_end_msg 0
-        <span class="p">;;</span>
-    <span class="k">*</span><span class="p">)</span>
-        <span class="nb">echo</span> <span class="s2">"Usage: /etc/init.d/</span><span class="nv">$NAME</span><span class="s2"> {start|stop|restart}"</span>
-        <span class="nb">exit </span>2
-        <span class="p">;;</span>
-<span class="k">esac</span>
+        <span class=p>;;</span>
+    <span class=k>*</span><span class=p>)</span>
+        <span class=nb>echo</span> <span class=s2>"Usage: /etc/init.d/</span><span class=nv>$NAME</span><span class=s2> {start|stop|restart}"</span>
+        <span class=nb>exit </span>2
+        <span class=p>;;</span>
+<span class=k>esac</span>
 
-<span class="nb">exit </span>0
-</code></pre></div></div>
-
-<p>Create the file <code class="language-plaintext highlighter-rouge">/etc/default/pyload</code></p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># defaults for pyload
+<span class=nb>exit </span>0
+</code></pre></div></div><p>Create the file <code class="language-plaintext highlighter-rouge">/etc/default/pyload</code></p><div class="language-plaintext highlighter-rouge"><div class=highlight><pre class=highlight><code># defaults for pyload
 # sourced by /etc/init.d/pyload
 
 OPTIONS="--daemon"
-</code></pre></div></div>
-
-<p>And finally execute</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>insserv pyload
-</code></pre></div></div>
-
-<p>to add the service.</p>
-
-<h1 id="update-17032011-v045">Update 17.03.2011: v0.4.5</h1>
-
-<p>There is a new version available, I created the <code class="language-plaintext highlighter-rouge">pyload-v0.4.5-noarch-mod.deb</code> so you can easily update your installation!</p>
-
-<h1 id="update-22042011-update-tiptargz">Update 22.04.2011: Update tip.tar.gz</h1>
-
-<p>When I started using pyLoad, I subscribed the feed from bitbucket to get updates. Once they make an update, there is a tarball with these changes. I wrote a little script to update the pyLoad installation to the most recent tip.<br>
-You have to edit the path of your pyLoad installation, then run it:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget http://dev.shyd.de/dockstar/update-pyload-tip.sh
-<span class="nb">chmod</span> +x update-pyload-tip.sh
+</code></pre></div></div><p>And finally execute</p><div class="language-bash highlighter-rouge"><div class=highlight><pre class=highlight><code>insserv pyload
+</code></pre></div></div><p>to add the service.</p><h1 id=update-17032011-v045>Update 17.03.2011: v0.4.5</h1><p>There is a new version available, I created the <code class="language-plaintext highlighter-rouge">pyload-v0.4.5-noarch-mod.deb</code> so you can easily update your installation!</p><h1 id=update-22042011-update-tiptargz>Update 22.04.2011: Update tip.tar.gz</h1><p>When I started using pyLoad, I subscribed the feed from bitbucket to get updates. Once they make an update, there is a tarball with these changes. I wrote a little script to update the pyLoad installation to the most recent tip.<br>You have to edit the path of your pyLoad installation, then run it:</p><div class="language-bash highlighter-rouge"><div class=highlight><pre class=highlight><code>wget http://dev.shyd.de/dockstar/update-pyload-tip.sh
+<span class=nb>chmod</span> +x update-pyload-tip.sh
 ./update-pyload-tip.sh
-</code></pre></div></div>
-
-<h1 id="update-15062011-v046">Update 15.06.2011: v0.4.6</h1>
-
-<p>Today a new version has been released, so I updated my modded files. You can now download <code class="language-plaintext highlighter-rouge">pyload-v0.4.6-all-mod.deb</code> and update your installation:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget http://dev.shyd.de/dockstar/pyload-v0.4.6-all-mod.deb
-dpkg <span class="nt">-i</span> pyload-v0.4.6-all-mod.deb
-</code></pre></div></div>
-
-<h1 id="update-10082011-v047">Update 10.08.2011: v0.4.7</h1>
-
-<p>Some of you might have seen there is a cli-deb available since v0.4.6. This one exactly equals my modded deb files. I decided not to update my files in future as long the cli version is downloadable at pyload.org. In order to update you need to remove my version (config won’t be touched) and install the cli version, because they are conflicting:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dpkg <span class="nt">-r</span> pyload <span class="c">#only do this if you get errors during update</span>
+</code></pre></div></div><h1 id=update-15062011-v046>Update 15.06.2011: v0.4.6</h1><p>Today a new version has been released, so I updated my modded files. You can now download <code class="language-plaintext highlighter-rouge">pyload-v0.4.6-all-mod.deb</code> and update your installation:</p><div class="language-bash highlighter-rouge"><div class=highlight><pre class=highlight><code>wget http://dev.shyd.de/dockstar/pyload-v0.4.6-all-mod.deb
+dpkg <span class=nt>-i</span> pyload-v0.4.6-all-mod.deb
+</code></pre></div></div><h1 id=update-10082011-v047>Update 10.08.2011: v0.4.7</h1><p>Some of you might have seen there is a cli-deb available since v0.4.6. This one exactly equals my modded deb files. I decided not to update my files in future as long the cli version is downloadable at pyload.org. In order to update you need to remove my version (config won’t be touched) and install the cli version, because they are conflicting:</p><div class="language-bash highlighter-rouge"><div class=highlight><pre class=highlight><code>dpkg <span class=nt>-r</span> pyload <span class=c>#only do this if you get errors during update</span>
 wget http://get.pyload.org/get/ubuntu-cli/pyload-cli-v0.4.7-all.deb
-dpkg <span class="nt">-i</span> pyload-cli-v0.4.7-all.deb
-</code></pre></div></div>
-
-<p>If a new version is released I will not update this article unless there are big changes I need to tell you 😉</p>
-
-<h2 id="future-releases">Future releases:</h2>
-
-<p>In future you should be able to update pyload-cli as follows:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget http://get.pyload.org/get/ubuntu-cli/pyload-cli-v0.4.x-all.deb
-dpkg <span class="nt">-i</span> pyload-cli-v0.4.x-all.deb
-</code></pre></div></div>
-
-<h1 id="references">References</h1>
-
-<ul>
-  <li><a href="http://www.dermute.de/227-debian-als-download-center-pyload-transmission" target="_blank">http://www.dermute.de/227-debian-als-download-center-pyload-transmission</a></li>
-  <li>
-<del>http://forum.pyload.org/viewtopic.php?f=7&amp;t=234</del> <em>dead link</em>
-</li>
-</ul>
-
-            </article>
-
-            
-            <div class="blog-tags">
-                Tags:
-                
-                
-                <a href="/tags#Hardware">Hardware</a>
-                
-                <a href="/tags#HowTo">HowTo</a>
-                
-                <a href="/tags#Dockstar">Dockstar</a>
-                
-                <a href="/tags#Linux">Linux</a>
-                
-                <a href="/tags#Linkstation">Linkstation</a>
-                
-                <a href="/tags#Raspberry Pi">Raspberry Pi</a>
-                
-                <a href="/tags#Goflex">Goflex</a>
-                
-                
-            </div>
-            
-
-            
-            <!-- Check if any share-links are active -->
-
-
-
-
-
-            
-
-            <ul class="pager blog-pager">
-                
-                <li class="previous">
-                    <a href="/2011/01/dockstar-nas-automount-hd-idle-samba-ftp/" data-toggle="tooltip" data-placement="top" title="Dockstar-NAS: Automount, hd-idle, Samba, FTP">&larr; Previous Post</a>
-                </li>
-                
-                
-                <li class="next">
-                    <a href="/2011/02/dockstar-howto-setup-openvpn-debian/" data-toggle="tooltip" data-placement="top" title="Dockstar: HowTo setup OpenVPN on Debian">Next Post &rarr;</a>
-                </li>
-                
-            </ul>
-
-            
-            <div class="disqus-comments">
-                
-<div class="comments">
-	<div id="disqus_thread"></div>
-	<script type="text/javascript">
-
-	    var disqus_shortname = 'dev-shyd';
+dpkg <span class=nt>-i</span> pyload-cli-v0.4.7-all.deb
+</code></pre></div></div><p>If a new version is released I will not update this article unless there are big changes I need to tell you 😉</p><h2 id=future-releases>Future releases:</h2><p>In future you should be able to update pyload-cli as follows:</p><div class="language-bash highlighter-rouge"><div class=highlight><pre class=highlight><code>wget http://get.pyload.org/get/ubuntu-cli/pyload-cli-v0.4.x-all.deb
+dpkg <span class=nt>-i</span> pyload-cli-v0.4.x-all.deb
+</code></pre></div></div><h1 id=references>References</h1><ul><li><a href=http://www.dermute.de/227-debian-als-download-center-pyload-transmission target=_blank>http://www.dermute.de/227-debian-als-download-center-pyload-transmission</a></li><li><del>http://forum.pyload.org/viewtopic.php?f=7&amp;t=234</del> <em>dead link</em></li></ul></article><div class=blog-tags>Tags: <a href=/tags#Hardware>Hardware</a> <a href=/tags#HowTo>HowTo</a> <a href=/tags#Dockstar>Dockstar</a> <a href=/tags#Linux>Linux</a> <a href=/tags#Linkstation>Linkstation</a> <a href="/tags#Raspberry Pi">Raspberry Pi</a> <a href=/tags#Goflex>Goflex</a></div><ul class="pager blog-pager"><li class=previous><a href=/2011/01/dockstar-nas-automount-hd-idle-samba-ftp/ data-toggle=tooltip data-placement=top title="Dockstar-NAS: Automount, hd-idle, Samba, FTP">&larr; Previous Post</a></li><li class=next><a href=/2011/02/dockstar-howto-setup-openvpn-debian/ data-toggle=tooltip data-placement=top title="Dockstar: HowTo setup OpenVPN on Debian">Next Post &rarr;</a></li></ul><div class=disqus-comments><div class=comments><div id=disqus_thread></div><script type=text/javascript>var disqus_shortname = 'dev-shyd';
         var disqus_identifier = '496 http://dev.shyd.de/?p=496';
         var disqus_title = 'Debian as Download-Station: pyLoad (v0.4.7+)';
 
@@ -493,83 +98,4 @@ dpkg <span class="nt">-i</span> pyload-cli-v0.4.x-all.deb
 	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
 	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	    })();
-
-	</script>
-	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
-
-
-            </div>
-            
-        </div>
-    </div>
-</div>
-
-
-<footer>
-    <div class="container beautiful-jekyll-footer">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center footer-links"><li><a href="/feed.xml" title="RSS" target="_blank"><span class="fa-stack fa-lg" aria-hidden="true">
-                  <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
-                </span>
-                                    <span class="sr-only">RSS</span>
-                                </a>
-                    </li><li><a href="/contact" title="Email me"><span class="fa-stack fa-lg" aria-hidden="true">
-                  <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
-                </span>
-                                    <span class="sr-only">Email me</span>
-                                </a>
-                    </li><li><a href="https://github.com/shyd" title="GitHub" target="_blank"><span class="fa-stack fa-lg" aria-hidden="true">
-                  <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                </span>
-                                    <span class="sr-only">GitHub</span>
-                                </a>
-                    </li><li><a href="https://hub.docker.com/u/shyd" title="Docker" target="_blank"><span class="fa-stack fa-lg" aria-hidden="true">
-                  <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fab fa-docker fa-stack-1x fa-inverse"></i>
-                </span>
-                                    <span class="sr-only">Docker</span>
-                                </a>
-                    </li><li><a href="https://www.instagram.com/d_nn__" title="Instagram" target="_blank"><span class="fa-stack fa-lg" aria-hidden="true">
-                  <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
-                </span>
-                                    <span class="sr-only">Instagram</span>
-                                </a>
-                    </li></ul>
-                <p class="copyright text-muted">
-                    &copy; Dennis Schütt
-                    &nbsp;&bull;&nbsp;
-                    2020
-
-                    
-                    &nbsp;&bull;&nbsp;
-                    made with ❤️ by <a href="https://schuett.io">schuett.io</a>
-                    
-
-                    
-                </p>
-                <!-- Please don't remove this, keep my open source work credited :) -->
-                <p class="theme-by text-muted">
-                    Theme by
-                    <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
-
-
-<!-- inject:js -->
-<script src="/assets/javascript/index.js"></script>
-<!-- endinject -->
-
-
-
-</body>
-</html>
+	    })();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></div></div></div></div><footer><div class="container beautiful-jekyll-footer"><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><ul class="list-inline text-center footer-links"><li><a href=/feed.xml title=RSS target=_blank><span class="fa-stack fa-lg" aria-hidden=true><i class="fas fa-circle fa-stack-2x"></i> <i class="fas fa-rss fa-stack-1x fa-inverse"></i> </span><span class=sr-only>RSS</span></a></li><li><a href=/contact title="Email me"><span class="fa-stack fa-lg" aria-hidden=true><i class="fas fa-circle fa-stack-2x"></i> <i class="fas fa-envelope fa-stack-1x fa-inverse"></i> </span><span class=sr-only>Email me</span></a></li><li><a href=https://github.com/shyd title=GitHub target=_blank><span class="fa-stack fa-lg" aria-hidden=true><i class="fas fa-circle fa-stack-2x"></i> <i class="fab fa-github fa-stack-1x fa-inverse"></i> </span><span class=sr-only>GitHub</span></a></li><li><a href=https://hub.docker.com/u/shyd title=Docker target=_blank><span class="fa-stack fa-lg" aria-hidden=true><i class="fas fa-circle fa-stack-2x"></i> <i class="fab fa-docker fa-stack-1x fa-inverse"></i> </span><span class=sr-only>Docker</span></a></li><li><a href=https://www.instagram.com/d_nn__ title=Instagram target=_blank><span class="fa-stack fa-lg" aria-hidden=true><i class="fas fa-circle fa-stack-2x"></i> <i class="fab fa-instagram fa-stack-1x fa-inverse"></i> </span><span class=sr-only>Instagram</span></a></li></ul><p class="copyright text-muted">&copy; Dennis Schütt &nbsp;&bull;&nbsp; 2020 &nbsp;&bull;&nbsp; made with ❤️ by <a href=https://schuett.io>schuett.io</a></p><p class="theme-by text-muted">Theme by <a href=http://deanattali.com/beautiful-jekyll/ >beautiful-jekyll</a></p></div></div></div></footer><script src=/assets/javascript/index-c3e323855a.min.js></script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-18006649-7','auto');ga('set','anonymizeIp',true);ga('send','pageview');</script></body></html>

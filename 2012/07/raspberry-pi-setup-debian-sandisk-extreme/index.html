@@ -1,323 +1,24 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    
-    <!-- Begin Jekyll SEO tag v2.7.1 -->
-<meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Raspberry Pi: Setup Debian with SanDisk Extreme" />
-<meta name="author" content="Dennis Schütt" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="Finally my RPi has been delivered! After unboxing it I really couldn’t image that is was that tiny. First thing I did, was grabbing my 8GB SanDisk SD-Card and copying the rootfs debian6-19-04-2012 onto it." />
-<meta property="og:description" content="Finally my RPi has been delivered! After unboxing it I really couldn’t image that is was that tiny. First thing I did, was grabbing my 8GB SanDisk SD-Card and copying the rootfs debian6-19-04-2012 onto it." />
-<link rel="canonical" href="https://schuett.io/2012/07/raspberry-pi-setup-debian-sandisk-extreme/" />
-<meta property="og:url" content="https://schuett.io/2012/07/raspberry-pi-setup-debian-sandisk-extreme/" />
-<meta property="og:site_name" content="schuett.io" />
-<meta property="og:image" content="https://schuett.io/postimg/Micro_SD_Card.png" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2012-07-01T20:08:06+02:00" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="https://schuett.io/postimg/Micro_SD_Card.png" />
-<meta property="twitter:title" content="Raspberry Pi: Setup Debian with SanDisk Extreme" />
-<script type="application/ld+json">
-{"author":{"@type":"Person","name":"Dennis Schütt"},"url":"https://schuett.io/2012/07/raspberry-pi-setup-debian-sandisk-extreme/","image":"https://schuett.io/postimg/Micro_SD_Card.png","headline":"Raspberry Pi: Setup Debian with SanDisk Extreme","dateModified":"2012-07-01T20:08:06+02:00","datePublished":"2012-07-01T20:08:06+02:00","description":"Finally my RPi has been delivered! After unboxing it I really couldn’t image that is was that tiny. First thing I did, was grabbing my 8GB SanDisk SD-Card and copying the rootfs debian6-19-04-2012 onto it.","mainEntityOfPage":{"@type":"WebPage","@id":"https://schuett.io/2012/07/raspberry-pi-setup-debian-sandisk-extreme/"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
-
-    
-
-    <title>Raspberry Pi: Setup Debian with SanDisk Extreme &middot; schuett.io</title>
-
-    <meta name="author" content="Dennis Schütt" />
-
-    
-
-    <link rel="alternate" type="application/rss+xml" title="schuett.io &middot; another tech blog.
-" href="/feed.xml" />
-
-    
-
-
-    
-    
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
-    
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
-    
-    
-
-    
-
-    
-
-    <!-- inject:css -->
-    <link rel="stylesheet" href="/assets/stylesheets/styles.css">
-    <!-- endinject -->
-
-
-    <!--
-    Touch Icon Generator BY daik.de
-    http://www.web-stuebchen.de
-    Lizenz: GNU General Public License
-    Copyright: 2014 - 2018 Stephan Heller [daik.de] <heller@daik.de>
-    -->
-    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.ico">
-    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
-    <link rel="icon" type="image/gif" href="/assets/images/favicon.gif">
-    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
-    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-57x57.png" sizes="57x57">
-    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-60x60.png" sizes="60x60">
-    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-72x72.png" sizes="72x72">
-    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-76x76.png" sizes="76x76">
-    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-114x114.png" sizes="114x114">
-    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-120x120.png" sizes="120x120">
-    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-128x128.png" sizes="128x128">
-    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-144x144.png" sizes="144x144">
-    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-152x152.png" sizes="152x152">
-    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-180x180.png" sizes="180x180">
-    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-precomposed.png">
-    <link rel="icon" type="image/png" href="/assets/images/favicon-16x16.png" sizes="16x16">
-    <link rel="icon" type="image/png" href="/assets/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/assets/images/favicon-96x96.png" sizes="96x96">
-    <link rel="icon" type="image/png" href="/assets/images/favicon-160x160.png" sizes="160x160">
-    <link rel="icon" type="image/png" href="/assets/images/favicon-192x192.png" sizes="192x192">
-    <link rel="icon" type="image/png" href="/assets/images/favicon-196x196.png" sizes="196x196">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-navbutton-color" content="#ffffff">
-    <meta name="application-name" content="schuett.io"/>
-    <meta name="msapplication-tooltip" content="schuett.io"/>
-    <meta name="apple-mobile-web-app-title" content="schuett.io"/>
-
-</head>
-
-
-<body>
-
-<!--[if lt IE 10]>
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta name=generator content="Jekyll v4.1.1"><meta property=og:title content="Raspberry Pi: Setup Debian with SanDisk Extreme"><meta name=author content="Dennis Schütt"><meta property=og:locale content=en_US><meta name=description content="Finally my RPi has been delivered! After unboxing it I really couldn’t image that is was that tiny. First thing I did, was grabbing my 8GB SanDisk SD-Card and copying the rootfs debian6-19-04-2012 onto it."><meta property=og:description content="Finally my RPi has been delivered! After unboxing it I really couldn’t image that is was that tiny. First thing I did, was grabbing my 8GB SanDisk SD-Card and copying the rootfs debian6-19-04-2012 onto it."><link rel=canonical href=https://schuett.io/2012/07/raspberry-pi-setup-debian-sandisk-extreme/ ><meta property=og:url content=https://schuett.io/2012/07/raspberry-pi-setup-debian-sandisk-extreme/ ><meta property=og:site_name content=schuett.io><meta property=og:image content=https://schuett.io/7c9c6b672579bfb27792315b14da841b9f8c796f.png><meta property=og:type content=article><meta property=article:published_time content=2012-07-01T20:08:06+02:00><meta name=twitter:card content=summary_large_image><meta property=twitter:image content=https://schuett.io/7c9c6b672579bfb27792315b14da841b9f8c796f.png><meta property=twitter:title content="Raspberry Pi: Setup Debian with SanDisk Extreme"><script type=application/ld+json>{"datePublished":"2012-07-01T20:08:06+02:00","image":"https://schuett.io/7c9c6b672579bfb27792315b14da841b9f8c796f.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://schuett.io/2012/07/raspberry-pi-setup-debian-sandisk-extreme/"},"url":"https://schuett.io/2012/07/raspberry-pi-setup-debian-sandisk-extreme/","author":{"@type":"Person","name":"Dennis Schütt"},"description":"Finally my RPi has been delivered! After unboxing it I really couldn’t image that is was that tiny. First thing I did, was grabbing my 8GB SanDisk SD-Card and copying the rootfs debian6-19-04-2012 onto it.","headline":"Raspberry Pi: Setup Debian with SanDisk Extreme","dateModified":"2012-07-01T20:08:06+02:00","@type":"BlogPosting","@context":"https://schema.org"}</script><title>Raspberry Pi: Setup Debian with SanDisk Extreme &middot; schuett.io</title><meta name=author content="Dennis Schütt"><link rel=alternate type=application/rss+xml title="schuett.io &middot; another tech blog.
+" href=/feed.xml><link rel=stylesheet href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"><link rel=stylesheet href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"><link rel=stylesheet href=/assets/stylesheets/styles-9045b1fd1b.min.css><link rel="shortcut icon" type=image/x-icon href=/assets/images/favicon.ico><link rel=icon type=image/x-icon href=/assets/images/favicon.ico><link rel=icon type=image/gif href=/assets/images/favicon.gif><link rel=icon type=image/png href=/assets/images/favicon.png><link rel=apple-touch-icon href=/assets/images/apple-touch-icon.png><link rel=apple-touch-icon href=/assets/images/apple-touch-icon-57x57.png sizes=57x57><link rel=apple-touch-icon href=/assets/images/apple-touch-icon-60x60.png sizes=60x60><link rel=apple-touch-icon href=/assets/images/apple-touch-icon-72x72.png sizes=72x72><link rel=apple-touch-icon href=/assets/images/apple-touch-icon-76x76.png sizes=76x76><link rel=apple-touch-icon href=/assets/images/apple-touch-icon-114x114.png sizes=114x114><link rel=apple-touch-icon href=/assets/images/apple-touch-icon-120x120.png sizes=120x120><link rel=apple-touch-icon href=/assets/images/apple-touch-icon-128x128.png sizes=128x128><link rel=apple-touch-icon href=/assets/images/apple-touch-icon-144x144.png sizes=144x144><link rel=apple-touch-icon href=/assets/images/apple-touch-icon-152x152.png sizes=152x152><link rel=apple-touch-icon href=/assets/images/apple-touch-icon-180x180.png sizes=180x180><link rel=apple-touch-icon href=/assets/images/apple-touch-icon-precomposed.png><link rel=icon type=image/png href=/assets/images/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=/assets/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/assets/images/favicon-96x96.png sizes=96x96><link rel=icon type=image/png href=/assets/images/favicon-160x160.png sizes=160x160><link rel=icon type=image/png href=/assets/images/favicon-192x192.png sizes=192x192><link rel=icon type=image/png href=/assets/images/favicon-196x196.png sizes=196x196><meta name=msapplication-TileColor content=#ffffff><meta name=msapplication-navbutton-color content=#ffffff><meta name=application-name content=schuett.io><meta name=msapplication-tooltip content=schuett.io><meta name=apple-mobile-web-app-title content=schuett.io></head><body><!--[if lt IE 10]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
-<![endif]-->
-
-<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      
-        <a class="navbar-brand" href="https://schuett.io"> <span class="fa-layers fa-fw">
-            <i class="far fa-window-maximize" style="" data-fa-transform=""></i>
-            <i class="fas fa-chevron-left" data-fa-transform="shrink-13 down-2 left-4.7"></i>
-            <i class="fas fa-chevron-right" data-fa-transform="shrink-13 down-2 right-4.7"></i>
-            <i class="fas fa-cogs" data-fa-transform="shrink-11 down-2"></i>
-        </span>
-        <span>schuett.io</span></a>
-      
-    </div>
-
-    <div class="collapse navbar-collapse" id="main-navbar">
-      <ul class="nav navbar-nav navbar-right">
-      
-        
-          <li>
-            
-
-
-
-
-
-
-<a href="/">Blog</a>
-
-          </li>
-        
-        
-        
-          <li>
-            
-
-
-
-
-
-
-<a href="/tags">Tags</a>
-
-          </li>
-        
-        
-        
-          <li>
-            
-
-
-
-
-
-
-<a href="/wtf">About</a>
-
-          </li>
-        
-        
-        
-          <li>
-            
-
-
-
-
-
-
-<a href="/contact">Contact</a>
-
-          </li>
-        
-        
-        
-          <li>
-            
-
-
-
-
-
-
-<a href="/imprint">Imprint</a>
-
-          </li>
-        
-        
-
-          
-      </ul>
-    </div>
-
-	
-
-  </div>
-</nav>
-
-
-<!-- TODO this file has become a mess, refactor it -->
-
-
-
-
-
-<header class="header-section ">
-
-<div class="intro-header no-img">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-          <div class="page-image">
-          
-              <picture><source srcset="/assets/images/postimg/Micro_SD_Card-820-575adb5ca.webp 820w" type="image/webp"><source srcset="/assets/images/postimg/Micro_SD_Card-820-575adb5ca.png 820w" type="image/png"><img src="/assets/images/postimg/Micro_SD_Card-820-575adb5ca.png" width="820" height="512"></picture>
-
-          
-          </div>
-      </div>
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="post-heading">
-          <h1>Raspberry Pi: Setup Debian with SanDisk Extreme</h1>
-		  
-
-		  
-		  <span class="post-meta">Posted on July 1, 2012</span>
-		  
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</header>
-
-
-
-
-
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-
-            
-
-            <article role="main" class="blog-post">
-                <p>Finally my RPi has been delivered! After unboxing it I really couldn’t image that is was that tiny. First thing I did, was grabbing my 8GB SanDisk SD-Card and copying the rootfs debian6-19-04-2012 onto it.</p>
-
-<p>After plugging the sd card in the RPi and connecting power supply the problems came up…</p>
-
-<p>This article is not a detailed guide how to set up your RPi. It just describes my second afford to get the RPi booting flawlessly in a few words I can refer to in the future.</p>
-
-<h1 id="problems-i-had">Problems I had</h1>
-
-<ul>
-  <li>device didn’t boot at all</li>
-  <li>no serial output on the GPIOs</li>
-  <li>login failures with definitely correct password</li>
-  <li>mouse/keyboard stopped working after startx</li>
-</ul>
-
-<h1 id="workthrough">Workthrough</h1>
-
-<p>Prepare the SD-Card as described here: <a href="http://elinux.org/RPi_Easy_SD_Card_Setup" target="_blank">elinux.org/RPi_Easy_SD_Card_Setup</a>
-After replugging it I used gparted on my laptop to resize the partitions to fill the card.</p>
-
-<p>My card is an 8GB SanDisk Extreme class 10, which is too fast for the stock kernel and the RPi doesn’t boot. Therefor we need a newer kernel. Grab the tarball from <a href="https://github.com/raspberrypi/firmware/tree/master/boot" target="_blank">github.com/raspberrypi/firmware/tree/master/boot</a> and overwrite the files on the sd card.</p>
-
-<p>Now plug the card into the RPi and boot it. At this time I saw it was alive, I got the kernel output on the serial interface!</p>
-
-<p>You should be able to login with pi:raspberry
-Well, I wasn’t… So sd card back into my laptop. I just edited the last line in <code class="language-plaintext highlighter-rouge">/media/xyz/etc/shadow</code> to another password. Then the login worked for me.</p>
-
-<p>If you want to be able to login as root (make sure to change pw) type</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo</span> <span class="nt">-i</span>
+<![endif]--><nav class="navbar navbar-default navbar-fixed-top navbar-custom"><div class=container-fluid><div class=navbar-header><button type=button class=navbar-toggle data-toggle=collapse data-target=#main-navbar><span class=sr-only>Toggle navigation</span> <span class=icon-bar></span> <span class=icon-bar></span> <span class=icon-bar></span></button> <a class=navbar-brand href=https://schuett.io><span class="fa-layers fa-fw"><i class="far fa-window-maximize" style="" data-fa-transform=""></i> <i class="fas fa-chevron-left" data-fa-transform="shrink-13 down-2 left-4.7"></i> <i class="fas fa-chevron-right" data-fa-transform="shrink-13 down-2 right-4.7"></i> <i class="fas fa-cogs" data-fa-transform="shrink-11 down-2"></i> </span><span>schuett.io</span></a></div><div class="collapse navbar-collapse" id=main-navbar><ul class="nav navbar-nav navbar-right"><li><a href=/ >Blog</a></li><li><a href=/tags>Tags</a></li><li><a href=/wtf>About</a></li><li><a href=/contact>Contact</a></li><li><a href=/imprint>Imprint</a></li></ul></div></div></nav><header class=header-section><div class="intro-header no-img"><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><div class=page-image><picture><source srcset="/assets/images/7c9c6b672579bfb27792315b14da841b9f8c796f-820-575adb5ca.webp 820w" type=image/webp><source srcset="/assets/images/7c9c6b672579bfb27792315b14da841b9f8c796f-820-575adb5ca.png 820w" type=image/png><img src=/assets/images/7c9c6b672579bfb27792315b14da841b9f8c796f-820-575adb5ca.png width=820 height=512></picture></div></div><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><div class=post-heading><h1>Raspberry Pi: Setup Debian with SanDisk Extreme</h1><span class=post-meta>Posted on July 1, 2012</span></div></div></div></div></div></header><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><article role=main class=blog-post><p>Finally my RPi has been delivered! After unboxing it I really couldn’t image that is was that tiny. First thing I did, was grabbing my 8GB SanDisk SD-Card and copying the rootfs debian6-19-04-2012 onto it.</p><p>After plugging the sd card in the RPi and connecting power supply the problems came up…</p><p>This article is not a detailed guide how to set up your RPi. It just describes my second afford to get the RPi booting flawlessly in a few words I can refer to in the future.</p><h1 id=problems-i-had>Problems I had</h1><ul><li>device didn’t boot at all</li><li>no serial output on the GPIOs</li><li>login failures with definitely correct password</li><li>mouse/keyboard stopped working after startx</li></ul><h1 id=workthrough>Workthrough</h1><p>Prepare the SD-Card as described here: <a href=http://elinux.org/RPi_Easy_SD_Card_Setup target=_blank>elinux.org/RPi_Easy_SD_Card_Setup</a> After replugging it I used gparted on my laptop to resize the partitions to fill the card.</p><p>My card is an 8GB SanDisk Extreme class 10, which is too fast for the stock kernel and the RPi doesn’t boot. Therefor we need a newer kernel. Grab the tarball from <a href=https://github.com/raspberrypi/firmware/tree/master/boot target=_blank>github.com/raspberrypi/firmware/tree/master/boot</a> and overwrite the files on the sd card.</p><p>Now plug the card into the RPi and boot it. At this time I saw it was alive, I got the kernel output on the serial interface!</p><p>You should be able to login with pi:raspberry Well, I wasn’t… So sd card back into my laptop. I just edited the last line in <code class="language-plaintext highlighter-rouge">/media/xyz/etc/shadow</code> to another password. Then the login worked for me.</p><p>If you want to be able to login as root (make sure to change pw) type</p><div class="language-bash highlighter-rouge"><div class=highlight><pre class=highlight><code><span class=nb>sudo</span> <span class=nt>-i</span>
 passwd
-</code></pre></div></div>
-
-<p>To get the right timezone type:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dpkg-reconfigure tzdata
-</code></pre></div></div>
-
-<p>Change the update server to one nearby:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim.tiny /etc/apt/sources.list
-</code></pre></div></div>
-
-<p>Then upgrade your installation:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt-get update
+</code></pre></div></div><p>To get the right timezone type:</p><div class="language-bash highlighter-rouge"><div class=highlight><pre class=highlight><code>dpkg-reconfigure tzdata
+</code></pre></div></div><p>Change the update server to one nearby:</p><div class="language-bash highlighter-rouge"><div class=highlight><pre class=highlight><code>vim.tiny /etc/apt/sources.list
+</code></pre></div></div><p>Then upgrade your installation:</p><div class="language-bash highlighter-rouge"><div class=highlight><pre class=highlight><code>apt-get update
 apt-get dist-upgrade
-</code></pre></div></div>
-
-<p>If I now try to start the GUI with <code class="language-plaintext highlighter-rouge">startx</code> mouse and keyboard stop working. Due to the incredible fast sd card we need a newer kernel one more time. Get <code class="language-plaintext highlighter-rouge">rpi-update</code> as shown at <a href="https://github.com/Hexxeh/rpi-update/blob/master/README.md" target="_blank">github.com/Hexxeh/rpi-update/blob/master/README.md</a>
-Maybe you get dependency issues</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt-get <span class="nb">install </span>ca-certificates git-core
-</code></pre></div></div>
-
-<p>Another thing I noticed is that overscan is activated by default (maybe tv specific?). There are several things that can be set in the <code class="language-plaintext highlighter-rouge">config.txt</code>: <a href="https://elinux.org/RPi_config.txt" target="_blank">elinux.org/RPi_config.txt</a>
-For me it’s fine with these lines in <code class="language-plaintext highlighter-rouge">/boot/config.txt</code></p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># create the file</span>
+</code></pre></div></div><p>If I now try to start the GUI with <code class="language-plaintext highlighter-rouge">startx</code> mouse and keyboard stop working. Due to the incredible fast sd card we need a newer kernel one more time. Get <code class="language-plaintext highlighter-rouge">rpi-update</code> as shown at <a href=https://github.com/Hexxeh/rpi-update/blob/master/README.md target=_blank>github.com/Hexxeh/rpi-update/blob/master/README.md</a> Maybe you get dependency issues</p><div class="language-bash highlighter-rouge"><div class=highlight><pre class=highlight><code>apt-get <span class=nb>install </span>ca-certificates git-core
+</code></pre></div></div><p>Another thing I noticed is that overscan is activated by default (maybe tv specific?). There are several things that can be set in the <code class="language-plaintext highlighter-rouge">config.txt</code>: <a href=https://elinux.org/RPi_config.txt target=_blank>elinux.org/RPi_config.txt</a> For me it’s fine with these lines in <code class="language-plaintext highlighter-rouge">/boot/config.txt</code></p><div class="language-bash highlighter-rouge"><div class=highlight><pre class=highlight><code><span class=c># create the file</span>
 vim.tiny /boot/config.txt
-<span class="c"># insert the following</span>
-<span class="nv">hdmi_force_hotplug</span><span class="o">=</span>1
-<span class="nv">config_hdmi_boost</span><span class="o">=</span>4
-<span class="nv">hdmi_group</span><span class="o">=</span>1
-<span class="nv">hdmi_mode</span><span class="o">=</span>32
-<span class="nv">disable_overscan</span><span class="o">=</span>1
-</code></pre></div></div>
-
-<h1 id="update-22072012-configtxt">Update 22.07.2012: config.txt</h1>
-
-<p>Thanks to Patschi, he posted a link to a really nice description on the <code class="language-plaintext highlighter-rouge">config.txt</code>! You can read it here:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr>
-<td class="gutter gl"><pre class="lineno">1
+<span class=c># insert the following</span>
+<span class=nv>hdmi_force_hotplug</span><span class=o>=</span>1
+<span class=nv>config_hdmi_boost</span><span class=o>=</span>4
+<span class=nv>hdmi_group</span><span class=o>=</span>1
+<span class=nv>hdmi_mode</span><span class=o>=</span>32
+<span class=nv>disable_overscan</span><span class=o>=</span>1
+</code></pre></div></div><h1 id=update-22072012-configtxt>Update 22.07.2012: config.txt</h1><p>Thanks to Patschi, he posted a link to a really nice description on the <code class="language-plaintext highlighter-rouge">config.txt</code>! You can read it here:</p><figure class=highlight><pre><code class=language-bash data-lang=bash><table class=rouge-table><tbody><tr>
+<td class="gutter gl"><pre class=lineno>1
 2
 3
 4
@@ -884,621 +585,574 @@ vim.tiny /boot/config.txt
 565
 566
 </pre></td>
-<td class="code"><pre><span class="c">################################################################################</span>
-<span class="c">##  Raspberry Pi Configuration Settings</span>
-<span class="c">##</span>
-<span class="c">##  Details taken from the eLinux wiki 2012/06/27</span>
-<span class="c">##  For up-to-date information please refer to wiki page.</span>
-<span class="c">##</span>
-<span class="c">##  Wiki Location : http://elinux.org/RPi_config.txt</span>
-<span class="c">##</span>
-<span class="c">################################################################################</span>
+<td class=code><pre><span class=c>################################################################################</span>
+<span class=c>##  Raspberry Pi Configuration Settings</span>
+<span class=c>##</span>
+<span class=c>##  Details taken from the eLinux wiki 2012/06/27</span>
+<span class=c>##  For up-to-date information please refer to wiki page.</span>
+<span class=c>##</span>
+<span class=c>##  Wiki Location : http://elinux.org/RPi_config.txt</span>
+<span class=c>##</span>
+<span class=c>################################################################################</span>
 
-<span class="c">################################################################################</span>
-<span class="c">##  Standard Definition Video Settings</span>
-<span class="c">################################################################################</span>
+<span class=c>################################################################################</span>
+<span class=c>##  Standard Definition Video Settings</span>
+<span class=c>################################################################################</span>
 
-<span class="c">## sdtv_mode</span>
-<span class="c">##     defines the TV standard for composite output</span>
-<span class="c">##</span>
-<span class="c">##     Value    Description</span>
-<span class="c">##     -------------------------------------------------------------------------</span>
-<span class="c">##     0        Normal NTSC (Default)</span>
-<span class="c">##     1        Japanese version of NTSC - no pedestal</span>
-<span class="c">##     2        Normal PAL</span>
-<span class="c">##     3        Brazilian version of PAL - 525/60 rather than 625/50, different subcarrier</span>
-<span class="c">##</span>
-<span class="c">#sdtv_mode=0</span>
+<span class=c>## sdtv_mode</span>
+<span class=c>##     defines the TV standard for composite output</span>
+<span class=c>##</span>
+<span class=c>##     Value    Description</span>
+<span class=c>##     -------------------------------------------------------------------------</span>
+<span class=c>##     0        Normal NTSC (Default)</span>
+<span class=c>##     1        Japanese version of NTSC - no pedestal</span>
+<span class=c>##     2        Normal PAL</span>
+<span class=c>##     3        Brazilian version of PAL - 525/60 rather than 625/50, different subcarrier</span>
+<span class=c>##</span>
+<span class=c>#sdtv_mode=0</span>
 
-<span class="c">## sdtv_aspect</span>
-<span class="c">##     defines the aspect ratio for composite output</span>
-<span class="c">##</span>
-<span class="c">##     Value    Description</span>
-<span class="c">##     -------------------------------------------------------------------------</span>
-<span class="c">##     1        4:3 (Default)</span>
-<span class="c">##     2        14:9</span>
-<span class="c">##     3        16:9</span>
-<span class="c">##</span>
-<span class="c">#sdtv_aspect=1</span>
+<span class=c>## sdtv_aspect</span>
+<span class=c>##     defines the aspect ratio for composite output</span>
+<span class=c>##</span>
+<span class=c>##     Value    Description</span>
+<span class=c>##     -------------------------------------------------------------------------</span>
+<span class=c>##     1        4:3 (Default)</span>
+<span class=c>##     2        14:9</span>
+<span class=c>##     3        16:9</span>
+<span class=c>##</span>
+<span class=c>#sdtv_aspect=1</span>
 
-<span class="c">################################################################################</span>
-<span class="c">##  High Definition Video Settings</span>
-<span class="c">################################################################################</span>
+<span class=c>################################################################################</span>
+<span class=c>##  High Definition Video Settings</span>
+<span class=c>################################################################################</span>
 
-<span class="c">## hdmi_safe</span>
-<span class="c">##     Use "safe mode" settings to try to boot with maximum hdmi compatibility.</span>
-<span class="c">##</span>
-<span class="c">##     Value    Description</span>
-<span class="c">##     -------------------------------------------------------------------------</span>
-<span class="c">##     0        Disabled (Default)</span>
-<span class="c">##     1        Enabled (this does: hdmi_force_hotplug=1, config_hdmi_boost=4, hdmi_group=1, hdmi_mode=1, disable_overscan=0)</span>
-<span class="c">##</span>
-<span class="c">#hdmi_safe=1</span>
+<span class=c>## hdmi_safe</span>
+<span class=c>##     Use "safe mode" settings to try to boot with maximum hdmi compatibility.</span>
+<span class=c>##</span>
+<span class=c>##     Value    Description</span>
+<span class=c>##     -------------------------------------------------------------------------</span>
+<span class=c>##     0        Disabled (Default)</span>
+<span class=c>##     1        Enabled (this does: hdmi_force_hotplug=1, config_hdmi_boost=4, hdmi_group=1, hdmi_mode=1, disable_overscan=0)</span>
+<span class=c>##</span>
+<span class=c>#hdmi_safe=1</span>
 
-<span class="c">## hdmi_force_hotplug</span>
-<span class="c">##     overrides the normal selection of composite if no HDMI is detected</span>
-<span class="c">##</span>
-<span class="c">##     Value    Description</span>
-<span class="c">##     -------------------------------------------------------------------------</span>
-<span class="c">##     0        Disabled (Default)</span>
-<span class="c">##     1        Use HDMI mode even if no HDMI monitor is detected</span>
-<span class="c">##</span>
-<span class="c">#hdmi_force_hotplug=1</span>
+<span class=c>## hdmi_force_hotplug</span>
+<span class=c>##     overrides the normal selection of composite if no HDMI is detected</span>
+<span class=c>##</span>
+<span class=c>##     Value    Description</span>
+<span class=c>##     -------------------------------------------------------------------------</span>
+<span class=c>##     0        Disabled (Default)</span>
+<span class=c>##     1        Use HDMI mode even if no HDMI monitor is detected</span>
+<span class=c>##</span>
+<span class=c>#hdmi_force_hotplug=1</span>
 
-<span class="c">## hdmi_drive</span>
-<span class="c">##     chooses between HDMI and DVI modes</span>
-<span class="c">##</span>
-<span class="c">##     Value    Description</span>
-<span class="c">##     -------------------------------------------------------------------------</span>
-<span class="c">##     1        Normal DVI mode (No sound)</span>
-<span class="c">##     2        Normal HDMI mode (Sound will be sent if supported and enabled)</span>
-<span class="c">##</span>
-<span class="c">#hdmi_drive=2</span>
+<span class=c>## hdmi_drive</span>
+<span class=c>##     chooses between HDMI and DVI modes</span>
+<span class=c>##</span>
+<span class=c>##     Value    Description</span>
+<span class=c>##     -------------------------------------------------------------------------</span>
+<span class=c>##     1        Normal DVI mode (No sound)</span>
+<span class=c>##     2        Normal HDMI mode (Sound will be sent if supported and enabled)</span>
+<span class=c>##</span>
+<span class=c>#hdmi_drive=2</span>
 
-<span class="c">## hdmi_group</span>
-<span class="c">##     defines the HDMI type</span>
-<span class="c">##</span>
-<span class="c">##     [rgh] I think values are 0 and 1 really, and the default 0 for CEA - at least with the latest firmware as of May 25th 2012.</span>
-<span class="c">##</span>
-<span class="c">##     Value    Description</span>
-<span class="c">##     -------------------------------------------------------------------------</span>
-<span class="c">##     1        CEA (Default)</span>
-<span class="c">##     2        DMT</span>
-<span class="c">##</span>
-<span class="c">#hdmi_group=1</span>
+<span class=c>## hdmi_group</span>
+<span class=c>##     defines the HDMI type</span>
+<span class=c>##</span>
+<span class=c>##     [rgh] I think values are 0 and 1 really, and the default 0 for CEA - at least with the latest firmware as of May 25th 2012.</span>
+<span class=c>##</span>
+<span class=c>##     Value    Description</span>
+<span class=c>##     -------------------------------------------------------------------------</span>
+<span class=c>##     1        CEA (Default)</span>
+<span class=c>##     2        DMT</span>
+<span class=c>##</span>
+<span class=c>#hdmi_group=1</span>
 
-<span class="c">## hdmi_mode</span>
-<span class="c">##     defines screen resolution in CEA or DMT format</span>
-<span class="c">##</span>
-<span class="c">##     H means 16:9 variant (of a normally 4:3 mode).</span>
-<span class="c">##     2x means pixel doubled (i.e. higher clock rate, with each pixel repeated twice)</span>
-<span class="c">##     4x means pixel quadrupled (i.e. higher clock rate, with each pixel repeated four times)</span>
-<span class="c">##</span>
-<span class="c">##     Value    hdmi_group=CEA                  hdmi_group=DMT</span>
-<span class="c">##     -------------------------------------------------------------------------</span>
-<span class="c">##     1        VGA                             640x350   85Hz</span>
-<span class="c">##     2        480p  60Hz                      640x400   85Hz</span>
-<span class="c">##     3        480p  60Hz  H                   720x400   85Hz</span>
-<span class="c">##     4        720p  60Hz                      640x480   60Hz</span>
-<span class="c">##     5        1080i 60Hz                      640x480   72Hz</span>
-<span class="c">##     6        480i  60Hz                      640x480   75Hz</span>
-<span class="c">##     7        480i  60Hz  H                   640x480   85Hz</span>
-<span class="c">##     8        240p  60Hz                      800x600   56Hz</span>
-<span class="c">##     9        240p  60Hz  H                   800x600   60Hz</span>
-<span class="c">##     10       480i  60Hz  4x                  800x600   72Hz</span>
-<span class="c">##     11       480i  60Hz  4x H                800x600   75Hz</span>
-<span class="c">##     12       240p  60Hz  4x                  800x600   85Hz</span>
-<span class="c">##     13       240p  60Hz  4x H                800x600   120Hz</span>
-<span class="c">##     14       480p  60Hz  2x                  848x480   60Hz</span>
-<span class="c">##     15       480p  60Hz  2x H                1024x768  43Hz  DO NOT USE</span>
-<span class="c">##     16       1080p 60Hz                      1024x768  60Hz</span>
-<span class="c">##     17       576p  50Hz                      1024x768  70Hz</span>
-<span class="c">##     18       576p  50Hz  H                   1024x768  75Hz</span>
-<span class="c">##     19       720p  50Hz                      1024x768  85Hz</span>
-<span class="c">##     20       1080i 50Hz                      1024x768  120Hz</span>
-<span class="c">##     21       576i  50Hz                      1152x864  75Hz</span>
-<span class="c">##     22       576i  50Hz  H                   1280x768        reduced blanking</span>
-<span class="c">##     23       288p  50Hz                      1280x768  60Hz</span>
-<span class="c">##     24       288p  50Hz  H                   1280x768  75Hz</span>
-<span class="c">##     25       576i  50Hz  4x                  1280x768  85Hz</span>
-<span class="c">##     26       576i  50Hz  4x H                1280x768  120Hz reduced blanking</span>
-<span class="c">##     27       288p  50Hz  4x                  1280x800        reduced blanking</span>
-<span class="c">##     28       288p  50Hz  4x H                1280x800  60Hz</span>
-<span class="c">##     29       576p  50Hz  2x                  1280x800  75Hz</span>
-<span class="c">##     30       576p  50Hz  2x H                1280x800  85Hz</span>
-<span class="c">##     31       1080p 50Hz                      1280x800  120Hz reduced blanking</span>
-<span class="c">##     32       1080p 24Hz                      1280x960  60Hz</span>
-<span class="c">##     33       1080p 25Hz                      1280x960  85Hz</span>
-<span class="c">##     34       1080p 30Hz                      1280x960  120Hz reduced blanking</span>
-<span class="c">##     35       480p  60Hz  4x                  1280x1024 60Hz</span>
-<span class="c">##     36       480p  60Hz  4x H                1280x1024 75Hz</span>
-<span class="c">##     37       576p  50Hz  4x                  1280x1024 85Hz</span>
-<span class="c">##     38       576p  50Hz  4x H                1280x1024 120Hz reduced blanking</span>
-<span class="c">##     39       1080i 50Hz  reduced blanking    1360x768  60Hz</span>
-<span class="c">##     40       1080i 100Hz                     1360x768  120Hz reduced blanking</span>
-<span class="c">##     41       720p  100Hz                     1400x1050       reduced blanking</span>
-<span class="c">##     42       576p  100Hz                     1400x1050 60Hz</span>
-<span class="c">##     43       576p  100Hz H                   1400x1050 75Hz</span>
-<span class="c">##     44       576i  100Hz                     1400x1050 85Hz</span>
-<span class="c">##     45       576i  100Hz H                   1400x1050 120Hz reduced blanking</span>
-<span class="c">##     46       1080i 120Hz                     1440x900        reduced blanking</span>
-<span class="c">##     47       720p  120Hz                     1440x900  60Hz</span>
-<span class="c">##     48       480p  120Hz                     1440x900  75Hz</span>
-<span class="c">##     49       480p  120Hz H                   1440x900  85Hz</span>
-<span class="c">##     50       480i  120Hz                     1440x900  120Hz reduced blanking</span>
-<span class="c">##     51       480i  120Hz H                   1600x1200 60Hz</span>
-<span class="c">##     52       576p  200Hz                     1600x1200 65Hz</span>
-<span class="c">##     53       576p  200Hz H                   1600x1200 70Hz</span>
-<span class="c">##     54       576i  200Hz                     1600x1200 75Hz</span>
-<span class="c">##     55       576i  200Hz H                   1600x1200 85Hz</span>
-<span class="c">##     56       480p  240Hz                     1600x1200 120Hz reduced blanking</span>
-<span class="c">##     57       480p  240Hz H                   1680x1050       reduced blanking</span>
-<span class="c">##     58       480i  240Hz                     1680x1050 60Hz</span>
-<span class="c">##     59       480i  240Hz H                   1680x1050 75Hz</span>
-<span class="c">##     60                                       1680x1050 85Hz</span>
-<span class="c">##     61                                       1680x1050 120Hz reduced blanking</span>
-<span class="c">##     62                                       1792x1344 60Hz</span>
-<span class="c">##     63                                       1792x1344 75Hz</span>
-<span class="c">##     64                                       1792x1344 120Hz reduced blanking</span>
-<span class="c">##     65                                       1856x1392 60Hz</span>
-<span class="c">##     66                                       1856x1392 75Hz</span>
-<span class="c">##     67                                       1856x1392 120Hz reduced blanking</span>
-<span class="c">##     68                                       1920x1200       reduced blanking</span>
-<span class="c">##     69                                       1920x1200 60Hz</span>
-<span class="c">##     70                                       1920x1200 75Hz</span>
-<span class="c">##     71                                       1920x1200 85Hz</span>
-<span class="c">##     72                                       1920x1200 120Hz reduced blanking</span>
-<span class="c">##     73                                       1920x1440 60Hz</span>
-<span class="c">##     74                                       1920x1440 75Hz</span>
-<span class="c">##     75                                       1920x1440 120Hz reduced blanking</span>
-<span class="c">##     76                                       2560x1600       reduced blanking</span>
-<span class="c">##     77                                       2560x1600 60Hz</span>
-<span class="c">##     78                                       2560x1600 75Hz</span>
-<span class="c">##     79                                       2560x1600 85Hz</span>
-<span class="c">##     80                                       2560x1600 120Hz reduced blanking</span>
-<span class="c">##     81                                       1366x768  60Hz</span>
-<span class="c">##     82                                       1080p     60Hz</span>
-<span class="c">##     83                                       1600x900        reduced blanking</span>
-<span class="c">##     84                                       2048x1152       reduced blanking</span>
-<span class="c">##     85                                       720p      60Hz</span>
-<span class="c">##     86                                       1366x768        reduced blanking</span>
-<span class="c">##</span>
-<span class="c">#hdmi_mode=1</span>
+<span class=c>## hdmi_mode</span>
+<span class=c>##     defines screen resolution in CEA or DMT format</span>
+<span class=c>##</span>
+<span class=c>##     H means 16:9 variant (of a normally 4:3 mode).</span>
+<span class=c>##     2x means pixel doubled (i.e. higher clock rate, with each pixel repeated twice)</span>
+<span class=c>##     4x means pixel quadrupled (i.e. higher clock rate, with each pixel repeated four times)</span>
+<span class=c>##</span>
+<span class=c>##     Value    hdmi_group=CEA                  hdmi_group=DMT</span>
+<span class=c>##     -------------------------------------------------------------------------</span>
+<span class=c>##     1        VGA                             640x350   85Hz</span>
+<span class=c>##     2        480p  60Hz                      640x400   85Hz</span>
+<span class=c>##     3        480p  60Hz  H                   720x400   85Hz</span>
+<span class=c>##     4        720p  60Hz                      640x480   60Hz</span>
+<span class=c>##     5        1080i 60Hz                      640x480   72Hz</span>
+<span class=c>##     6        480i  60Hz                      640x480   75Hz</span>
+<span class=c>##     7        480i  60Hz  H                   640x480   85Hz</span>
+<span class=c>##     8        240p  60Hz                      800x600   56Hz</span>
+<span class=c>##     9        240p  60Hz  H                   800x600   60Hz</span>
+<span class=c>##     10       480i  60Hz  4x                  800x600   72Hz</span>
+<span class=c>##     11       480i  60Hz  4x H                800x600   75Hz</span>
+<span class=c>##     12       240p  60Hz  4x                  800x600   85Hz</span>
+<span class=c>##     13       240p  60Hz  4x H                800x600   120Hz</span>
+<span class=c>##     14       480p  60Hz  2x                  848x480   60Hz</span>
+<span class=c>##     15       480p  60Hz  2x H                1024x768  43Hz  DO NOT USE</span>
+<span class=c>##     16       1080p 60Hz                      1024x768  60Hz</span>
+<span class=c>##     17       576p  50Hz                      1024x768  70Hz</span>
+<span class=c>##     18       576p  50Hz  H                   1024x768  75Hz</span>
+<span class=c>##     19       720p  50Hz                      1024x768  85Hz</span>
+<span class=c>##     20       1080i 50Hz                      1024x768  120Hz</span>
+<span class=c>##     21       576i  50Hz                      1152x864  75Hz</span>
+<span class=c>##     22       576i  50Hz  H                   1280x768        reduced blanking</span>
+<span class=c>##     23       288p  50Hz                      1280x768  60Hz</span>
+<span class=c>##     24       288p  50Hz  H                   1280x768  75Hz</span>
+<span class=c>##     25       576i  50Hz  4x                  1280x768  85Hz</span>
+<span class=c>##     26       576i  50Hz  4x H                1280x768  120Hz reduced blanking</span>
+<span class=c>##     27       288p  50Hz  4x                  1280x800        reduced blanking</span>
+<span class=c>##     28       288p  50Hz  4x H                1280x800  60Hz</span>
+<span class=c>##     29       576p  50Hz  2x                  1280x800  75Hz</span>
+<span class=c>##     30       576p  50Hz  2x H                1280x800  85Hz</span>
+<span class=c>##     31       1080p 50Hz                      1280x800  120Hz reduced blanking</span>
+<span class=c>##     32       1080p 24Hz                      1280x960  60Hz</span>
+<span class=c>##     33       1080p 25Hz                      1280x960  85Hz</span>
+<span class=c>##     34       1080p 30Hz                      1280x960  120Hz reduced blanking</span>
+<span class=c>##     35       480p  60Hz  4x                  1280x1024 60Hz</span>
+<span class=c>##     36       480p  60Hz  4x H                1280x1024 75Hz</span>
+<span class=c>##     37       576p  50Hz  4x                  1280x1024 85Hz</span>
+<span class=c>##     38       576p  50Hz  4x H                1280x1024 120Hz reduced blanking</span>
+<span class=c>##     39       1080i 50Hz  reduced blanking    1360x768  60Hz</span>
+<span class=c>##     40       1080i 100Hz                     1360x768  120Hz reduced blanking</span>
+<span class=c>##     41       720p  100Hz                     1400x1050       reduced blanking</span>
+<span class=c>##     42       576p  100Hz                     1400x1050 60Hz</span>
+<span class=c>##     43       576p  100Hz H                   1400x1050 75Hz</span>
+<span class=c>##     44       576i  100Hz                     1400x1050 85Hz</span>
+<span class=c>##     45       576i  100Hz H                   1400x1050 120Hz reduced blanking</span>
+<span class=c>##     46       1080i 120Hz                     1440x900        reduced blanking</span>
+<span class=c>##     47       720p  120Hz                     1440x900  60Hz</span>
+<span class=c>##     48       480p  120Hz                     1440x900  75Hz</span>
+<span class=c>##     49       480p  120Hz H                   1440x900  85Hz</span>
+<span class=c>##     50       480i  120Hz                     1440x900  120Hz reduced blanking</span>
+<span class=c>##     51       480i  120Hz H                   1600x1200 60Hz</span>
+<span class=c>##     52       576p  200Hz                     1600x1200 65Hz</span>
+<span class=c>##     53       576p  200Hz H                   1600x1200 70Hz</span>
+<span class=c>##     54       576i  200Hz                     1600x1200 75Hz</span>
+<span class=c>##     55       576i  200Hz H                   1600x1200 85Hz</span>
+<span class=c>##     56       480p  240Hz                     1600x1200 120Hz reduced blanking</span>
+<span class=c>##     57       480p  240Hz H                   1680x1050       reduced blanking</span>
+<span class=c>##     58       480i  240Hz                     1680x1050 60Hz</span>
+<span class=c>##     59       480i  240Hz H                   1680x1050 75Hz</span>
+<span class=c>##     60                                       1680x1050 85Hz</span>
+<span class=c>##     61                                       1680x1050 120Hz reduced blanking</span>
+<span class=c>##     62                                       1792x1344 60Hz</span>
+<span class=c>##     63                                       1792x1344 75Hz</span>
+<span class=c>##     64                                       1792x1344 120Hz reduced blanking</span>
+<span class=c>##     65                                       1856x1392 60Hz</span>
+<span class=c>##     66                                       1856x1392 75Hz</span>
+<span class=c>##     67                                       1856x1392 120Hz reduced blanking</span>
+<span class=c>##     68                                       1920x1200       reduced blanking</span>
+<span class=c>##     69                                       1920x1200 60Hz</span>
+<span class=c>##     70                                       1920x1200 75Hz</span>
+<span class=c>##     71                                       1920x1200 85Hz</span>
+<span class=c>##     72                                       1920x1200 120Hz reduced blanking</span>
+<span class=c>##     73                                       1920x1440 60Hz</span>
+<span class=c>##     74                                       1920x1440 75Hz</span>
+<span class=c>##     75                                       1920x1440 120Hz reduced blanking</span>
+<span class=c>##     76                                       2560x1600       reduced blanking</span>
+<span class=c>##     77                                       2560x1600 60Hz</span>
+<span class=c>##     78                                       2560x1600 75Hz</span>
+<span class=c>##     79                                       2560x1600 85Hz</span>
+<span class=c>##     80                                       2560x1600 120Hz reduced blanking</span>
+<span class=c>##     81                                       1366x768  60Hz</span>
+<span class=c>##     82                                       1080p     60Hz</span>
+<span class=c>##     83                                       1600x900        reduced blanking</span>
+<span class=c>##     84                                       2048x1152       reduced blanking</span>
+<span class=c>##     85                                       720p      60Hz</span>
+<span class=c>##     86                                       1366x768        reduced blanking</span>
+<span class=c>##</span>
+<span class=c>#hdmi_mode=1</span>
 
-<span class="c">## hdmi_force_hotplug</span>
-<span class="c">##     Make RPi ignore hotplug signal from display and assume it is asserted.</span>
-<span class="c">##</span>
-<span class="c">#hdmi_force_hotplug=0</span>
+<span class=c>## hdmi_force_hotplug</span>
+<span class=c>##     Make RPi ignore hotplug signal from display and assume it is asserted.</span>
+<span class=c>##</span>
+<span class=c>#hdmi_force_hotplug=0</span>
 
-<span class="c">## config_hdmi_boost</span>
-<span class="c">##     configure the signal strength of the HDMI interface.</span>
-<span class="c">##</span>
-<span class="c">##     Value    Description</span>
-<span class="c">##     -------------------------------------------------------------------------</span>
-<span class="c">##     0        (Default)</span>
-<span class="c">##     1</span>
-<span class="c">##     2</span>
-<span class="c">##     3</span>
-<span class="c">##     4        Try if you have interference issues with HDMI</span>
-<span class="c">##     5</span>
-<span class="c">##     6</span>
-<span class="c">##     7        Maximum</span>
-<span class="c">##</span>
-<span class="c">#config_hdmi_boost=0</span>
+<span class=c>## config_hdmi_boost</span>
+<span class=c>##     configure the signal strength of the HDMI interface.</span>
+<span class=c>##</span>
+<span class=c>##     Value    Description</span>
+<span class=c>##     -------------------------------------------------------------------------</span>
+<span class=c>##     0        (Default)</span>
+<span class=c>##     1</span>
+<span class=c>##     2</span>
+<span class=c>##     3</span>
+<span class=c>##     4        Try if you have interference issues with HDMI</span>
+<span class=c>##     5</span>
+<span class=c>##     6</span>
+<span class=c>##     7        Maximum</span>
+<span class=c>##</span>
+<span class=c>#config_hdmi_boost=0</span>
 
-<span class="c">################################################################################</span>
-<span class="c">##  Overscan Video Settings</span>
-<span class="c">################################################################################</span>
+<span class=c>################################################################################</span>
+<span class=c>##  Overscan Video Settings</span>
+<span class=c>################################################################################</span>
 
-<span class="c">## overscan_left</span>
-<span class="c">##     number of pixels to skip on left</span>
-<span class="c">##</span>
-<span class="c">#overscan_left=0</span>
+<span class=c>## overscan_left</span>
+<span class=c>##     number of pixels to skip on left</span>
+<span class=c>##</span>
+<span class=c>#overscan_left=0</span>
 
-<span class="c">## overscan_right</span>
-<span class="c">##     number of pixels to skip on right</span>
-<span class="c">##</span>
-<span class="c">#overscan_right=0</span>
+<span class=c>## overscan_right</span>
+<span class=c>##     number of pixels to skip on right</span>
+<span class=c>##</span>
+<span class=c>#overscan_right=0</span>
 
-<span class="c">## overscan_top</span>
-<span class="c">##     number of pixels to skip on top</span>
-<span class="c">##</span>
-<span class="c">#overscan_top=0</span>
+<span class=c>## overscan_top</span>
+<span class=c>##     number of pixels to skip on top</span>
+<span class=c>##</span>
+<span class=c>#overscan_top=0</span>
 
-<span class="c">## overscan_bottom</span>
-<span class="c">##     number of pixels to skip on bottom</span>
-<span class="c">##</span>
-<span class="c">#overscan_bottom=0</span>
+<span class=c>## overscan_bottom</span>
+<span class=c>##     number of pixels to skip on bottom</span>
+<span class=c>##</span>
+<span class=c>#overscan_bottom=0</span>
 
-<span class="c">## disable_overscan</span>
-<span class="c">##     set to 1 to disable overscan</span>
-<span class="c">##</span>
-<span class="c">##     Value    Description</span>
-<span class="c">##     -------------------------------------------------------------------------</span>
-<span class="c">##     0        Overscan Enabled (Default)</span>
-<span class="c">##     1        Overscan Disabled</span>
-<span class="c">##</span>
-<span class="c">#disable_overscan=1</span>
+<span class=c>## disable_overscan</span>
+<span class=c>##     set to 1 to disable overscan</span>
+<span class=c>##</span>
+<span class=c>##     Value    Description</span>
+<span class=c>##     -------------------------------------------------------------------------</span>
+<span class=c>##     0        Overscan Enabled (Default)</span>
+<span class=c>##     1        Overscan Disabled</span>
+<span class=c>##</span>
+<span class=c>#disable_overscan=1</span>
 
-<span class="c">################################################################################</span>
-<span class="c">##  Framebuffer Video Settings</span>
-<span class="c">################################################################################</span>
+<span class=c>################################################################################</span>
+<span class=c>##  Framebuffer Video Settings</span>
+<span class=c>################################################################################</span>
 
-<span class="c">## framebuffer_width</span>
-<span class="c">##     console framebuffer width in pixels. Default is display width minus overscan.</span>
-<span class="c">##</span>
-<span class="c">#framebuffer_width=0</span>
+<span class=c>## framebuffer_width</span>
+<span class=c>##     console framebuffer width in pixels. Default is display width minus overscan.</span>
+<span class=c>##</span>
+<span class=c>#framebuffer_width=0</span>
 
-<span class="c">## framebuffer_height</span>
-<span class="c">##     console framebuffer height in pixels. Default is display height minus overscan.</span>
-<span class="c">##</span>
-<span class="c">#framebuffer_height=0</span>
+<span class=c>## framebuffer_height</span>
+<span class=c>##     console framebuffer height in pixels. Default is display height minus overscan.</span>
+<span class=c>##</span>
+<span class=c>#framebuffer_height=0</span>
 
-<span class="c">## framebuffer_depth</span>
-<span class="c">##     console framebuffer depth in bits per pixel.</span>
-<span class="c">##</span>
-<span class="c">##     Value    Description</span>
-<span class="c">##     -------------------------------------------------------------------------</span>
-<span class="c">##     8        valid, but default RGB palette makes an unreadable screen</span>
-<span class="c">##     16       (Default)</span>
-<span class="c">##     24       looks better but has corruption issues as of 2012/06/15</span>
-<span class="c">##     32       has no corruption issues but needs framebuffer_ignore_alpha=1 and shows the wrong colors as of 2012/06/15</span>
-<span class="c">##</span>
-<span class="c">#framebuffer_height=16</span>
+<span class=c>## framebuffer_depth</span>
+<span class=c>##     console framebuffer depth in bits per pixel.</span>
+<span class=c>##</span>
+<span class=c>##     Value    Description</span>
+<span class=c>##     -------------------------------------------------------------------------</span>
+<span class=c>##     8        valid, but default RGB palette makes an unreadable screen</span>
+<span class=c>##     16       (Default)</span>
+<span class=c>##     24       looks better but has corruption issues as of 2012/06/15</span>
+<span class=c>##     32       has no corruption issues but needs framebuffer_ignore_alpha=1 and shows the wrong colors as of 2012/06/15</span>
+<span class=c>##</span>
+<span class=c>#framebuffer_height=16</span>
 
-<span class="c">## framebuffer_ignore_alpha</span>
-<span class="c">##     set to 1 to disable alpha channel. Helps with 32bit.</span>
-<span class="c">##</span>
-<span class="c">##     Value    Description</span>
-<span class="c">##     -------------------------------------------------------------------------</span>
-<span class="c">##     0        Enable Alpha Channel (Default)</span>
-<span class="c">##     1        Disable Alpha Channel</span>
-<span class="c">##</span>
-<span class="c">#framebuffer_ignore_alpha=0</span>
+<span class=c>## framebuffer_ignore_alpha</span>
+<span class=c>##     set to 1 to disable alpha channel. Helps with 32bit.</span>
+<span class=c>##</span>
+<span class=c>##     Value    Description</span>
+<span class=c>##     -------------------------------------------------------------------------</span>
+<span class=c>##     0        Enable Alpha Channel (Default)</span>
+<span class=c>##     1        Disable Alpha Channel</span>
+<span class=c>##</span>
+<span class=c>#framebuffer_ignore_alpha=0</span>
 
-<span class="c">################################################################################</span>
-<span class="c">##  Test Settings</span>
-<span class="c">################################################################################</span>
+<span class=c>################################################################################</span>
+<span class=c>##  Test Settings</span>
+<span class=c>################################################################################</span>
 
-<span class="c">## test_mode</span>
-<span class="c">##     enable test sound/image during boot for manufacturing test.</span>
-<span class="c">##</span>
-<span class="c">##     Value    Description</span>
-<span class="c">##     -------------------------------------------------------------------------</span>
-<span class="c">##     0        Disable Test Mod (Default)</span>
-<span class="c">##     1        Enable Test Mode</span>
-<span class="c">##</span>
-<span class="c">#test_mode=0</span>
+<span class=c>## test_mode</span>
+<span class=c>##     enable test sound/image during boot for manufacturing test.</span>
+<span class=c>##</span>
+<span class=c>##     Value    Description</span>
+<span class=c>##     -------------------------------------------------------------------------</span>
+<span class=c>##     0        Disable Test Mod (Default)</span>
+<span class=c>##     1        Enable Test Mode</span>
+<span class=c>##</span>
+<span class=c>#test_mode=0</span>
 
-<span class="c">################################################################################</span>
-<span class="c">##  Cache Settings</span>
-<span class="c">################################################################################</span>
+<span class=c>################################################################################</span>
+<span class=c>##  Cache Settings</span>
+<span class=c>################################################################################</span>
 
-<span class="c">## disable_l2cache</span>
-<span class="c">##     disable arm access to GPU's L2 cache. Needs corresponding L2 disabled kernel.</span>
-<span class="c">##</span>
-<span class="c">##     Value    Description</span>
-<span class="c">##     -------------------------------------------------------------------------</span>
-<span class="c">##     0        Enable L2 Cache (Default)</span>
-<span class="c">##     1        Disable L2 cache</span>
-<span class="c">##</span>
-<span class="c">#disable_l2cache=0</span>
+<span class=c>## disable_l2cache</span>
+<span class=c>##     disable arm access to GPU's L2 cache. Needs corresponding L2 disabled kernel.</span>
+<span class=c>##</span>
+<span class=c>##     Value    Description</span>
+<span class=c>##     -------------------------------------------------------------------------</span>
+<span class=c>##     0        Enable L2 Cache (Default)</span>
+<span class=c>##     1        Disable L2 cache</span>
+<span class=c>##</span>
+<span class=c>#disable_l2cache=0</span>
 
-<span class="c">################################################################################</span>
-<span class="c">##  Boot Option Settings</span>
-<span class="c">################################################################################</span>
+<span class=c>################################################################################</span>
+<span class=c>##  Boot Option Settings</span>
+<span class=c>################################################################################</span>
 
-<span class="c">## disable_commandline_tags</span>
-<span class="c">##     Stops start.elf from filling in ATAGS (memory from 0x100) before launching kernel</span>
-<span class="c">##</span>
-<span class="c">#disable_commandline_tags=0</span>
+<span class=c>## disable_commandline_tags</span>
+<span class=c>##     Stops start.elf from filling in ATAGS (memory from 0x100) before launching kernel</span>
+<span class=c>##</span>
+<span class=c>#disable_commandline_tags=0</span>
 
-<span class="c">## cmdline (string)</span>
-<span class="c">##     Command line parameters. Can be used instead of cmdline.txt file</span>
-<span class="c">##</span>
-<span class="c">#cmdline=""</span>
+<span class=c>## cmdline (string)</span>
+<span class=c>##     Command line parameters. Can be used instead of cmdline.txt file</span>
+<span class=c>##</span>
+<span class=c>#cmdline=""</span>
 
-<span class="c">## kernel (string)</span>
-<span class="c">##     Alternative name to use when loading kernel.</span>
-<span class="c">##</span>
-<span class="c">#kernel=""</span>
+<span class=c>## kernel (string)</span>
+<span class=c>##     Alternative name to use when loading kernel.</span>
+<span class=c>##</span>
+<span class=c>#kernel=""</span>
 
-<span class="c">## kernel_address</span>
-<span class="c">##     address to load kernel.img file at</span>
-<span class="c">##</span>
-<span class="c">#kernel_address=0x00000000</span>
+<span class=c>## kernel_address</span>
+<span class=c>##     address to load kernel.img file at</span>
+<span class=c>##</span>
+<span class=c>#kernel_address=0x00000000</span>
 
-<span class="c">## ramfsfile (string)</span>
-<span class="c">##     ramfs file to load</span>
-<span class="c">##</span>
-<span class="c">#ramfsfile=""</span>
+<span class=c>## ramfsfile (string)</span>
+<span class=c>##     ramfs file to load</span>
+<span class=c>##</span>
+<span class=c>#ramfsfile=""</span>
 
-<span class="c">## device_tree_address</span>
-<span class="c">##     address to load device_tree at</span>
-<span class="c">##</span>
-<span class="c">#device_tree_address=0x00000000</span>
+<span class=c>## device_tree_address</span>
+<span class=c>##     address to load device_tree at</span>
+<span class=c>##</span>
+<span class=c>#device_tree_address=0x00000000</span>
 
-<span class="c">## init_uart_baud</span>
-<span class="c">##     initial uart baud rate. Default 115200</span>
-<span class="c">##</span>
-<span class="c">#init_uart_baud=115200</span>
+<span class=c>## init_uart_baud</span>
+<span class=c>##     initial uart baud rate. Default 115200</span>
+<span class=c>##</span>
+<span class=c>#init_uart_baud=115200</span>
 
-<span class="c">## init_uart_clock</span>
-<span class="c">##     initial uart clock. Default 3000000</span>
-<span class="c">##</span>
-<span class="c">#init_uart_clock=3000000</span>
+<span class=c>## init_uart_clock</span>
+<span class=c>##     initial uart clock. Default 3000000</span>
+<span class=c>##</span>
+<span class=c>#init_uart_clock=3000000</span>
 
-<span class="c">## init_emmc_clock</span>
-<span class="c">##     initial emmc clock. Default 50000000 (50mhz default. increasing this can speedup your SD-card)</span>
-<span class="c">##</span>
-<span class="c">#init_emmc_clock=50000000</span>
+<span class=c>## init_emmc_clock</span>
+<span class=c>##     initial emmc clock. Default 50000000 (50mhz default. increasing this can speedup your SD-card)</span>
+<span class=c>##</span>
+<span class=c>#init_emmc_clock=50000000</span>
 
-<span class="c">## boot_delay</span>
-<span class="c">##     Waits for given number of seconds in start.elf before loading kernel.img.</span>
-<span class="c">##</span>
-<span class="c">#boot_delay=0</span>
+<span class=c>## boot_delay</span>
+<span class=c>##     Waits for given number of seconds in start.elf before loading kernel.img.</span>
+<span class=c>##</span>
+<span class=c>#boot_delay=0</span>
 
-<span class="c">################################################################################</span>
-<span class="c">##  Overclocking Settings</span>
-<span class="c">################################################################################</span>
+<span class=c>################################################################################</span>
+<span class=c>##  Overclocking Settings</span>
+<span class=c>################################################################################</span>
 
-<span class="c">## arm_freq</span>
-<span class="c">##     frequency of ARM in MHz. Default 700.</span>
-<span class="c">##</span>
-<span class="c">#arm_freq=700</span>
+<span class=c>## arm_freq</span>
+<span class=c>##     frequency of ARM in MHz. Default 700.</span>
+<span class=c>##</span>
+<span class=c>#arm_freq=700</span>
 
-<span class="c">## gpu_freq</span>
-<span class="c">##     Sets core_freq, h264_freq, isp_freq, v3d_freq together.</span>
-<span class="c">##</span>
-<span class="c">#gpu_freq=250</span>
+<span class=c>## gpu_freq</span>
+<span class=c>##     Sets core_freq, h264_freq, isp_freq, v3d_freq together.</span>
+<span class=c>##</span>
+<span class=c>#gpu_freq=250</span>
 
-<span class="c">## core_freq</span>
-<span class="c">##     frequency of GPU processor core in MHz. Default 250.</span>
-<span class="c">##</span>
-<span class="c">#core_freq=250</span>
+<span class=c>## core_freq</span>
+<span class=c>##     frequency of GPU processor core in MHz. Default 250.</span>
+<span class=c>##</span>
+<span class=c>#core_freq=250</span>
 
-<span class="c">## h264_freq</span>
-<span class="c">##     frequency of hardware video block in MHz. Default 250.</span>
-<span class="c">##</span>
-<span class="c">#h264_freq=250</span>
+<span class=c>## h264_freq</span>
+<span class=c>##     frequency of hardware video block in MHz. Default 250.</span>
+<span class=c>##</span>
+<span class=c>#h264_freq=250</span>
 
-<span class="c">## isp_freq</span>
-<span class="c">##     frequency of image sensor pipeline block in MHz. Default 250.</span>
-<span class="c">##</span>
-<span class="c">#isp_freq=250</span>
+<span class=c>## isp_freq</span>
+<span class=c>##     frequency of image sensor pipeline block in MHz. Default 250.</span>
+<span class=c>##</span>
+<span class=c>#isp_freq=250</span>
 
-<span class="c">## v3d_freq</span>
-<span class="c">##     frequency of 3D block in MHz. Default 250.</span>
-<span class="c">##</span>
-<span class="c">#v3d_freq=250</span>
+<span class=c>## v3d_freq</span>
+<span class=c>##     frequency of 3D block in MHz. Default 250.</span>
+<span class=c>##</span>
+<span class=c>#v3d_freq=250</span>
 
-<span class="c">## sdram_freq</span>
-<span class="c">##     frequency of SDRAM in MHz. Default 400.</span>
-<span class="c">##</span>
-<span class="c">#sdram_freq=400</span>
+<span class=c>## sdram_freq</span>
+<span class=c>##     frequency of SDRAM in MHz. Default 400.</span>
+<span class=c>##</span>
+<span class=c>#sdram_freq=400</span>
 
-<span class="c">################################################################################</span>
-<span class="c">##  Voltage Settings</span>
-<span class="c">##</span>
-<span class="c">##  WARNING: Setting any of the parameters which over volt your Raspberry Pi</span>
-<span class="c">##  will set a permanent bit within the SOC and your warranty is void. So If</span>
-<span class="c">##  you care about the warranty do not adjust voltage.</span>
-<span class="c">##</span>
-<span class="c">################################################################################</span>
+<span class=c>################################################################################</span>
+<span class=c>##  Voltage Settings</span>
+<span class=c>##</span>
+<span class=c>##  WARNING: Setting any of the parameters which over volt your Raspberry Pi</span>
+<span class=c>##  will set a permanent bit within the SOC and your warranty is void. So If</span>
+<span class=c>##  you care about the warranty do not adjust voltage.</span>
+<span class=c>##</span>
+<span class=c>################################################################################</span>
 
-<span class="c">## over_voltage</span>
-<span class="c">##     ARM/GPU core voltage adjust.</span>
-<span class="c">##</span>
-<span class="c">##     Value    Description</span>
-<span class="c">##     -------------------------------------------------------------------------</span>
-<span class="c">##     -16      0.8   V</span>
-<span class="c">##     -15      0.825 V</span>
-<span class="c">##     -14      0.85  V</span>
-<span class="c">##     -13      0.875 V</span>
-<span class="c">##     -12      0.9   V</span>
-<span class="c">##     -11      0.925 V</span>
-<span class="c">##     -10      0.95  V</span>
-<span class="c">##     -9       0.975 V</span>
-<span class="c">##     -8       1.0   V</span>
-<span class="c">##     -7       1.025 V</span>
-<span class="c">##     -6       1.05  V</span>
-<span class="c">##     -5       1.075 V</span>
-<span class="c">##     -4       1.1   V</span>
-<span class="c">##     -3       1.125 V</span>
-<span class="c">##     -2       1.15  V</span>
-<span class="c">##     -1       1.175 V</span>
-<span class="c">##     0        1.2   V (Default)</span>
-<span class="c">##     1        1.225 V</span>
-<span class="c">##     2        1.25  V</span>
-<span class="c">##     3        1.275 V</span>
-<span class="c">##     4        1.3   V</span>
-<span class="c">##     5        1.325 V</span>
-<span class="c">##     6        1.35  V</span>
-<span class="c">##     7        1.375 V</span>
-<span class="c">##     8        1.4   V</span>
-<span class="c">##</span>
-<span class="c">#over_voltage=0</span>
+<span class=c>## over_voltage</span>
+<span class=c>##     ARM/GPU core voltage adjust.</span>
+<span class=c>##</span>
+<span class=c>##     Value    Description</span>
+<span class=c>##     -------------------------------------------------------------------------</span>
+<span class=c>##     -16      0.8   V</span>
+<span class=c>##     -15      0.825 V</span>
+<span class=c>##     -14      0.85  V</span>
+<span class=c>##     -13      0.875 V</span>
+<span class=c>##     -12      0.9   V</span>
+<span class=c>##     -11      0.925 V</span>
+<span class=c>##     -10      0.95  V</span>
+<span class=c>##     -9       0.975 V</span>
+<span class=c>##     -8       1.0   V</span>
+<span class=c>##     -7       1.025 V</span>
+<span class=c>##     -6       1.05  V</span>
+<span class=c>##     -5       1.075 V</span>
+<span class=c>##     -4       1.1   V</span>
+<span class=c>##     -3       1.125 V</span>
+<span class=c>##     -2       1.15  V</span>
+<span class=c>##     -1       1.175 V</span>
+<span class=c>##     0        1.2   V (Default)</span>
+<span class=c>##     1        1.225 V</span>
+<span class=c>##     2        1.25  V</span>
+<span class=c>##     3        1.275 V</span>
+<span class=c>##     4        1.3   V</span>
+<span class=c>##     5        1.325 V</span>
+<span class=c>##     6        1.35  V</span>
+<span class=c>##     7        1.375 V</span>
+<span class=c>##     8        1.4   V</span>
+<span class=c>##</span>
+<span class=c>#over_voltage=0</span>
 
-<span class="c">## over_voltage_sdram</span>
-<span class="c">##     Sets over_voltage_sdram_c, over_voltage_sdram_i, over_voltage_sdram_p together</span>
-<span class="c">##</span>
-<span class="c">##     Value    Description</span>
-<span class="c">##     -------------------------------------------------------------------------</span>
-<span class="c">##     -16      0.8   V</span>
-<span class="c">##     -15      0.825 V</span>
-<span class="c">##     -14      0.85  V</span>
-<span class="c">##     -13      0.875 V</span>
-<span class="c">##     -12      0.9   V</span>
-<span class="c">##     -11      0.925 V</span>
-<span class="c">##     -10      0.95  V</span>
-<span class="c">##     -9       0.975 V</span>
-<span class="c">##     -8       1.0   V</span>
-<span class="c">##     -7       1.025 V</span>
-<span class="c">##     -6       1.05  V</span>
-<span class="c">##     -5       1.075 V</span>
-<span class="c">##     -4       1.1   V</span>
-<span class="c">##     -3       1.125 V</span>
-<span class="c">##     -2       1.15  V</span>
-<span class="c">##     -1       1.175 V</span>
-<span class="c">##     0        1.2   V (Default)</span>
-<span class="c">##     1        1.225 V</span>
-<span class="c">##     2        1.25  V</span>
-<span class="c">##     3        1.275 V</span>
-<span class="c">##     4        1.3   V</span>
-<span class="c">##     5        1.325 V</span>
-<span class="c">##     6        1.35  V</span>
-<span class="c">##     7        1.375 V</span>
-<span class="c">##     8        1.4   V</span>
-<span class="c">##</span>
-<span class="c">#over_voltage_sdram=0</span>
+<span class=c>## over_voltage_sdram</span>
+<span class=c>##     Sets over_voltage_sdram_c, over_voltage_sdram_i, over_voltage_sdram_p together</span>
+<span class=c>##</span>
+<span class=c>##     Value    Description</span>
+<span class=c>##     -------------------------------------------------------------------------</span>
+<span class=c>##     -16      0.8   V</span>
+<span class=c>##     -15      0.825 V</span>
+<span class=c>##     -14      0.85  V</span>
+<span class=c>##     -13      0.875 V</span>
+<span class=c>##     -12      0.9   V</span>
+<span class=c>##     -11      0.925 V</span>
+<span class=c>##     -10      0.95  V</span>
+<span class=c>##     -9       0.975 V</span>
+<span class=c>##     -8       1.0   V</span>
+<span class=c>##     -7       1.025 V</span>
+<span class=c>##     -6       1.05  V</span>
+<span class=c>##     -5       1.075 V</span>
+<span class=c>##     -4       1.1   V</span>
+<span class=c>##     -3       1.125 V</span>
+<span class=c>##     -2       1.15  V</span>
+<span class=c>##     -1       1.175 V</span>
+<span class=c>##     0        1.2   V (Default)</span>
+<span class=c>##     1        1.225 V</span>
+<span class=c>##     2        1.25  V</span>
+<span class=c>##     3        1.275 V</span>
+<span class=c>##     4        1.3   V</span>
+<span class=c>##     5        1.325 V</span>
+<span class=c>##     6        1.35  V</span>
+<span class=c>##     7        1.375 V</span>
+<span class=c>##     8        1.4   V</span>
+<span class=c>##</span>
+<span class=c>#over_voltage_sdram=0</span>
 
-<span class="c">## over_voltage_sdram_c</span>
-<span class="c">##     SDRAM controller voltage adjust.</span>
-<span class="c">##</span>
-<span class="c">##     Value    Description</span>
-<span class="c">##     -------------------------------------------------------------------------</span>
-<span class="c">##     -16      0.8   V</span>
-<span class="c">##     -15      0.825 V</span>
-<span class="c">##     -14      0.85  V</span>
-<span class="c">##     -13      0.875 V</span>
-<span class="c">##     -12      0.9   V</span>
-<span class="c">##     -11      0.925 V</span>
-<span class="c">##     -10      0.95  V</span>
-<span class="c">##     -9       0.975 V</span>
-<span class="c">##     -8       1.0   V</span>
-<span class="c">##     -7       1.025 V</span>
-<span class="c">##     -6       1.05  V</span>
-<span class="c">##     -5       1.075 V</span>
-<span class="c">##     -4       1.1   V</span>
-<span class="c">##     -3       1.125 V</span>
-<span class="c">##     -2       1.15  V</span>
-<span class="c">##     -1       1.175 V</span>
-<span class="c">##     0        1.2   V (Default)</span>
-<span class="c">##     1        1.225 V</span>
-<span class="c">##     2        1.25  V</span>
-<span class="c">##     3        1.275 V</span>
-<span class="c">##     4        1.3   V</span>
-<span class="c">##     5        1.325 V</span>
-<span class="c">##     6        1.35  V</span>
-<span class="c">##     7        1.375 V</span>
-<span class="c">##     8        1.4   V</span>
-<span class="c">##</span>
-<span class="c">#over_voltage_sdram_c=0</span>
+<span class=c>## over_voltage_sdram_c</span>
+<span class=c>##     SDRAM controller voltage adjust.</span>
+<span class=c>##</span>
+<span class=c>##     Value    Description</span>
+<span class=c>##     -------------------------------------------------------------------------</span>
+<span class=c>##     -16      0.8   V</span>
+<span class=c>##     -15      0.825 V</span>
+<span class=c>##     -14      0.85  V</span>
+<span class=c>##     -13      0.875 V</span>
+<span class=c>##     -12      0.9   V</span>
+<span class=c>##     -11      0.925 V</span>
+<span class=c>##     -10      0.95  V</span>
+<span class=c>##     -9       0.975 V</span>
+<span class=c>##     -8       1.0   V</span>
+<span class=c>##     -7       1.025 V</span>
+<span class=c>##     -6       1.05  V</span>
+<span class=c>##     -5       1.075 V</span>
+<span class=c>##     -4       1.1   V</span>
+<span class=c>##     -3       1.125 V</span>
+<span class=c>##     -2       1.15  V</span>
+<span class=c>##     -1       1.175 V</span>
+<span class=c>##     0        1.2   V (Default)</span>
+<span class=c>##     1        1.225 V</span>
+<span class=c>##     2        1.25  V</span>
+<span class=c>##     3        1.275 V</span>
+<span class=c>##     4        1.3   V</span>
+<span class=c>##     5        1.325 V</span>
+<span class=c>##     6        1.35  V</span>
+<span class=c>##     7        1.375 V</span>
+<span class=c>##     8        1.4   V</span>
+<span class=c>##</span>
+<span class=c>#over_voltage_sdram_c=0</span>
 
-<span class="c">## over_voltage_sdram_i</span>
-<span class="c">##     SDRAM I/O voltage adjust.</span>
-<span class="c">##</span>
-<span class="c">##     Value    Description</span>
-<span class="c">##     -------------------------------------------------------------------------</span>
-<span class="c">##     -16      0.8   V</span>
-<span class="c">##     -15      0.825 V</span>
-<span class="c">##     -14      0.85  V</span>
-<span class="c">##     -13      0.875 V</span>
-<span class="c">##     -12      0.9   V</span>
-<span class="c">##     -11      0.925 V</span>
-<span class="c">##     -10      0.95  V</span>
-<span class="c">##     -9       0.975 V</span>
-<span class="c">##     -8       1.0   V</span>
-<span class="c">##     -7       1.025 V</span>
-<span class="c">##     -6       1.05  V</span>
-<span class="c">##     -5       1.075 V</span>
-<span class="c">##     -4       1.1   V</span>
-<span class="c">##     -3       1.125 V</span>
-<span class="c">##     -2       1.15  V</span>
-<span class="c">##     -1       1.175 V</span>
-<span class="c">##     0        1.2   V (Default)</span>
-<span class="c">##     1        1.225 V</span>
-<span class="c">##     2        1.25  V</span>
-<span class="c">##     3        1.275 V</span>
-<span class="c">##     4        1.3   V</span>
-<span class="c">##     5        1.325 V</span>
-<span class="c">##     6        1.35  V</span>
-<span class="c">##     7        1.375 V</span>
-<span class="c">##     8        1.4   V</span>
-<span class="c">##</span>
-<span class="c">#over_voltage_sdram_i=0</span>
+<span class=c>## over_voltage_sdram_i</span>
+<span class=c>##     SDRAM I/O voltage adjust.</span>
+<span class=c>##</span>
+<span class=c>##     Value    Description</span>
+<span class=c>##     -------------------------------------------------------------------------</span>
+<span class=c>##     -16      0.8   V</span>
+<span class=c>##     -15      0.825 V</span>
+<span class=c>##     -14      0.85  V</span>
+<span class=c>##     -13      0.875 V</span>
+<span class=c>##     -12      0.9   V</span>
+<span class=c>##     -11      0.925 V</span>
+<span class=c>##     -10      0.95  V</span>
+<span class=c>##     -9       0.975 V</span>
+<span class=c>##     -8       1.0   V</span>
+<span class=c>##     -7       1.025 V</span>
+<span class=c>##     -6       1.05  V</span>
+<span class=c>##     -5       1.075 V</span>
+<span class=c>##     -4       1.1   V</span>
+<span class=c>##     -3       1.125 V</span>
+<span class=c>##     -2       1.15  V</span>
+<span class=c>##     -1       1.175 V</span>
+<span class=c>##     0        1.2   V (Default)</span>
+<span class=c>##     1        1.225 V</span>
+<span class=c>##     2        1.25  V</span>
+<span class=c>##     3        1.275 V</span>
+<span class=c>##     4        1.3   V</span>
+<span class=c>##     5        1.325 V</span>
+<span class=c>##     6        1.35  V</span>
+<span class=c>##     7        1.375 V</span>
+<span class=c>##     8        1.4   V</span>
+<span class=c>##</span>
+<span class=c>#over_voltage_sdram_i=0</span>
 
-<span class="c">## over_voltage_sdram_p</span>
-<span class="c">##     SDRAM phy voltage adjust.</span>
-<span class="c">##</span>
-<span class="c">##     Value    Description</span>
-<span class="c">##     -------------------------------------------------------------------------</span>
-<span class="c">##     -16      0.8   V</span>
-<span class="c">##     -15      0.825 V</span>
-<span class="c">##     -14      0.85  V</span>
-<span class="c">##     -13      0.875 V</span>
-<span class="c">##     -12      0.9   V</span>
-<span class="c">##     -11      0.925 V</span>
-<span class="c">##     -10      0.95  V</span>
-<span class="c">##     -9       0.975 V</span>
-<span class="c">##     -8       1.0   V</span>
-<span class="c">##     -7       1.025 V</span>
-<span class="c">##     -6       1.05  V</span>
-<span class="c">##     -5       1.075 V</span>
-<span class="c">##     -4       1.1   V</span>
-<span class="c">##     -3       1.125 V</span>
-<span class="c">##     -2       1.15  V</span>
-<span class="c">##     -1       1.175 V</span>
-<span class="c">##     0        1.2   V (Default)</span>
-<span class="c">##     1        1.225 V</span>
-<span class="c">##     2        1.25  V</span>
-<span class="c">##     3        1.275 V</span>
-<span class="c">##     4        1.3   V</span>
-<span class="c">##     5        1.325 V</span>
-<span class="c">##     6        1.35  V</span>
-<span class="c">##     7        1.375 V</span>
-<span class="c">##     8        1.4   V</span>
-<span class="c">##</span>
-<span class="c">#over_voltage_sdram_p=0</span>
+<span class=c>## over_voltage_sdram_p</span>
+<span class=c>##     SDRAM phy voltage adjust.</span>
+<span class=c>##</span>
+<span class=c>##     Value    Description</span>
+<span class=c>##     -------------------------------------------------------------------------</span>
+<span class=c>##     -16      0.8   V</span>
+<span class=c>##     -15      0.825 V</span>
+<span class=c>##     -14      0.85  V</span>
+<span class=c>##     -13      0.875 V</span>
+<span class=c>##     -12      0.9   V</span>
+<span class=c>##     -11      0.925 V</span>
+<span class=c>##     -10      0.95  V</span>
+<span class=c>##     -9       0.975 V</span>
+<span class=c>##     -8       1.0   V</span>
+<span class=c>##     -7       1.025 V</span>
+<span class=c>##     -6       1.05  V</span>
+<span class=c>##     -5       1.075 V</span>
+<span class=c>##     -4       1.1   V</span>
+<span class=c>##     -3       1.125 V</span>
+<span class=c>##     -2       1.15  V</span>
+<span class=c>##     -1       1.175 V</span>
+<span class=c>##     0        1.2   V (Default)</span>
+<span class=c>##     1        1.225 V</span>
+<span class=c>##     2        1.25  V</span>
+<span class=c>##     3        1.275 V</span>
+<span class=c>##     4        1.3   V</span>
+<span class=c>##     5        1.325 V</span>
+<span class=c>##     6        1.35  V</span>
+<span class=c>##     7        1.375 V</span>
+<span class=c>##     8        1.4   V</span>
+<span class=c>##</span>
+<span class=c>#over_voltage_sdram_p=0</span>
 </pre></td>
-</tr></tbody></table></code></pre></figure>
-
-
-            </article>
-
-            
-            <div class="blog-tags">
-                Tags:
-                
-                
-                <a href="/tags#Hardware">Hardware</a>
-                
-                <a href="/tags#Raspberry Pi">Raspberry Pi</a>
-                
-                
-            </div>
-            
-
-            
-            <!-- Check if any share-links are active -->
-
-
-
-
-
-            
-
-            <ul class="pager blog-pager">
-                
-                <li class="previous">
-                    <a href="/2012/04/ipv6-launch/" data-toggle="tooltip" data-placement="top" title="Preparing for the Future: IPv6">&larr; Previous Post</a>
-                </li>
-                
-                
-                <li class="next">
-                    <a href="/2013/06/booting-with-uuid-not-device-name/" data-toggle="tooltip" data-placement="top" title="Dockstar/Golfex: booting with LABEL or UUID instead of device name">Next Post &rarr;</a>
-                </li>
-                
-            </ul>
-
-            
-            <div class="disqus-comments">
-                
-<div class="comments">
-	<div id="disqus_thread"></div>
-	<script type="text/javascript">
-
-	    var disqus_shortname = 'dev-shyd';
+</tr></tbody></table></code></pre></figure></article><div class=blog-tags>Tags: <a href=/tags#Hardware>Hardware</a> <a href="/tags#Raspberry Pi">Raspberry Pi</a></div><ul class="pager blog-pager"><li class=previous><a href=/2012/04/ipv6-launch/ data-toggle=tooltip data-placement=top title="Preparing for the Future: IPv6">&larr; Previous Post</a></li><li class=next><a href=/2013/06/booting-with-uuid-not-device-name/ data-toggle=tooltip data-placement=top title="Dockstar/Golfex: booting with LABEL or UUID instead of device name">Next Post &rarr;</a></li></ul><div class=disqus-comments><div class=comments><div id=disqus_thread></div><script type=text/javascript>var disqus_shortname = 'dev-shyd';
         var disqus_identifier = '934 http://dev.shyd.de/?p=934';
         var disqus_title = 'Raspberry Pi: Setup Debian with SanDisk Extreme';
 
@@ -1506,83 +1160,4 @@ vim.tiny /boot/config.txt
 	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
 	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	    })();
-
-	</script>
-	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
-
-
-            </div>
-            
-        </div>
-    </div>
-</div>
-
-
-<footer>
-    <div class="container beautiful-jekyll-footer">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center footer-links"><li><a href="/feed.xml" title="RSS" target="_blank"><span class="fa-stack fa-lg" aria-hidden="true">
-                  <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
-                </span>
-                                    <span class="sr-only">RSS</span>
-                                </a>
-                    </li><li><a href="/contact" title="Email me"><span class="fa-stack fa-lg" aria-hidden="true">
-                  <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
-                </span>
-                                    <span class="sr-only">Email me</span>
-                                </a>
-                    </li><li><a href="https://github.com/shyd" title="GitHub" target="_blank"><span class="fa-stack fa-lg" aria-hidden="true">
-                  <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                </span>
-                                    <span class="sr-only">GitHub</span>
-                                </a>
-                    </li><li><a href="https://hub.docker.com/u/shyd" title="Docker" target="_blank"><span class="fa-stack fa-lg" aria-hidden="true">
-                  <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fab fa-docker fa-stack-1x fa-inverse"></i>
-                </span>
-                                    <span class="sr-only">Docker</span>
-                                </a>
-                    </li><li><a href="https://www.instagram.com/d_nn__" title="Instagram" target="_blank"><span class="fa-stack fa-lg" aria-hidden="true">
-                  <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
-                </span>
-                                    <span class="sr-only">Instagram</span>
-                                </a>
-                    </li></ul>
-                <p class="copyright text-muted">
-                    &copy; Dennis Schütt
-                    &nbsp;&bull;&nbsp;
-                    2020
-
-                    
-                    &nbsp;&bull;&nbsp;
-                    made with ❤️ by <a href="https://schuett.io">schuett.io</a>
-                    
-
-                    
-                </p>
-                <!-- Please don't remove this, keep my open source work credited :) -->
-                <p class="theme-by text-muted">
-                    Theme by
-                    <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
-
-
-<!-- inject:js -->
-<script src="/assets/javascript/index.js"></script>
-<!-- endinject -->
-
-
-
-</body>
-</html>
+	    })();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></div></div></div></div><footer><div class="container beautiful-jekyll-footer"><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><ul class="list-inline text-center footer-links"><li><a href=/feed.xml title=RSS target=_blank><span class="fa-stack fa-lg" aria-hidden=true><i class="fas fa-circle fa-stack-2x"></i> <i class="fas fa-rss fa-stack-1x fa-inverse"></i> </span><span class=sr-only>RSS</span></a></li><li><a href=/contact title="Email me"><span class="fa-stack fa-lg" aria-hidden=true><i class="fas fa-circle fa-stack-2x"></i> <i class="fas fa-envelope fa-stack-1x fa-inverse"></i> </span><span class=sr-only>Email me</span></a></li><li><a href=https://github.com/shyd title=GitHub target=_blank><span class="fa-stack fa-lg" aria-hidden=true><i class="fas fa-circle fa-stack-2x"></i> <i class="fab fa-github fa-stack-1x fa-inverse"></i> </span><span class=sr-only>GitHub</span></a></li><li><a href=https://hub.docker.com/u/shyd title=Docker target=_blank><span class="fa-stack fa-lg" aria-hidden=true><i class="fas fa-circle fa-stack-2x"></i> <i class="fab fa-docker fa-stack-1x fa-inverse"></i> </span><span class=sr-only>Docker</span></a></li><li><a href=https://www.instagram.com/d_nn__ title=Instagram target=_blank><span class="fa-stack fa-lg" aria-hidden=true><i class="fas fa-circle fa-stack-2x"></i> <i class="fab fa-instagram fa-stack-1x fa-inverse"></i> </span><span class=sr-only>Instagram</span></a></li></ul><p class="copyright text-muted">&copy; Dennis Schütt &nbsp;&bull;&nbsp; 2020 &nbsp;&bull;&nbsp; made with ❤️ by <a href=https://schuett.io>schuett.io</a></p><p class="theme-by text-muted">Theme by <a href=http://deanattali.com/beautiful-jekyll/ >beautiful-jekyll</a></p></div></div></div></footer><script src=/assets/javascript/index-c3e323855a.min.js></script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-18006649-7','auto');ga('set','anonymizeIp',true);ga('send','pageview');</script></body></html>
